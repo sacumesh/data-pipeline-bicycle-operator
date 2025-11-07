@@ -1,7 +1,7 @@
 # data-pipeline-bicycle-operator
 ## Sofiane Chaoui
 
-### Step 1 🔄
+### Step 1 ✅
 - **Define the structure with drawio, create a diagram XSD**
   - destination
   - bikes
@@ -9,9 +9,10 @@
   - clients
   - packages
   - bookings
-### Step 2 ❌
+- ** model.drawio & create model.xsd
+### Step 2 ✅
 - **With sample.xml create data**
-### Step 3 ❌
+### Step 3 🔄
 - **Scenarios XSLT HTML generate HTML pages**
 ### Step 4 ❌
 - **Exports XML and JSON**
