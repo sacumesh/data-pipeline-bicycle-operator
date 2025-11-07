@@ -19,3 +19,8 @@
 ### Step 5 ❌
 - **Test and finalization**
 
+
+# start verification of sample.xml and model.xsd
+```
+python python/run.py --xml data/sample.xml --xsd schema/model.xsd --validate
+```
