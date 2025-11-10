@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<top>
+
+    <tourInstances>
+
+        <tourInstance id="TI_FR_2025_08" tourRef="FR_T001" packageType="self-guided">
+            <startDate>2025-08-05</startDate>
+            <endDate>2025-08-10</endDate>
+            
+            <!-- No guideRef because it's self-guided -->
+
+            <clientBookings>
+                <bookingRef ref="B003"/>
+            </clientBookings>
+        </tourInstance>
+
+
+        <tourInstance id="TI_FR_2025_07" tourRef="FR_T001" packageType="guided">
+            <startDate>2025-07-10</startDate>
+            <endDate>2025-07-15</endDate>
+            <guideRef ref="G001"/> <!-- Guide assigned for this trip -->
+            <clientBookings>
+                <bookingRef ref="B001"/>
+                <bookingRef ref="B002"/>
+            </clientBookings>
+        </tourInstance>
+
+    </tourInstances>
+
+    <guides>
+        <guide id="G001" name="Maria Lopez">
+            <HomeCountry ref="ES" />
+            <Languages>
+                <Language>Spanish</Language>
+                <Language>French</Language>
+            </Languages>
+            <Experience>10 years</Experience>
+        </guide>
+        <guide id="G002" name="Luca Ferraro">
+            <HomeCountry ref="IT" />
+            <Languages>
+                <Language>Italian</Language>
+                <Language>English</Language>
+            </Languages>
+            <Experience>6 years</Experience>
+        </guide>
+    </guides>
+
+    <clients>
+        <Client id="C001">
+            <FirstName>John</FirstName>
+            <LastName>Smith</LastName>
+            <Email>john.smith@example.com</Email>
+            <Country>USA</Country>
+            <PreferredTourTypeRef ref="Gravel"/>
+            <Bookings>
+                <TourRef ref="IT_T001"/>
+                <TourRef ref="FR_T001"/>
+            </Bookings>
+        </Client>
+
+        <Client id="C002">
+            <FirstName>Anna</FirstName>
+            <LastName>Müller</LastName>
+            <Email>anna.mueller@example.com</Email>
+            <Country>Germany</Country>
+            <PreferredTourTypeRef ref="Cycling"/>
+            <Bookings>
+                <TourRef ref="FR_T001"/>
+            </Bookings>
+        </Client>
+    </clients>
+
+    <bookings></bookings>
+
+    <tours>
+        <country name="France">
+            <region name="Provence">
+                <tours>
+                    <tour>
+                        <type>mtb</type>
+                        <name>Previous NextINTO THE WILD JURA</name>
+                        <duration></duration>
+                        <physical_levels>
+                            <level>1</level>
+                            <level>2</level>
+                            <level>3</level>
+                        </physical_levels>
+                        <programme>
+                            <day></day>
+                            <day></day>
+                            <day></day>
+                            <day></day>
+                        </programme>
+                        <techical_level></techical_level>
+                        <Package type="guided">
+                        </Package>
+                        <Price>85</Price>
+                        <Accommodation included="true">
+                            <Description>All accommodations provided by the tour operator.</Description>
+                        </Accommodation>
+                        <Includes>
+                            <Item>Professional MTB Guide</Item>
+                            <Item>Support Vehicle</Item>
+                            <Item>Meals</Item>
+                        </Includes>
+                        <supplementary_services></supplementary_services>
+                        </Package>
+                        <Package type="self-guided" basePrice="65" currency="USD">
+                            <AccommodationOptions>
+                                <Option id="A1" type="camping" price="30">
+                                    <Name>Hill Base Campsite</Name>
+                                </Option>
+                                <Option id="A2" type="lodge" price="50">
+                                    <Name>Forest View Lodge</Name>
+                                </Option>
+                            </AccommodationOptions>
+                            <supplementary_services></supplementary_services>
+                        </Package>
+                    </tour>
+                    <tour>
+                        <type>mtb</type>
+                        <name>Previous NextINTO THE WILD JURA V2</name>
+                        <duration></duration>
+                        <physical_levels>
+                            <level>1</level>
+                        </physical_levels>
+                        <techical_level></techical_level>
+                    </tour>
+                    <tour>
+                        <type></type>
+                        <name>Previous NextTHE JURA MTB ODYSSEY V3</name>
+                        <duration></duration>
+                        <physical_levels>
+                            <level>2</level>
+                            <level>3</level>
+                        </physical_levels>
+                        <techical_level></techical_level>
+
+                    </tour>
+                </tours>
+            </region>
+            <region name="Normandy">
+                <tours>
+                    <tour>
+                        <name></name>
+                    </tour>
+                    <tour>
+                        <name></name>
+                    </tour>
+                </tours>
+            </region>
+        </country>
+        <country name="Spain">
+            <region name="Catalonia">
+                <tours>
+                    <tour>
+                        <name></name>
+                    </tour>
+                    <tour>
+                        <name></name>
+                    </tour>
+                </tours>
+            </region>
+            <region name="Andalusia">
+                <tours>
+                    <tour>
+                        <name></name>
+                    </tour>
+                    <tour>
+                        <name></name>
+                    </tour>
+                </tours>
+            </region>
+        </country>
+        <country name="Italy">
+            <region name="Tuscany">
+                <tours>
+                    <tour>
+                        <name></name>
+                    </tour>
+                    <tour>
+                        <name></name>
+                    </tour>
+                </tours>
+            </region>
+            <region name="Lombardy">
+                <tours>
+                    <tour>
+                        <name></name>
+                    </tour>
+                    <tour>
+                        <name></name>
+                    </tour>
+                </tours>
+            </region>
+        </country>
+    </tours>
+</top>
