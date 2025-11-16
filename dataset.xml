@@ -141,235 +141,249 @@
         </Guide>
     </Guides>
 
-    <Trips>
-        <Country ref="FR">
-            <Regions>
-                <Region>
-                    <Country>France</Country>
-                    <Name>Provence</Name>
+    <Tours>
+        <Region>
+            <Name>Provence</Name>
+            <Country ref="FR" />
 
+            <CyclingPaths>
+                <Path id="CP001">
+                    <Name>Mont Ventoux Loop</Name>
+                    <Distance unit="km">110</Distance>
+                    <Surface>Asphalt</Surface>
+                    <Difficulty>Intermediate</Difficulty>
+                    <Coordinates>
+                        <Point lat="44.1734" lon="5.2703" />
+                        <Point lat="44.1800" lon="5.2800" />
+                    </Coordinates>
+                </Path>
 
-                    <CyclingPaths>
-                        <Path id="CP001">
-                            <Name>Mont Ventoux Loop</Name>
+                <Path id="CP002">
+                    <Name>Baronnies Hills Trail</Name>
+                    <Distance unit="km">130</Distance>
+                    <Surface>Gravel</Surface>
+                    <Difficulty>Advanced</Difficulty>
+                    <Coordinates>
+                        <Point lat="44.1500" lon="5.2500" />
+                        <Point lat="44.1600" lon="5.2600" />
+                    </Coordinates>
+                </Path>
+
+                <Path id="CP003">
+                    <Name>Provence Leisure Ride</Name>
+                    <Distance unit="km">60</Distance>
+                    <Surface>Asphalt</Surface>
+                    <Difficulty>Easy</Difficulty>
+                    <Coordinates>
+                        <Point lat="44.1700" lon="5.2700" />
+                        <Point lat="44.1720" lon="5.2750" />
+                    </Coordinates>
+                </Path>
+            </CyclingPaths>
+
+            <Accommodations>
+                <Accommodation id="A001">
+                    <Name>Hotel des Barronies</Name>
+                    <Category>3-star</Category>
+                    <Location>Mont Ventoux</Location>
+                    <Address>
+                        <Street>12 Route de Vaison</Street>
+                        <City>Buis-les-Baronnies</City>
+                        <PostalCode>26170</PostalCode>
+                        <CountryRef ref="FR" />
+                    </Address>
+                </Accommodation>
+
+                <Accommodation id="A002">
+                    <Name>Mas de Provence</Name>
+                    <Category>4-star</Category>
+                    <Location>Provence Countryside</Location>
+                    <Address>
+                        <Street>45 Chemin des Lavandes</Street>
+                        <City>Gordes</City>
+                        <PostalCode>84220</PostalCode>
+                        <CountryRef ref="FR" />
+                    </Address>
+                </Accommodation>
+            </Accommodations>
+
+            <BikeRenters>
+                <!-- Regional bike shops -->
+                <Renter id="R001">
+                    <Name>Provence Bike Rentals</Name>
+                    <Address>
+                        <Street>10 Rue des Cyclistes</Street>
+                        <City>Buis-les-Baronnies</City>
+                        <PostalCode>26170</PostalCode>
+                        <CountryRef ref="FR" />
+                    </Address>
+                    <BikesOffered>
+                        <BikeRef ref="B001" />
+                        <BikeRef ref="B002" />
+                    </BikesOffered>
+                </Renter>
+
+                <Renter id="R002">
+                    <Name>Mont Ventoux Cycles</Name>
+                    <Address>
+                        <Street>5 Avenue du Ventoux</Street>
+                        <City>Vaison-la-Romaine</City>
+                        <PostalCode>84110</PostalCode>
+                        <CountryRef ref="FR" />
+                    </Address>
+                    <BikesOffered>
+                        <BikeRef ref="B003" />
+                        <BikeRef ref="B004" />
+                    </BikesOffered>
+                </Renter>
+
+                <!-- Special renter: booking company itself -->
+                <Renter id="R000">
+                    <Name>Booking Company</Name>
+                    <Address>
+                        <Street>123 Main Street</Street>
+                        <City>Paris</City>
+                        <PostalCode>75001</PostalCode>
+                        <CountryRef ref="FR" />
+                    </Address>
+                    <BikesOffered>
+                        <BikeRef ref="B005" />
+                    </BikesOffered>
+                </Renter>
+            </BikeRenters>
+
+            <Tours>
+                <Tour>
+                    <Title>Previous NextBARONNIES AND MONT VENTOUX</Title>
+                    <Duration>5 Days</Duration>
+                    <Type>mtb</Type>
+                    <PhysicalLevels>
+                        <Level ref="" />
+                        <Level ref="" />
+                    </PhysicalLevels>
+
+                    <Program>
+                        <Day number="1">
+                            <Title>Arrival and Welcome</Title>
+                            <Description>Check-in at Hotel des Barronies, bike setup,
+                                welcome
+                                dinner.</Description>
+                            <Distance unit="km">0</Distance>
+                            <Duration unit="hours">3</Duration>
+                        </Day>
+
+                        <Day number="2">
+                            <Title>Mont Ventoux Loop</Title>
+                            <Description>Mountain biking tour around Mont Ventoux, scenic
+                                viewpoints.</Description>
                             <Distance unit="km">110</Distance>
-                            <Surface>Asphalt</Surface>
-                            <Difficulty>Intermediate</Difficulty>
-                            <Coordinates>
-                                <Point lat="44.1734" lon="5.2703" />
-                                <Point lat="44.1800" lon="5.2800" />
-                            </Coordinates>
-                        </Path>
+                            <Duration unit="hours">6</Duration>
+                            <CyclingPaths>
+                                <PathRef ref="CP001" />
+                                <PathRef ref="CP002" />
+                                <PathRef ref="CP003" />
+                            </CyclingPaths>
+                        </Day>
 
-                        <Path id="CP002">
-                            <Name>Baronnies Hills Trail</Name>
+                        <Day number="3">
+                            <Title>Ride through the Baronnies</Title>
+                            <Description>Challenging ride through the Baronnies hills with
+                                guided
+                                support.</Description>
                             <Distance unit="km">130</Distance>
-                            <Surface>Gravel</Surface>
-                            <Difficulty>Advanced</Difficulty>
-                            <Coordinates>
-                                <Point lat="44.1500" lon="5.2500" />
-                                <Point lat="44.1600" lon="5.2600" />
-                            </Coordinates>
-                        </Path>
+                            <Duration unit="hours">7</Duration>
+                            <CyclingPaths>
+                                <PathRef ref="CP001" />
+                                <PathRef ref="CP002" />
+                                <PathRef ref="CP003" />
+                            </CyclingPaths>
+                        </Day>
 
-                        <Path id="CP003">
-                            <Name>Provence Leisure Ride</Name>
+                        <Day number="4">
+                            <Title>Leisure Ride Wine Tasting</Title>
+                            <Description>Short ride through countryside, visiting local
+                                vineyards and
+                                villages.</Description>
                             <Distance unit="km">60</Distance>
-                            <Surface>Asphalt</Surface>
+                            <Duration unit="hours">4</Duration>
                             <Difficulty>Easy</Difficulty>
-                            <Coordinates>
-                                <Point lat="44.1700" lon="5.2700" />
-                                <Point lat="44.1720" lon="5.2750" />
-                            </Coordinates>
-                        </Path>
-                    </CyclingPaths>
+                        </Day>
 
-                    <Accommodations>
-                        <Accommodation id="A001">
-                            <Name>Hotel des Barronies</Name>
-                            <Category>3-star</Category>
-                            <Location>Mont Ventoux</Location>
-                            <Address>
-                                <Street>12 Route de Vaison</Street>
-                                <City>Buis-les-Baronnies</City>
-                                <PostalCode>26170</PostalCode>
-                                <CountryRef ref="FR" />
-                            </Address>
-                        </Accommodation>
+                        <Day number="5">
+                            <Title>Departure</Title>
+                            <Description>Breakfast and optional sightseeing or transfer to
+                                train
+                                station.</Description>
+                            <Distance unit="km">0</Distance>
+                            <Duration unit="hours">2</Duration>
+                            <Difficulty>Easy</Difficulty>
+                        </Day>
+                    </Program>
+                    <TourEvents>
+                        <TourEvent>
+                            <StartDate>2025-07-10</StartDate>
+                            <Price>200</Price>
+                            <Guides>
+                                <GuideRef ref="G001" />
+                            </Guides>
 
-                        <Accommodation id="A002">
-                            <Name>Mas de Provence</Name>
-                            <Category>4-star</Category>
-                            <Location>Provence Countryside</Location>
-                            <Address>
-                                <Street>45 Chemin des Lavandes</Street>
-                                <City>Gordes</City>
-                                <PostalCode>84220</PostalCode>
-                                <CountryRef ref="FR" />
-                            </Address>
-                        </Accommodation>
-                    </Accommodations>
+                            <EventAccommodations>
+                                <AccommodationOption id="TEA001" ref="A001" />
+                                <AccommodationOption id="TEA002" ref="A002" />
+                            </EventAccommodations>
 
-                    <BikeRenters>
-                        <!-- Regional bike shops -->
-                        <Renter id="R001">
-                            <Name>Provence Bike Rentals</Name>
-                            <Address>
-                                <Street>10 Rue des Cyclistes</Street>
-                                <City>Buis-les-Baronnies</City>
-                                <PostalCode>26170</PostalCode>
-                                <CountryRef ref="FR" />
-                            </Address>
-                            <BikesOffered>
-                                <BikeRef ref="B001" />
-                                <BikeRef ref="B002" />
-                            </BikesOffered>
-                        </Renter>
 
-                        <Renter id="R002">
-                            <Name>Mont Ventoux Cycles</Name>
-                            <Address>
-                                <Street>5 Avenue du Ventoux</Street>
-                                <City>Vaison-la-Romaine</City>
-                                <PostalCode>84110</PostalCode>
-                                <CountryRef ref="FR" />
-                            </Address>
-                            <BikesOffered>
-                                <BikeRef ref="B003" />
-                                <BikeRef ref="B004" />
-                            </BikesOffered>
-                        </Renter>
+                            <EventBikeRentals>
+                                <BikeOption id="TBO001">
+                                    <RenterRef ref="R001" />
+                                    <BikeRef ref="B001" />
+                                </BikeOption>
 
-                        <!-- Special renter: booking company itself -->
-                        <Renter id="R000">
-                            <Name>Booking Company</Name>
-                            <Address>
-                                <Street>123 Main Street</Street>
-                                <City>Paris</City>
-                                <PostalCode>75001</PostalCode>
-                                <CountryRef ref="FR" />
-                            </Address>
-                            <BikesOffered>
-                                <BikeRef ref="B005" />
-                            </BikesOffered>
-                        </Renter>
-                    </BikeRenters>
+                                <BikeOption id="TBO002">
+                                    <RenterRef ref="R000" />
+                                    <BikeRef ref="B005" />
+                                </BikeOption>
+                            </EventBikeRentals>
 
-                    <Tours>
-                        <Tour>
-                            <Title>Previous NextBARONNIES AND MONT VENTOUX</Title>
-                            <Duration>5 Days</Duration>
-                            <Type>mtb</Type>
-                            <PhysicalLevels>
-                                <Level ref="" />
-                                <Level ref="" />
-                            </PhysicalLevels>
-
-                            <Program>
-                                <Day number="1">
-                                    <Title>Arrival and Welcome</Title>
-                                    <Description>Check-in at Hotel des Barronies, bike setup,
-                                        welcome
-                                        dinner.</Description>
-                                    <Distance unit="km">0</Distance>
-                                    <Duration unit="hours">3</Duration>
-                                </Day>
-
-                                <Day number="2">
-                                    <Title>Mont Ventoux Loop</Title>
-                                    <Description>Mountain biking tour around Mont Ventoux, scenic
-                                        viewpoints.</Description>
-                                    <Distance unit="km">110</Distance>
-                                    <Duration unit="hours">6</Duration>
-                                    <CyclingPaths>
-                                        <PathRef ref="CP001" />
-                                        <PathRef ref="CP002" />
-                                        <PathRef ref="CP003" />
-                                    </CyclingPaths>
-                                </Day>
-
-                                <Day number="3">
-                                    <Title>Ride through the Baronnies</Title>
-                                    <Description>Challenging ride through the Baronnies hills with
-                                        guided
-                                        support.</Description>
-                                    <Distance unit="km">130</Distance>
-                                    <Duration unit="hours">7</Duration>
-                                    <CyclingPaths>
-                                        <PathRef ref="CP001" />
-                                        <PathRef ref="CP002" />
-                                        <PathRef ref="CP003" />
-                                    </CyclingPaths>
-                                </Day>
-
-                                <Day number="4">
-                                    <Title>Leisure Ride Wine Tasting</Title>
-                                    <Description>Short ride through countryside, visiting local
-                                        vineyards and
-                                        villages.</Description>
-                                    <Distance unit="km">60</Distance>
-                                    <Duration unit="hours">4</Duration>
-                                    <Difficulty>Easy</Difficulty>
-                                </Day>
-
-                                <Day number="5">
-                                    <Title>Departure</Title>
-                                    <Description>Breakfast and optional sightseeing or transfer to
-                                        train
-                                        station.</Description>
-                                    <Distance unit="km">0</Distance>
-                                    <Duration unit="hours">2</Duration>
-                                    <Difficulty>Easy</Difficulty>
-                                </Day>
-                            </Program>
-                            <TourEvents>
-                                <TourEvent>
-                                    <StartDate>2025-07-10</StartDate>
-                                    <Price>200</Price>
-                                    <Guides>
-                                        <GuideRef ref="G001" />
-                                    </Guides>
-                                    <Bookings>
-                                        <Booking>
-                                            <Client ref="C001" />
-                                            <BookedAccommodations>
-                                                <AccommodationRef ref="A001">
-                                                    <Nights>2</Nights>
-                                                    <PricePerNight currency="EUR">140</PricePerNight>
-                                                    <TotalAmount currency="EUR">280</TotalAmount>
-                                                </AccommodationRef>
-                                            </BookedAccommodations>
-                                            <BookedRentalBikes>
-                                                <BikeBooking>
-                                                    <RenterRef ref="R001" />
-                                                    <BikeRef ref="B001" />
-                                                    <Quantity>2</Quantity>
-                                                    <PricePerDay currency="EUR">45</PricePerDay>
-                                                    <Days>3</Days>
-                                                    <TotalAmount currency="EUR">270</TotalAmount>
-                                                </BikeBooking>
-                                                <BikeBooking>
-                                                    <RenterRef ref="R000" />
-                                                    <BikeRef ref="B005" />
-                                                    <Quantity>1</Quantity>
-                                                    <PricePerDay currency="EUR">80</PricePerDay>
-                                                    <Days>3</Days>
-                                                    <TotalAmount currency="EUR">240</TotalAmount>
-                                                </BikeBooking>
-                                            </BookedRentalBikes>
-                                            <Payment>
-                                                <AmountPaid>505</AmountPaid>
-                                                <PaymentReference>PAY20250710-002</PaymentReference>
-                                                <PaymentMethod>CreditCard</PaymentMethod>
-                                            </Payment>
-                                        </Booking>
-                                    </Bookings>
-                                </TourEvent>
-                            </TourEvents>
-                        </Tour>
-                    </Tours>
-                </Region>
-            </Regions>
-        </Country>
-    </Trips>
+                            <Bookings>
+                                <Booking>
+                                    <Client ref="C001" />
+                                    <BookedAccommodations>
+                                        <AccommodationRef ref="A001">
+                                            <Nights>2</Nights>
+                                            <PricePerNight currency="EUR">140</PricePerNight>
+                                            <TotalAmount currency="EUR">280</TotalAmount>
+                                        </AccommodationRef>
+                                    </BookedAccommodations>
+                                    <BookedRentalBikes>
+                                        <BikeBooking>
+                                            <RenterRef ref="R001" />
+                                            <BikeRef ref="B001" />
+                                            <Quantity>2</Quantity>
+                                            <PricePerDay currency="EUR">45</PricePerDay>
+                                            <Days>3</Days>
+                                            <TotalAmount currency="EUR">270</TotalAmount>
+                                        </BikeBooking>
+                                        <BikeBooking>
+                                            <RenterRef ref="R000" />
+                                            <BikeRef ref="B005" />
+                                            <Quantity>1</Quantity>
+                                            <PricePerDay currency="EUR">80</PricePerDay>
+                                            <Days>3</Days>
+                                            <TotalAmount currency="EUR">240</TotalAmount>
+                                        </BikeBooking>
+                                    </BookedRentalBikes>
+                                    <Payment>
+                                        <AmountPaid>505</AmountPaid>
+                                        <PaymentReference>PAY20250710-002</PaymentReference>
+                                        <PaymentMethod>CreditCard</PaymentMethod>
+                                    </Payment>
+                                </Booking>
+                            </Bookings>
+                        </TourEvent>
+                    </TourEvents>
+                </Tour>
+            </Tours>
+        </Region>
+    </Tours>
 </Operator>
