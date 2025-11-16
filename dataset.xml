@@ -1,199 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<top>
+<Operator>
+    <TourTypes>
+        <TourType id="TT001">
+            <Name>MTB</Name>
+            <Description>Mountain biking tours with challenging climbs and technical trails.</Description>
+            <RecommendedBike>Mountain Bike</RecommendedBike>
+            <TypicalDifficulty>Intermediate to Advanced</TypicalDifficulty>
+        </TourType>
 
-    <tourInstances>
+        <TourType id="TT002">
+            <Name>BackRoad Cycling</Name>
+            <Description>Leisurely rides on paved backroads, scenic routes.</Description>
+            <RecommendedBike>Road Bike</RecommendedBike>
+            <TypicalDifficulty>Beginner to Intermediate</TypicalDifficulty>
+        </TourType>
 
-        <tourInstance id="TI_FR_2025_08" tourRef="FR_T001" packageType="self-guided">
-            <startDate>2025-08-05</startDate>
-            <endDate>2025-08-10</endDate>
-            
-            <!-- No guideRef because it's self-guided -->
-
-            <clientBookings>
-                <bookingRef ref="B003"/>
-            </clientBookings>
-        </tourInstance>
+        <TourType id="TT003">
+            <Name>GravelRoad</Name>
+            <Description>Mixed terrain tours, gravel and light off-road sections.</Description>
+            <RecommendedBike>Gravel Bike</RecommendedBike>
+            <TypicalDifficulty>Intermediate</TypicalDifficulty>
+        </TourType>
+    </TourTypes>
 
 
-        <tourInstance id="TI_FR_2025_07" tourRef="FR_T001" packageType="guided">
-            <startDate>2025-07-10</startDate>
-            <endDate>2025-07-15</endDate>
-            <guideRef ref="G001"/> <!-- Guide assigned for this trip -->
-            <clientBookings>
-                <bookingRef ref="B001"/>
-                <bookingRef ref="B002"/>
-            </clientBookings>
-        </tourInstance>
+    <PhysicalLevelsCatalog>
+        <PhysicalLevel id="1">
+            <Name>Beginner</Name>
+            <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
+            <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
+        </PhysicalLevel>
 
-    </tourInstances>
+        <PhysicalLevel id="2">
+            <Name>Intermediate</Name>
+            <UserProfile>You train, have a good level of fitness, and regularly ride over 100 km in
+                a day.</UserProfile>
+            <TourProfile>100 to 150 km per day depending on the route profile.</TourProfile>
+        </PhysicalLevel>
 
-    <guides>
-        <guide id="G001" name="Maria Lopez">
-            <HomeCountry ref="ES" />
+        <PhysicalLevel id="3">
+            <Name>Advanced</Name>
+            <UserProfile>You are very fit, regularly ride long distances, and can handle challenging
+                terrain.</UserProfile>
+            <TourProfile>150 to 200 km per day, steep climbs, and technical trails.</TourProfile>
+        </PhysicalLevel>
+    </PhysicalLevelsCatalog>
+
+    <RentalBikes>
+        <Bike id="B001">
+            <Type>Mountain Bike</Type>
+            <Brand>Trek</Brand>
+            <Model>X-Caliber 8</Model>
+        </Bike>
+        <Bike id="B002">
+            <Type>Road Bike</Type>
+            <Brand>Specialized</Brand>
+            <Model>Allez Elite</Model>
+        </Bike>
+    </RentalBikes>
+
+
+    <CountriesCatalog>
+        <Country id="FR">
+            <Name>France</Name>
+            <Currency>EUR</Currency>
+            <Language>French</Language>
+            <Continent>Europe</Continent>
+            <ISOCode>FR</ISOCode>
+        </Country>
+
+        <Country id="IT">
+            <Name>Italy</Name>
+            <Currency>EUR</Currency>
+            <Language>Italian</Language>
+            <Continent>Europe</Continent>
+            <ISOCode>IT</ISOCode>
+        </Country>
+    </CountriesCatalog>
+
+
+    <Clients>
+        <Client id="C001">
+            <Name>John Smith</Name>
+            <Email>john.smith@example.com</Email>
+            <Phone>+44 123 456 789</Phone>
+            <CountryRef ref="GB" />
+            <Preferences>
+                <Preference>Vegetarian Meals</Preference>
+                <Preference>Mountain Biking</Preference>
+            </Preferences>
+        </Client>
+    </Clients>
+
+
+    <Guides>
+        <Guide id="G001">
+            <Name>Jean Dupont</Name>
+            <CountryRef ref="FR" />
+            <ExperienceYears>8</ExperienceYears>
             <Languages>
-                <Language>Spanish</Language>
                 <Language>French</Language>
+                <Language>English</Language>
             </Languages>
-            <Experience>10 years</Experience>
-        </guide>
-        <guide id="G002" name="Luca Ferraro">
-            <HomeCountry ref="IT" />
+            <Specialty>Mountain Biking, Endurance Tours</Specialty>
+            <Contact>
+                <Email>jean.dupont@example.com</Email>
+                <Phone>+33 6 12 34 56 78</Phone>
+            </Contact>
+        </Guide>
+
+        <Guide id="G002">
+            <Name>Claire Martin</Name>
+            <CountryRef ref="FR" />
+            <ExperienceYears>5</ExperienceYears>
+            <Languages>
+                <Language>French</Language>
+                <Language>English</Language>
+                <Language>German</Language>
+            </Languages>
+            <Specialty>Road Biking, Scenic Tours</Specialty>
+            <Contact>
+                <Email>claire.martin@example.com</Email>
+                <Phone>+33 6 87 65 43 21</Phone>
+            </Contact>
+        </Guide>
+
+        <Guide id="G003">
+            <Name>Luca Rossi</Name>
+            <CountryRef ref="IT" />
+            <ExperienceYears>10</ExperienceYears>
             <Languages>
                 <Language>Italian</Language>
                 <Language>English</Language>
             </Languages>
-            <Experience>6 years</Experience>
-        </guide>
-    </guides>
+            <Specialty>Mountain and Road Tours</Specialty>
+            <Contact>
+                <Email>luca.rossi@example.it</Email>
+                <Phone>+39 345 678 9012</Phone>
+            </Contact>
+        </Guide>
+    </Guides>
 
-    <clients>
-        <Client id="C001">
-            <FirstName>John</FirstName>
-            <LastName>Smith</LastName>
-            <Email>john.smith@example.com</Email>
-            <Country>USA</Country>
-            <PreferredTourTypeRef ref="Gravel"/>
-            <Bookings>
-                <TourRef ref="IT_T001"/>
-                <TourRef ref="FR_T001"/>
-            </Bookings>
-        </Client>
+    <Trips>
+        <Country ref="FR">
+            <Regions>
+                <Region>
+                    <Country>France</Country>
+                    <Name>Provence</Name>
 
-        <Client id="C002">
-            <FirstName>Anna</FirstName>
-            <LastName>Müller</LastName>
-            <Email>anna.mueller@example.com</Email>
-            <Country>Germany</Country>
-            <PreferredTourTypeRef ref="Cycling"/>
-            <Bookings>
-                <TourRef ref="FR_T001"/>
-            </Bookings>
-        </Client>
-    </clients>
 
-    <bookings></bookings>
+                    <CyclingPaths>
+                        <Path id="CP001">
+                            <Name>Mont Ventoux Loop</Name>
+                            <Distance unit="km">110</Distance>
+                            <Surface>Asphalt</Surface>
+                            <Difficulty>Intermediate</Difficulty>
+                            <Coordinates>
+                                <Point lat="44.1734" lon="5.2703" />
+                                <Point lat="44.1800" lon="5.2800" />
+                            </Coordinates>
+                        </Path>
 
-    <tours>
-        <country name="France">
-            <region name="Provence">
-                <tours>
-                    <tour>
-                        <type>mtb</type>
-                        <name>Previous NextINTO THE WILD JURA</name>
-                        <duration></duration>
-                        <physical_levels>
-                            <level>1</level>
-                            <level>2</level>
-                            <level>3</level>
-                        </physical_levels>
-                        <programme>
-                            <day></day>
-                            <day></day>
-                            <day></day>
-                            <day></day>
-                        </programme>
-                        <techical_level></techical_level>
-                        <Package type="guided">
-                        </Package>
-                        <Price>85</Price>
-                        <Accommodation included="true">
-                            <Description>All accommodations provided by the tour operator.</Description>
+                        <Path id="CP002">
+                            <Name>Baronnies Hills Trail</Name>
+                            <Distance unit="km">130</Distance>
+                            <Surface>Gravel</Surface>
+                            <Difficulty>Advanced</Difficulty>
+                            <Coordinates>
+                                <Point lat="44.1500" lon="5.2500" />
+                                <Point lat="44.1600" lon="5.2600" />
+                            </Coordinates>
+                        </Path>
+
+                        <Path id="CP003">
+                            <Name>Provence Leisure Ride</Name>
+                            <Distance unit="km">60</Distance>
+                            <Surface>Asphalt</Surface>
+                            <Difficulty>Easy</Difficulty>
+                            <Coordinates>
+                                <Point lat="44.1700" lon="5.2700" />
+                                <Point lat="44.1720" lon="5.2750" />
+                            </Coordinates>
+                        </Path>
+                    </CyclingPaths>
+
+                    <Accommodations>
+                        <Accommodation id="A001">
+                            <Name>Hotel des Barronies</Name>
+                            <Category>3-star</Category>
+                            <Location>Mont Ventoux</Location>
+                            <Address>
+                                <Street>12 Route de Vaison</Street>
+                                <City>Buis-les-Baronnies</City>
+                                <PostalCode>26170</PostalCode>
+                                <CountryRef ref="FR" />
+                            </Address>
                         </Accommodation>
-                        <Includes>
-                            <Item>Professional MTB Guide</Item>
-                            <Item>Support Vehicle</Item>
-                            <Item>Meals</Item>
-                        </Includes>
-                        <supplementary_services></supplementary_services>
-                        </Package>
-                        <Package type="self-guided" basePrice="65" currency="USD">
-                            <AccommodationOptions>
-                                <Option id="A1" type="camping" price="30">
-                                    <Name>Hill Base Campsite</Name>
-                                </Option>
-                                <Option id="A2" type="lodge" price="50">
-                                    <Name>Forest View Lodge</Name>
-                                </Option>
-                            </AccommodationOptions>
-                            <supplementary_services></supplementary_services>
-                        </Package>
-                    </tour>
-                    <tour>
-                        <type>mtb</type>
-                        <name>Previous NextINTO THE WILD JURA V2</name>
-                        <duration></duration>
-                        <physical_levels>
-                            <level>1</level>
-                        </physical_levels>
-                        <techical_level></techical_level>
-                    </tour>
-                    <tour>
-                        <type></type>
-                        <name>Previous NextTHE JURA MTB ODYSSEY V3</name>
-                        <duration></duration>
-                        <physical_levels>
-                            <level>2</level>
-                            <level>3</level>
-                        </physical_levels>
-                        <techical_level></techical_level>
 
-                    </tour>
-                </tours>
-            </region>
-            <region name="Normandy">
-                <tours>
-                    <tour>
-                        <name></name>
-                    </tour>
-                    <tour>
-                        <name></name>
-                    </tour>
-                </tours>
-            </region>
-        </country>
-        <country name="Spain">
-            <region name="Catalonia">
-                <tours>
-                    <tour>
-                        <name></name>
-                    </tour>
-                    <tour>
-                        <name></name>
-                    </tour>
-                </tours>
-            </region>
-            <region name="Andalusia">
-                <tours>
-                    <tour>
-                        <name></name>
-                    </tour>
-                    <tour>
-                        <name></name>
-                    </tour>
-                </tours>
-            </region>
-        </country>
-        <country name="Italy">
-            <region name="Tuscany">
-                <tours>
-                    <tour>
-                        <name></name>
-                    </tour>
-                    <tour>
-                        <name></name>
-                    </tour>
-                </tours>
-            </region>
-            <region name="Lombardy">
-                <tours>
-                    <tour>
-                        <name></name>
-                    </tour>
-                    <tour>
-                        <name></name>
-                    </tour>
-                </tours>
-            </region>
-        </country>
-    </tours>
-</top>
+                        <Accommodation id="A002">
+                            <Name>Mas de Provence</Name>
+                            <Category>4-star</Category>
+                            <Location>Provence Countryside</Location>
+                            <Address>
+                                <Street>45 Chemin des Lavandes</Street>
+                                <City>Gordes</City>
+                                <PostalCode>84220</PostalCode>
+                                <CountryRef ref="FR" />
+                            </Address>
+                        </Accommodation>
+                    </Accommodations>
+
+                    <BikeRenters>
+                        <!-- Regional bike shops -->
+                        <Renter id="R001">
+                            <Name>Provence Bike Rentals</Name>
+                            <Address>
+                                <Street>10 Rue des Cyclistes</Street>
+                                <City>Buis-les-Baronnies</City>
+                                <PostalCode>26170</PostalCode>
+                                <CountryRef ref="FR" />
+                            </Address>
+                            <BikesOffered>
+                                <BikeRef ref="B001" />
+                                <BikeRef ref="B002" />
+                            </BikesOffered>
+                        </Renter>
+
+                        <Renter id="R002">
+                            <Name>Mont Ventoux Cycles</Name>
+                            <Address>
+                                <Street>5 Avenue du Ventoux</Street>
+                                <City>Vaison-la-Romaine</City>
+                                <PostalCode>84110</PostalCode>
+                                <CountryRef ref="FR" />
+                            </Address>
+                            <BikesOffered>
+                                <BikeRef ref="B003" />
+                                <BikeRef ref="B004" />
+                            </BikesOffered>
+                        </Renter>
+
+                        <!-- Special renter: booking company itself -->
+                        <Renter id="R000">
+                            <Name>Booking Company</Name>
+                            <Address>
+                                <Street>123 Main Street</Street>
+                                <City>Paris</City>
+                                <PostalCode>75001</PostalCode>
+                                <CountryRef ref="FR" />
+                            </Address>
+                            <BikesOffered>
+                                <BikeRef ref="B005" />
+                            </BikesOffered>
+                        </Renter>
+                    </BikeRenters>
+
+                    <Tours>
+                        <Tour>
+                            <Title>Previous NextBARONNIES AND MONT VENTOUX</Title>
+                            <Duration>5 Days</Duration>
+                            <Type>mtb</Type>
+                            <PhysicalLevels>
+                                <Level ref="" />
+                                <Level ref="" />
+                            </PhysicalLevels>
+
+                            <Program>
+                                <Day number="1">
+                                    <Title>Arrival and Welcome</Title>
+                                    <Description>Check-in at Hotel des Barronies, bike setup,
+                                        welcome
+                                        dinner.</Description>
+                                    <Distance unit="km">0</Distance>
+                                    <Duration unit="hours">3</Duration>
+                                </Day>
+
+                                <Day number="2">
+                                    <Title>Mont Ventoux Loop</Title>
+                                    <Description>Mountain biking tour around Mont Ventoux, scenic
+                                        viewpoints.</Description>
+                                    <Distance unit="km">110</Distance>
+                                    <Duration unit="hours">6</Duration>
+                                    <CyclingPaths>
+                                        <PathRef ref="CP001" />
+                                        <PathRef ref="CP002" />
+                                        <PathRef ref="CP003" />
+                                    </CyclingPaths>
+                                </Day>
+
+                                <Day number="3">
+                                    <Title>Ride through the Baronnies</Title>
+                                    <Description>Challenging ride through the Baronnies hills with
+                                        guided
+                                        support.</Description>
+                                    <Distance unit="km">130</Distance>
+                                    <Duration unit="hours">7</Duration>
+                                    <CyclingPaths>
+                                        <PathRef ref="CP001" />
+                                        <PathRef ref="CP002" />
+                                        <PathRef ref="CP003" />
+                                    </CyclingPaths>
+                                </Day>
+
+                                <Day number="4">
+                                    <Title>Leisure Ride Wine Tasting</Title>
+                                    <Description>Short ride through countryside, visiting local
+                                        vineyards and
+                                        villages.</Description>
+                                    <Distance unit="km">60</Distance>
+                                    <Duration unit="hours">4</Duration>
+                                    <Difficulty>Easy</Difficulty>
+                                </Day>
+
+                                <Day number="5">
+                                    <Title>Departure</Title>
+                                    <Description>Breakfast and optional sightseeing or transfer to
+                                        train
+                                        station.</Description>
+                                    <Distance unit="km">0</Distance>
+                                    <Duration unit="hours">2</Duration>
+                                    <Difficulty>Easy</Difficulty>
+                                </Day>
+                            </Program>
+                            <TourEvents>
+                                <TourEvent>
+                                    <StartDate>2025-07-10</StartDate>
+                                    <Price>200</Price>
+                                    <Guides>
+                                        <GuideRef ref="G001" />
+                                    </Guides>
+                                    <Bookings>
+                                        <Booking>
+                                            <Client ref="C001" />
+                                            <BookedAccommodations>
+                                                <AccommodationRef ref="A001">
+                                                    <Nights>2</Nights>
+                                                    <PricePerNight currency="EUR">140</PricePerNight>
+                                                    <TotalAmount currency="EUR">280</TotalAmount>
+                                                </AccommodationRef>
+                                            </BookedAccommodations>
+                                            <BookedRentalBikes>
+                                                <BikeBooking>
+                                                    <RenterRef ref="R001" />
+                                                    <BikeRef ref="B001" />
+                                                    <Quantity>2</Quantity>
+                                                    <PricePerDay currency="EUR">45</PricePerDay>
+                                                    <Days>3</Days>
+                                                    <TotalAmount currency="EUR">270</TotalAmount>
+                                                </BikeBooking>
+                                                <BikeBooking>
+                                                    <RenterRef ref="R000" />
+                                                    <BikeRef ref="B005" />
+                                                    <Quantity>1</Quantity>
+                                                    <PricePerDay currency="EUR">80</PricePerDay>
+                                                    <Days>3</Days>
+                                                    <TotalAmount currency="EUR">240</TotalAmount>
+                                                </BikeBooking>
+                                            </BookedRentalBikes>
+                                            <Payment>
+                                                <AmountPaid>505</AmountPaid>
+                                                <PaymentReference>PAY20250710-002</PaymentReference>
+                                                <PaymentMethod>CreditCard</PaymentMethod>
+                                            </Payment>
+                                        </Booking>
+                                    </Bookings>
+                                </TourEvent>
+                            </TourEvents>
+                        </Tour>
+                    </Tours>
+                </Region>
+            </Regions>
+        </Country>
+    </Trips>
+</Operator>
