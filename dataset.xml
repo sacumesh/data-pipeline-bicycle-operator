@@ -347,7 +347,12 @@
 
                             <Bookings>
                                 <Booking>
-                                    <Client ref="C001" />
+                                    <BookingClient ref="C001" />
+                                    <Participants>
+                                        <ClientRef ref="C001"/>
+                                        <ClientRef ref="C002" />
+                                        <ClientRef ref="C003" />
+                                    </Participants>
                                     <BookedAccommodations>
                                         <AccommodationRef ref="A001">
                                             <Nights>2</Nights>
