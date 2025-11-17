@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://example.com/bicycle-operator"
+    xmlns="http://example.com/bicycle-operator"
+    elementFormDefault="qualified">
+
+
+    <xs:element name="Client" type="ClientType" />
+    <xs:element name="Guide" type="GuideType" />
+    <xs:element name="Adress" type="AddressType" />
+    <xs:element name="Accomadation" type="AccommodationType" />
+    <xs:element name="Bike" type="BikeType"></xs:element>
+
+
+    <!-- Bike complex type -->
+    <xs:complexType name="BikeType">
+        <xs:sequence>
+            <xs:element name="Type" type="xs:string"/>
+            <xs:element name="Brand" type="xs:string"/>
+            <xs:element name="Model" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+
+     <xs:element name="RentalBikes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Bike" type="BikeType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="AccommodationType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Category">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="3-star Hotel" />
+                        <xs:enumeration value="3-star Hostel" />
+                        <xs:enumeration value="3-star Guesthouse" />
+                        <xs:enumeration value="4-star Hotel" />
+                        <xs:enumeration value="4-star Guesthouse" />
+                        <xs:enumeration value="5-star Hotel" />
+                        <xs:enumeration value="5-star Guesthouse" />
+                        <!-- You can add more ratings as needed -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Address" type="AddressType" />
+            <xs:element name="Phone" type="xs:string"/>
+            <xs:element name="Email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+    <!-- Define the complex type for Address -->
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="Street" type="xs:string" />
+            <xs:element name="City" type="xs:string" />
+            <xs:element name="State" type="xs:string" minOccurs="0" />
+            <xs:element name="ZipCode" type="xs:string" />
+            <xs:element name="Country" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="Title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Mr" />
+                        <xs:enumeration value="Ms" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="FirstName" type="xs:string" />
+            <xs:element name="LastName" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ClientType">
+        <xs:complexContent>
+            <xs:extension base="PersonType">
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="GuideType">
+        <xs:complexContent>
+            <xs:extension base="PersonType">
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!-- Define the element that uses the complex type -->
+
+
+</xs:schema>
