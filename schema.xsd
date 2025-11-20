@@ -26,6 +26,73 @@
     <xs:element name="PhysicalLevel" type="PhysicalLevelType" />
 
 
+    <xs:key name="ClientKey">
+        <xs:selector xpath="Clients/Client" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- Guides -->
+    <xs:key name="GuideKey">
+        <xs:selector xpath="Guides/Guide" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- Bikes -->
+    <xs:key name="BikeKey">
+        <xs:selector xpath="RentalBikes/Bike" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- Accommodations -->
+    <xs:key name="AccommodationKey">
+        <xs:selector xpath="Regions/Region/Accommodations/Accommodation" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- TourEvent IDs (optional if you want unique TourEvent IDs) -->
+    <xs:key name="TourEventKey">
+        <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+
+    <xs:keyref name="BookingClientRefKey" refer="ClientKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookingClientRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="ParticipantClientRefKey" refer="ClientKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Participants/ClientRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+
+    <xs:keyref name="BookedAccommodationRefKey" refer="AccommodationKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookedAccommodations/BookedAccommodation/AccommodationRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+
+    <xs:keyref name="BookedBikeRefKey" refer="BikeKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookedBikeRentals/BookedBikeRental/BikeRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="TourEventGuideRefKey" refer="GuideKey">
+        <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/Guides/GuideRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="TourEventCyclingRouteRefKey" refer="CyclingRouteKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/CyclingRoutes/CyclingRouteRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
     <xs:element name="Operator">
         <xs:complexType>
             <xs:sequence>
@@ -163,6 +230,32 @@
         </xs:restriction>
     </xs:simpleType>
 
+    
+    <xs:complexType name="EuroAmountType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="currency" type="xs:string" use="required" fixed="EUR" />
+                <xs:attribute name="precision" type="xs:integer" use="optional" default="2" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="DurationType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="unit" use="required" default="hours">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="hours" />
+                            <xs:enumeration value="days" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:complexType name="CoordinatesType">
         <xs:sequence>
             <xs:element name="Lat" type="LatitudeType" />
@@ -230,7 +323,14 @@
     <xs:complexType name="DistanceType">
         <xs:simpleContent>
             <xs:extension base="xs:decimal">
-                <xs:attribute name="unit" type="xs:string" use="required" />
+                <xs:attribute name="unit" use="required" default="km">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="km" />
+                            <xs:enumeration value="miles" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -238,7 +338,7 @@
     <xs:complexType name="CyclingRouteType">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element name="Distance" />
+            <xs:element name="Distance" type="DistanceType" />
             <xs:element name="Surface" type="xs:string" />
             <xs:element name="Difficulty" type="DifficultyType" />
             <xs:element name="Coordinates" type="CoordinatesType" />
@@ -274,7 +374,7 @@
             <xs:element name="Brand" type="xs:string" />
             <xs:element name="Model" type="xs:string" />
             <xs:element name="CyclingType" />
-            <xs:element name="PricePerDay" type="xs:decimal" />
+            <xs:element name="PricePerDay" type="EuroAmountType" />
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required" />
     </xs:complexType>
@@ -296,19 +396,9 @@
     <xs:complexType name="TourActivityType">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element name="Duration">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:string">
-                            <xs:attribute name="unit" type="xs:string" use="optional"
-                                default="hours" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="Duration" type="DurationType" />
             <xs:element name="Description" type="xs:string" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
     </xs:complexType>
 
 
@@ -363,7 +453,7 @@
     <xs:complexType name="TourType">
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
-            <xs:element name="Duration" type="xs:string" />
+            <xs:element name="Duration" type="DurationType" />
             <xs:element name="CyclingType" type="CyclingType" />
             <xs:element name="PhysicalLevels">
                 <xs:complexType>
@@ -396,24 +486,8 @@
             </xs:element>
             <xs:element name="Guests" type="xs:positiveInteger" />
             <xs:element name="Nights" type="xs:positiveInteger" />
-            <xs:element name="PricePerNight">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute name="currency" type="xs:string" use="required" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="TotalAmount">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute name="currency" type="xs:string" use="required" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="PricePerNight" type="EuroAmountType" />
+            <xs:element name="TotalAmount" type="EuroAmountType" />
         </xs:sequence>
     </xs:complexType>
 
@@ -431,24 +505,8 @@
             </xs:element>
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
-            <xs:element name="PricePerDay">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute name="currency" type="xs:string" use="required" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="TotalAmount">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute name="currency" type="xs:string" use="required" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="PricePerDay" type="EuroAmountType" />
+            <xs:element name="TotalAmount" type="EuroAmountType"/>
         </xs:sequence>
     </xs:complexType>
 
