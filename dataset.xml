@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Operator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="operator.xsd">
+<Operator xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xs:noNamespaceSchemaLocation="operator.xsd">
 
     <Clients>
         <Client id="C001">
