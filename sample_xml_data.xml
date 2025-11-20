@@ -1,0 +1,323 @@
+
+<Tours>
+	<Tour>
+		<Name></Name>
+		<highlights></highlights>
+		<Description></Description>
+		<Duration></Duration>
+		<Reviews></Reviews>
+		<PhysicalLevels>
+			<PhysicalLevel1></PhysicalLevel1>
+		</PhysicalLevels>
+		<TecnicalLevels>
+		
+		</TecnicalLevels>
+		<Destinations>
+		
+		
+		</Destinations>
+		<Program>
+			<Day number="1" title="Strasbourg">
+			  <ItineraryStart>Services begin late afternoon at your hotel in Strasbourg.</ItineraryStart>
+			  <Description>
+				Arrival in Strasbourg, check into the hotel, and explore this superb city.
+				Visit the Notre-Dame Cathedral, Petite France district, and the Museum of Modern and Contemporary Art.
+				Strasbourg’s cycling culture and traditional bakeries make it a great start to your trip.
+			  </Description>
+			</Day>
+
+			<Day number="2" title="Strasbourg - Region of Sélestat">
+			  <Description>
+				We follow the Canal du Rhône au Rhin cycle track through the lush Grand Ried floodplain,
+				passing Ebersmunster and Sélestat with its Gothic churches and clock tower.
+			  </Description>
+			  <Distance min="25" max="65" unit="km"/>
+			  <AltitudeGain value="negligible"/>
+			</Day>
+
+			<Day number="3" title="Region of Sélestat - Colmar">
+			  <Description>
+				Ride through forests and farmland along the Rhine towards Colmar.
+				Optional detour to Neuf-Brisach, a UNESCO Vauban fortress.
+				Explore Colmar’s “Little Venice” and Alsatian architecture.
+			  </Description>
+			  <Distance min="50" max="65" unit="km"/>
+			  <AltitudeGain value="negligible"/>
+			</Day>
+
+			<Day number="4" title="Colmar - Guebwiller">
+			  <Description>
+				Cycle toward the Grand Ballon, highest summit of the Vosges.
+				Visit the ruins of Murbach Benedictine abbey near Guebwiller.
+			  </Description>
+			  <Distance value="40" unit="km"/>
+			  <AltitudeGain value="200" unit="m"/>
+			  <OptionalAddOn>
+				Out-and-back ride to Murbach Abbey adds 10 km and 150 m gain.
+			  </OptionalAddOn>
+			</Day>
+
+			<Day number="5" title="Guebwiller - Region of Riquewihr">
+			  <Description>
+				Enter the Alsace wine region with stops in Eguisheim, Turckheim, and Kaysersberg.
+				End the day in Riquewihr, one of France’s most beautiful wine villages.
+			  </Description>
+			  <Distance value="45" unit="km"/>
+			  <AltitudeGain value="400" unit="m"/>
+			</Day>
+
+			<Day number="6" title="Region of Riquewihr - Obernai">
+			  <Description>
+				Climb through the foothills of the Vosges via Bergheim and Dambach-la-Ville.
+				Optional ascent to Château du Haut-Koenigsbourg for panoramic views.
+				Overnight in Obernai, known for its half-timbered houses and medieval charm.
+			  </Description>
+			  <Distance min="35" max="50" unit="km"/>
+			  <AltitudeGain value="450" unit="m"/>
+			</Day>
+
+			<Day number="7" title="Obernai - Strasbourg">
+			  <ItineraryEnd>Services end in Strasbourg mid-afternoon (luggage collection at 18:00).</ItineraryEnd>
+			  <Description>
+				Follow quiet country lanes through Rosheim and Molsheim, passing Bugatti’s hometown.
+				Cycle along the Canal de la Bruche into Strasbourg to conclude the tour.
+			  </Description>
+			  <Distance min="45" max="50" unit="km"/>
+			  <AltitudeGain value="negligible"/>
+			</Day>
+		</Program>
+		
+		  <Pricing currency="EUR">
+    <Packages>
+      
+      <!-- PACKAGE 1: 3-star accommodation -->
+      <Package id="P1" basis="doubleRoom">
+        <Accommodation>
+          <Type>Hotel</Type>
+          <Rating>3*</Rating>
+          <Board>Bed & Breakfast</Board>
+          <RoomType>Double Room</RoomType>
+          <LuggageTransfer>true</LuggageTransfer>
+        </Accommodation>
+        <Periods>
+          <Period name="A" from="2023-03-30" to="2023-04-12" pricePerPerson="995"/>
+          <Period name="B" from="2023-04-13" to="2023-05-31" pricePerPerson="1075"/>
+          <Period name="B" from="2023-09-28" to="2023-10-05" pricePerPerson="1075"/>
+          <Period name="C" from="2023-06-01" to="2023-09-27" pricePerPerson="1145"/>
+        </Periods>
+      </Package>
+
+      <!-- PACKAGE 2: 3*/4* mix accommodation -->
+      <Package id="P2" basis="doubleRoom">
+        <Accommodation>
+          <Type>Hotel</Type>
+          <Rating>3*/4*</Rating>
+          <Board>Bed & Breakfast</Board>
+          <RoomType>Double Room</RoomType>
+          <LuggageTransfer>true</LuggageTransfer>
+        </Accommodation>
+        <Periods>
+          <Period name="A" from="2023-03-30" to="2023-04-12" pricePerPerson="1095"/>
+          <Period name="B" from="2023-04-13" to="2023-05-31" pricePerPerson="1185"/>
+          <Period name="B" from="2023-09-28" to="2023-10-05" pricePerPerson="1185"/>
+          <Period name="C" from="2023-06-01" to="2023-09-27" pricePerPerson="1255"/>
+        </Periods>
+      </Package>
+
+    </Packages>
+
+    <Supplements>
+      <Supplement type="SingleRoom" description="Single room supplement for odd-numbered groups">
+        <Option accommodation="3*" value="435" currency="EUR"/>
+        <Option accommodation="3*/4*" value="525" currency="EUR"/>
+      </Supplement>
+    </Supplements>
+
+    <Notes>
+      <Note>Prices are per person in a double room.</Note>
+      <Note>Single-room supplement applies automatically for odd-numbered groups.</Note>
+    </Notes>
+  </Pricing>
+  
+  <BikeRental>
+    <RentalOption id="BR01">
+      <Type>Standard Bike</Type>
+      <Duration unit="days">7</Duration>
+      <Price currency="EUR">150</Price>
+      <Equipment>
+        <Item>Mudguards</Item>
+        <Item>Rear Rack</Item>
+        <Item>Puncture Repair Kit</Item>
+      </Equipment>
+      <Notes>
+        <Note>Recommended for leisurely riders.</Note>
+      </Notes>
+    </RentalOption>
+
+    <RentalOption id="BR02">
+      <Type>E-Bike</Type>
+      <Duration unit="days">7</Duration>
+      <Price currency="EUR">365</Price>
+      <Equipment>
+        <Item>Mudguards</Item>
+        <Item>Rear Rack</Item>
+        <Item>Puncture Repair Kit</Item>
+      </Equipment>
+      <Notes>
+        <Note>E-bikes are ideal if you prefer assisted riding or want to match a fitter companion’s pace.</Note>
+      </Notes>
+    </RentalOption>
+
+    <BookingRequirements>
+      <Requirement>Please confirm your height when booking to ensure correct bike size.</Requirement>
+      <Requirement>Bikes are available in limited quantities; reservation is required in advance.</Requirement>
+    </BookingRequirements>
+  </BikeRental>
+  
+  
+  <SupplementaryServices>
+    <Service id="SS01">
+      <Type>Single Room Accommodation</Type>
+      <Description>3* hotel (6 nights)</Description>
+      <Price currency="EUR" per="person">435</Price>
+    </Service>
+
+    <Service id="SS02">
+      <Type>Single Room Accommodation</Type>
+      <Description>3*/4* hotel (6 nights)</Description>
+      <Price currency="EUR" per="person">525</Price>
+    </Service>
+
+    <Service id="SS03">
+      <Type>Extra Night</Type>
+      <Description>Strasbourg 3* hotel, double/twin room, including breakfast</Description>
+      <Price currency="EUR" per="person">115</Price>
+    </Service>
+
+    <Service id="SS04">
+      <Type>Extra Night</Type>
+      <Description>Strasbourg 3* hotel, single room, including breakfast</Description>
+      <Price currency="EUR" per="person">165</Price>
+    </Service>
+
+    <Service id="SS05">
+      <Type>Extra Night</Type>
+      <Description>Strasbourg 4* hotel, double/twin room, including breakfast</Description>
+      <Price currency="EUR" per="person">130</Price>
+    </Service>
+
+    <Service id="SS06">
+      <Type>Extra Night</Type>
+      <Description>Strasbourg 4* hotel, single room, including breakfast</Description>
+      <Price currency="EUR" per="person">190</Price>
+    </Service>
+
+    <Notes>
+      <Note>All supplementary prices are listed per person unless otherwise indicated.</Note>
+      <Note>Availability depends on hotel capacity at booking time.</Note>
+    </Notes>
+  </SupplementaryServices>
+	
+	</Tour>
+
+</Tours>
+
+<CrossSection>
+  <Clients>
+    <Client id="C001">
+      <FirstName>Anna</FirstName>
+      <LastName>Dupont</LastName>
+      <Email>anna.dupont@email.com</Email>
+      <Country>France</Country>
+      <InsuranceType>Comprehensive Multi-risk</InsuranceType>
+    </Client>
+  </Clients>
+
+  <Guides>
+    <Guide id="G001">
+      <FirstName>Jean</FirstName>
+      <LastName>Martin</LastName>
+      <Languages>French, English</Languages>
+      <ExperienceYears>8</ExperienceYears>
+      <Specialization>Provence & Alps</Specialization>
+    </Guide>
+  </Guides>
+
+  <Bookings>
+    <Booking id="B001" tourRef="T002" clientRef="C001">
+      <BookingDate>2025-03-10</BookingDate>
+      <Participants>2</Participants>
+      <RoomType>Double</RoomType>
+      <BikeType>E-Bike</BikeType>
+      <SupplementarySelected>SS03, SS07</SupplementarySelected>
+      <Status>Confirmed</Status>
+    </Booking>
+  </Bookings>
+
+  <Payments>
+    <Payment id="P001" bookingRef="B001">
+      <Amount currency="EUR">3270</Amount>
+      <PaymentDate>2025-03-15</PaymentDate>
+      <PaymentMethod>CreditCard</PaymentMethod>
+      <PaymentType>Deposit</PaymentType>
+      <TransactionRef>TRX987654321</TransactionRef>
+      <Status>Successful</Status>
+    </Payment>
+  </Payments>
+</CrossSection>
+
+<Country>
+
+<Destinations>
+    <Destination id="IT_DEST001">
+        <Name>Florence</Name>
+        <Region>Tuscany</Region>
+        <Description>Historic capital of Tuscany, starting point for scenic cycling routes.</Description>
+        <Coordinates lat="43.7699" lon="11.2556"/>
+
+        <CyclingPaths>
+            <CyclingPath id="IT_CP001">
+                <Name>Arno Riverside Path</Name>
+                <Distance unit="km">25</Distance>
+                <Surface>Paved</Surface>
+                <Difficulty>Easy</Difficulty>
+                <Highlights>
+                    <Highlight>Views of the Arno River</Highlight>
+                    <Highlight>City parks and bridges</Highlight>
+                </Highlights>
+            </CyclingPath>
+
+            <CyclingPath id="IT_CP002">
+                <Name>Chianti Hills Loop</Name>
+                <Distance unit="km">45</Distance>
+                <Surface>Mixed</Surface>
+                <Difficulty>Intermediate</Difficulty>
+                <Highlights>
+                    <Highlight>Vineyard landscapes</Highlight>
+                    <Highlight>Small hilltop villages</Highlight>
+                </Highlights>
+            </CyclingPath>
+        </CyclingPaths>
+    </Destination>
+
+    <Destination id="IT_DEST002">
+        <Name>Siena</Name>
+        <Region>Tuscany</Region>
+        <Description>Medieval city known for Piazza del Campo and gravel routes.</Description>
+        <Coordinates lat="43.3188" lon="11.3308"/>
+
+        <CyclingPaths>
+            <CyclingPath id="IT_CP003">
+                <Name>Siena Gravel Trail</Name>
+                <Distance unit="km">38</Distance>
+                <Surface>Gravel</Surface>
+                <Difficulty>Advanced</Difficulty>
+                <Highlights>
+                    <Highlight>Rolling countryside</Highlight>
+                    <Highlight>Historic walls of Siena</Highlight>
+                </Highlights>
+            </CyclingPath>
+        </CyclingPaths>
+    </Destination>
+</Destinations>
+</Countr>

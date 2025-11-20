@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- ========================== -->
+    <!-- Top-level Elements         -->
+    <!-- ========================== -->
+    <xs:element name="Client" type="ClientType" />
+    <xs:element name="Guide" type="GuideType" />
+    <xs:element name="Region" type="RegionType" />
+    <xs:element name="Address" type="AddressType" />
+    <xs:element name="Accommodation" type="AccommodationType" />
+    <xs:element name="Bike" type="BikeType" />
+    <xs:element name="Tour" type="TourType" />
+    <xs:element name="TourEvent" type="TourEventType" />
+    <xs:element name="Booking" type="BookingType" />
+    <xs:element name="Payment" type="PaymentType" />
+    <xs:element name="TourProgram" type="TourProgramType" />
+    <xs:element name="TourActivity" type="TourActivityType" />
+    <xs:element name="BikeRental" type="BikeRentalType" />
+    <xs:element name="BookedAccommodation" type="BookedAccommodationType" />
+    <xs:element name="BookedBikeRental" type="BookedBikeRentalType" />
+    <xs:element name="CyclingRoute" type="CyclingRouteType" />
+    <xs:element name="PhysicalLevel" type="PhysicalLevelType" />
+
+
+    <!-- Guides -->
+
+    <!-- Bikes -->
+    <xs:key name="BikeKey">
+        <xs:selector xpath="RentalBikes/Bike" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- Accommodations -->
+    <xs:key name="AccommodationKey">
+        <xs:selector xpath="Regions/Region/Accommodations/Accommodation" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+    <!-- TourEvent IDs (optional if you want unique TourEvent IDs) -->
+    <xs:key name="TourEventKey">
+        <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent" />
+        <xs:field xpath="@id" />
+    </xs:key>
+
+
+    <xs:keyref name="BookingClientRefKey" refer="ClientKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookingClientRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="ParticipantClientRefKey" refer="ClientKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Participants/ClientRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+
+    <xs:keyref name="BookedAccommodationRefKey" refer="AccommodationKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookedAccommodations/BookedAccommodation/AccommodationRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+
+    <xs:keyref name="BookedBikeRefKey" refer="BikeKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/BookedBikeRentals/BookedBikeRental/BikeRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="TourEventGuideRefKey" refer="GuideKey">
+        <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/Guides/GuideRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:keyref name="TourEventCyclingRouteRefKey" refer="CyclingRouteKey">
+        <xs:selector
+            xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/CyclingRoutes/CyclingRouteRef" />
+        <xs:field xpath="@ref" />
+    </xs:keyref>
+
+    <xs:element name="Operator">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Guides" maxOccurs="1" />
+                <xs:element ref="Clients" maxOccurs="1" />
+                <xs:element ref="Regions" maxOccurs="1" />
+                <xs:element ref="PhysicalLevels" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Guides">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Guide" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:key name="GuideKey">
+            <xs:selector xpath="Guides/Guide" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+    </xs:element>
+
+
+    <xs:element name="Clients">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Client" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:key name="ClientKey">
+            <xs:selector xpath="Clients/Client" />
+            <xs:field xpath="@id" />
+        </xs:key>
+    </xs:element>
+
+
+    <xs:element name="Regions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Region" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="PhysicalLevels">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="PhysicalLevel" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="PhysicalLevelType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="UserProfile" type="xs:string" />
+            <xs:element name="TourProfile" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+
+    <xs:simpleType name="CyclingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Mountain" />
+            <xs:enumeration value="Road" />
+            <xs:enumeration value="Hybrid" />
+            <xs:enumeration value="E-Bike" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DifficultyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Easy" />
+            <xs:enumeration value="Moderate" />
+            <xs:enumeration value="Hard" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="PaymentMethodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Credit Card" />
+            <xs:enumeration value="Bank Transfer" />
+            <xs:enumeration value="PayPal" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="AccommodationCategoryType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="3-star Hotel" />
+            <xs:enumeration value="3-star Hostel" />
+            <xs:enumeration value="3-star Guesthouse" />
+            <xs:enumeration value="4-star Hotel" />
+            <xs:enumeration value="4-star Guesthouse" />
+            <xs:enumeration value="5-star Hotel" />
+            <xs:enumeration value="5-star Guesthouse" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="LanguageType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="English" />
+            <xs:enumeration value="French" />
+            <xs:enumeration value="German" />
+            <xs:enumeration value="Italian" />
+            <xs:enumeration value="Spanish" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="PaymentIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="PAY\d{12}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="GuideSpecialtyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Mountain Biking" />
+            <xs:enumeration value="Endurance Tours" />
+            <xs:enumeration value="Road Biking" />
+            <xs:enumeration value="Scenic Tours" />
+            <xs:enumeration value="Gravel Tours" />
+            <xs:enumeration value="E-Bike Tours" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="BaseCoordinateType">
+        <xs:restriction base="xs:decimal" />
+    </xs:simpleType>
+
+    <xs:simpleType name="LatitudeType">
+        <xs:restriction base="BaseCoordinateType">
+            <xs:minInclusive value="-90" />
+            <xs:maxInclusive value="90" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="LongitudeType">
+        <xs:restriction base="BaseCoordinateType">
+            <xs:minInclusive value="-180" />
+            <xs:maxInclusive value="180" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="EuroAmountType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="currency" type="xs:string" use="required" fixed="EUR" />
+                <xs:attribute name="precision" type="xs:integer" use="optional" default="2" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="DurationType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="unit" use="optional" default="hours">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="hours" />
+                            <xs:enumeration value="days" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="CoordinatesType">
+        <xs:sequence>
+            <xs:element name="Lat" type="LatitudeType" />
+            <xs:element name="Lng" type="LongitudeType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="Title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Mr" />
+                        <xs:enumeration value="Ms" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="FirstName" type="xs:string" />
+            <xs:element name="LastName" type="xs:string" />
+            <xs:element name="DateOfBirth" type="xs:date" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GuideType">
+        <xs:complexContent>
+            <xs:extension base="PersonType">
+                <xs:sequence>
+                    <xs:element name="ExperienceYears" type="xs:positiveInteger" />
+                    <xs:element name="Languages">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Language" minOccurs="1" type="LanguageType"
+                                    maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Specialties">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Specialty" type="GuideSpecialtyType"
+                                    maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Email" type="xs:string" />
+                    <xs:element name="Phone" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="ClientType">
+        <xs:complexContent>
+            <xs:extension base="PersonType">
+                <xs:sequence>
+                    <xs:element name="Email" type="xs:string" />
+                    <xs:element name="Phone" type="xs:string" />
+                    <xs:element name="Address" type="AddressType" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="DistanceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="unit" use="required" default="km">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="km" />
+                            <xs:enumeration value="miles" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="CyclingRouteType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Distance" type="DistanceType" />
+            <xs:element name="Surface" type="xs:string" />
+            <xs:element name="Difficulty" type="DifficultyType" />
+            <xs:element name="Coordinates" type="CoordinatesType" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="AccommodationType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Category" />
+            <xs:element ref="Address" />
+            <xs:element name="Phone" type="xs:string" />
+            <xs:element name="Email" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="Street" type="xs:string" />
+            <xs:element name="City" type="xs:string" />
+            <xs:element name="PostalCode" type="xs:string" />
+            <xs:element name="Country" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="BikeType">
+        <xs:sequence>
+            <xs:element name="Brand" type="xs:string" />
+            <xs:element name="Model" type="xs:string" />
+            <xs:element name="CyclingType" />
+            <xs:element name="PricePerDay" type="EuroAmountType" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="BikeRentalType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element ref="Address" />
+            <xs:element name="Phone" type="xs:string" minOccurs="0" />
+            <xs:element name="Email" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+    <!-- ========================== -->
+    <!-- Tour / Event Types          -->
+    <!-- ========================== -->
+
+    <xs:complexType name="TourActivityType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Duration" type="DurationType" />
+            <xs:element name="Description" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="TourProgramType">
+        <xs:sequence>
+            <xs:element name="Day" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Title" type="xs:string" />
+                        <xs:element name="Activities">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="TourActivity" maxOccurs="unbounded" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="number" type="xs:integer" use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="TourEventType">
+        <xs:sequence>
+            <xs:element name="StartDate" type="xs:date" />
+            <xs:element name="Guides">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="GuideRef" type="xs:IDREF" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CyclingRoutes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CyclingRouteRef" type="xs:IDREF" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EventBookings">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="Booking" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TourType">
+        <xs:sequence>
+            <xs:element name="Title" type="xs:string" />
+            <xs:element name="Duration" type="DurationType" />
+            <xs:element name="CyclingType" type="CyclingType" />
+            <xs:element name="PhysicalLevels">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Level" type="xs:IDREF" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element ref="TourProgram" />
+            <xs:element name="TourEvents">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="TourEvent" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+    <!-- ========================== -->
+    <!-- Booking Types               -->
+    <!-- ========================== -->
+    <xs:complexType name="BookedAccommodationType">
+        <xs:sequence>
+            <xs:element name="AccommodationRef">
+                <xs:complexType>
+                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Guests" type="xs:positiveInteger" />
+            <xs:element name="Nights" type="xs:positiveInteger" />
+            <xs:element name="PricePerNight" type="EuroAmountType" />
+            <xs:element name="TotalAmount" type="EuroAmountType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BookedBikeRentalType">
+        <xs:sequence>
+            <xs:element name="BikeRentalRef">
+                <xs:complexType>
+                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BikeRef">
+                <xs:complexType>
+                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Quantity" type="xs:positiveInteger" />
+            <xs:element name="Days" type="xs:positiveInteger" />
+            <xs:element name="PricePerDay" type="EuroAmountType" />
+            <xs:element name="TotalAmount" type="EuroAmountType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PaymentType">
+        <xs:sequence>
+            <xs:element name="AmountPaid" type="xs:decimal" />
+            <xs:element name="PaymentDate" type="xs:date" />
+            <xs:element name="PaymentMethod" type="PaymentMethodType" />
+        </xs:sequence>
+        <xs:attribute name="id" type="PaymentIDType" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="BookingType">
+        <xs:sequence>
+            <xs:element name="BookingClientRef" type="xs:IDREF" />
+            <xs:element name="Participants">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ClientRef" type="xs:IDREF" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BookedAccommodations">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="BookedAccommodation" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BookedBikeRentals">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="BookedBikeRental" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element ref="Payment" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="RegionType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Country" type="xs:string" />
+
+            <!-- Cycling Routes -->
+            <xs:element name="CyclingRoutes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="CyclingRoute" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- Accommodations -->
+            <xs:element name="Accommodations">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="Accommodation" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- Bike Rentals -->
+            <xs:element name="BikeRentals">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="BikeRental" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- Tours -->
+            <xs:element name="Tours">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="Tour" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+</xs:schema>
