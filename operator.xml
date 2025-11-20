@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sample XML instance for the cycling tour operator platform.
+  Designed to be valid against operator.xsd v12 (with CyclingRouteType).
+-->
+<Operator>
+    <Guides>
+        <Guide id="g1">
+            <FirstName>Laura</FirstName>
+            <LastName>Martin</LastName>
+            <Email>laura.martin@example.com</Email>
+            <Phone>+33 6 11 22 33 44</Phone>
+            <Languages>French,English</Languages>
+            <Specialty>Road tours</Specialty>
+            <ExperienceYears>5</ExperienceYears>
+        </Guide>
+        <Guide id="g2">
+            <FirstName>Marco</FirstName>
+            <LastName>Rossi</LastName>
+            <Email>marco.rossi@example.com</Email>
+            <Phone>+39 333 555 666</Phone>
+            <Languages>Italian,English</Languages>
+            <Specialty>Mountain biking</Specialty>
+            <ExperienceYears>8</ExperienceYears>
+        </Guide>
+    </Guides>
+
+    <Clients>
+        <Client id="c1">
+            <FirstName>Anne</FirstName>
+            <LastName>Dupont</LastName>
+            <Email>anne.dupont@example.com</Email>
+            <Phone>+33 6 22 33 44 55</Phone>
+            <Address>
+                <Street>10 Rue de la Paix</Street>
+                <City>Paris</City>
+                <ZipCode>75002</ZipCode>
+                <Country>France</Country>
+            </Address>
+            <BirthDate>1988-04-12</BirthDate>
+        </Client>
+        <Client id="c2">
+            <FirstName>John</FirstName>
+            <LastName>Smith</LastName>
+            <Email>john.smith@example.com</Email>
+            <Phone>+44 7700 900123</Phone>
+            <Address>
+                <Street>221B Baker Street</Street>
+                <City>London</City>
+                <ZipCode>NW16XE</ZipCode>
+                <Country>United Kingdom</Country>
+            </Address>
+            <BirthDate>1990-09-30</BirthDate>
+        </Client>
+    </Clients>
+
+    <Regions>
+        <!-- ===================== -->
+        <!-- Region 1: Loire Valley -->
+        <!-- ===================== -->
+        <Region id="r1">
+            <Name>Loire Valley</Name>
+            <Country>France</Country>
+
+            <!-- Cycling routes in this region -->
+            <CyclingRoutes>
+                <CyclingRoute id="cr1">
+                    <Name>Loire Riverside Path</Name>
+                    <Distance>45.5</Distance>
+                    <Surface>Paved</Surface>
+                    <Difficulty>Easy</Difficulty>
+                    <Coordinates>
+                        <Lat>47.3400</Lat>
+                        <Lng>0.7000</Lng>
+                    </Coordinates>
+                </CyclingRoute>
+                <CyclingRoute id="cr2">
+                    <Name>Amboise Castle Loop</Name>
+                    <Distance>60.0</Distance>
+                    <Surface>Mixed</Surface>
+                    <Difficulty>Moderate</Difficulty>
+                    <Coordinates>
+                        <Lat>47.4100</Lat>
+                        <Lng>0.9800</Lng>
+                    </Coordinates>
+                </CyclingRoute>
+            </CyclingRoutes>
+
+            <!-- Bike fleet -->
+            <Bikes>
+                <Bike id="b1">
+                    <Brand>Giant</Brand>
+                    <Model>Defy Advanced</Model>
+                    <Type>Road</Type>
+                    <Status>Available</Status>
+                    <DailyPrice currency="EUR">35.00</DailyPrice>
+                </Bike>
+                <Bike id="b2">
+                    <Brand>Trek</Brand>
+                    <Model>Domane SL</Model>
+                    <Type>Road</Type>
+                    <Status>Available</Status>
+                    <DailyPrice currency="EUR">40.00</DailyPrice>
+                </Bike>
+                <Bike id="b3">
+                    <Brand>Cannondale</Brand>
+                    <Model>Trail 6</Model>
+                    <Type>Mountain</Type>
+                    <Status>InMaintenance</Status>
+                    <DailyPrice currency="EUR">30.00</DailyPrice>
+                </Bike>
+            </Bikes>
+
+            <!-- Accommodations -->
+            <Accommodations>
+                <Accommodation id="a1">
+                    <Name>Hotel du Château</Name>
+                    <Type>Hotel</Type>
+                    <Address>
+                        <Street>5 Avenue du Château</Street>
+                        <City>Amboise</City>
+                        <ZipCode>37400</ZipCode>
+                        <Country>France</Country>
+                    </Address>
+                </Accommodation>
+                <Accommodation id="a2">
+                    <Name>Loire Guesthouse</Name>
+                    <Type>Guesthouse</Type>
+                    <Address>
+                        <Street>3 Rue des Vignes</Street>
+                        <City>Blois</City>
+                        <ZipCode>41000</ZipCode>
+                        <Country>France</Country>
+                    </Address>
+                </Accommodation>
+            </Accommodations>
+
+            <!-- Bike rentals -->
+            <BikeRentals>
+                <BikeRental id="br1">
+                    <Name>Loire Bikes Amboise</Name>
+                    <Address>
+                        <Street>2 Quai de la Loire</Street>
+                        <City>Amboise</City>
+                        <ZipCode>37400</ZipCode>
+                        <Country>France</Country>
+                    </Address>
+                    <Phone>+33 2 47 00 11 22</Phone>
+                    <Email>contact@loire-bikes-amboise.fr</Email>
+                </BikeRental>
+            </BikeRentals>
+
+            <!-- Tours -->
+            <Tours>
+                <Tour id="t1">
+                    <Title>Castles of the Loire</Title>
+                    <Description>Guided road cycling tour visiting castles along the Loire river.</Description>
+                    <DurationDays>3</DurationDays>
+                    <Difficulty>Moderate</Difficulty>
+                    <BasePrice currency="EUR">450.00</BasePrice>
+
+                    <TourEvents>
+                        <TourEvent id="e1">
+                            <StartDate>2025-06-15</StartDate>
+                            <EndDate>2025-06-17</EndDate>
+                            <MaxParticipants>10</MaxParticipants>
+
+                            <Guides>
+                                <GuideRef ref="g1"/>
+                            </Guides>
+
+                            <!-- Routes used in this event -->
+                            <CyclingRoutes>
+                                <CyclingRouteRef ref="cr1"/>
+                                <CyclingRouteRef ref="cr2"/>
+                            </CyclingRoutes>
+
+                            <EventBookings>
+                                <Booking id="bk1">
+                                    <BookingDate>2025-05-10</BookingDate>
+                                    <ClientRef>c1</ClientRef>
+
+                                    <BookedBikes>
+                                        <BookedBike ref="b1"/>
+                                    </BookedBikes>
+
+                                    <Payments>
+                                        <Payment id="p1">
+                                            <Date>2025-05-11</Date>
+                                            <Amount currency="EUR">450.00</Amount>
+                                            <Method>CreditCard</Method>
+                                        </Payment>
+                                    </Payments>
+                                </Booking>
+
+                                <Booking id="bk2">
+                                    <BookingDate>2025-05-12</BookingDate>
+                                    <ClientRef>c2</ClientRef>
+
+                                    <BookedBikes>
+                                        <BookedBike ref="b2"/>
+                                    </BookedBikes>
+
+                                    <Payments>
+                                        <Payment id="p2">
+                                            <Date>2025-05-13</Date>
+                                            <Amount currency="EUR">450.00</Amount>
+                                            <Method>BankTransfer</Method>
+                                        </Payment>
+                                    </Payments>
+                                </Booking>
+                            </EventBookings>
+                        </TourEvent>
+
+                        <TourEvent id="e2">
+                            <StartDate>2025-09-05</StartDate>
+                            <EndDate>2025-09-07</EndDate>
+                            <MaxParticipants>12</MaxParticipants>
+
+                            <Guides>
+                                <GuideRef ref="g1"/>
+                                <GuideRef ref="g2"/>
+                            </Guides>
+
+                            <CyclingRoutes>
+                                <CyclingRouteRef ref="cr2"/>
+                            </CyclingRoutes>
+
+                            <EventBookings>
+                                <!-- No bookings yet -->
+                            </EventBookings>
+                        </TourEvent>
+                    </TourEvents>
+                </Tour>
+            </Tours>
+        </Region>
+
+        <!-- ===================== -->
+        <!-- Region 2: Dolomites   -->
+        <!-- ===================== -->
+        <Region id="r2">
+            <Name>Dolomites</Name>
+            <Country>Italy</Country>
+
+            <CyclingRoutes>
+                <CyclingRoute id="cr3">
+                    <Name>Dolomite High Pass Loop</Name>
+                    <Distance>75.0</Distance>
+                    <Surface>Mixed</Surface>
+                    <Difficulty>Hard</Difficulty>
+                    <Coordinates>
+                        <Lat>46.5400</Lat>
+                        <Lng>11.6500</Lng>
+                    </Coordinates>
+                </CyclingRoute>
+            </CyclingRoutes>
+
+            <Bikes>
+                <Bike id="b4">
+                    <Brand>Specialized</Brand>
+                    <Model>Turbo Levo</Model>
+                    <Type>Electric</Type>
+                    <Status>Available</Status>
+                    <DailyPrice currency="EUR">60.00</DailyPrice>
+                </Bike>
+                <Bike id="b5">
+                    <Brand>Scott</Brand>
+                    <Model>Scale 960</Model>
+                    <Type>Mountain</Type>
+                    <Status>Available</Status>
+                    <DailyPrice currency="EUR">45.00</DailyPrice>
+                </Bike>
+            </Bikes>
+
+            <Accommodations>
+                <Accommodation id="a3">
+                    <Name>Dolomiti Mountain Hotel</Name>
+                    <Type>Hotel</Type>
+                    <Address>
+                        <Street>Via delle Dolomiti 12</Street>
+                        <City>Cortina d'Ampezzo</City>
+                        <ZipCode>32043</ZipCode>
+                        <Country>Italy</Country>
+                    </Address>
+                </Accommodation>
+            </Accommodations>
+
+            <BikeRentals>
+                <BikeRental id="br2">
+                    <Name>Dolomite Bike Center</Name>
+                    <Address>
+                        <Street>Via Roma 5</Street>
+                        <City>Cortina d'Ampezzo</City>
+                        <ZipCode>32043</ZipCode>
+                        <Country>Italy</Country>
+                    </Address>
+                    <Phone>+39 0436 123456</Phone>
+                    <Email>info@dolomite-bike.it</Email>
+                </BikeRental>
+            </BikeRentals>
+
+            <Tours>
+                <Tour id="t2">
+                    <Title>Dolomite Peaks Challenge</Title>
+                    <Description>Challenging mountain bike tour through high passes in the Dolomites.</Description>
+                    <DurationDays>5</DurationDays>
+                    <Difficulty>Hard</Difficulty>
+                    <BasePrice currency="EUR">980.00</BasePrice>
+
+                    <TourEvents>
+                        <TourEvent id="e3">
+                            <StartDate>2025-07-20</StartDate>
+                            <EndDate>2025-07-24</EndDate>
+                            <MaxParticipants>8</MaxParticipants>
+
+                            <Guides>
+                                <GuideRef ref="g2"/>
+                            </Guides>
+
+                            <CyclingRoutes>
+                                <CyclingRouteRef ref="cr3"/>
+                            </CyclingRoutes>
+
+                            <EventBookings>
+                            </EventBookings>
+                        </TourEvent>
+                    </TourEvents>
+                </Tour>
+            </Tours>
+        </Region>
+    </Regions>
+</Operator>
