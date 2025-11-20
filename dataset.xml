@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Operator xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xs:noNamespaceSchemaLocation="operator.xsd">
-
-    <Clients>
-        <Client id="C001">
-            <Title>Mr.</Title>
-            <FirstName>John</FirstName>
-            <LastName>Smith</LastName>
-            <Email>john.smith@example.com</Email>
-            <Phone>+44 123 456 789</Phone>
-            <Address>
-                <Street>123 Baker Street</Street>
-                <City>London</City>
-                <PostalCode>NW1 6XE</PostalCode>
-                <CountryRef ref="UK" />
-            </Address>
-        </Client>
-
-    </Clients>
-
-
-    <!-- ========================= -->
-    <!-- GUIDES                   -->
-    <!-- ========================= -->
-
-    <Guides>
+<Operator xmlns="http://dsti.com/bicycle-operator"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dsti.com/bicycle-operator operator.xsd"
+          id="OP001">
+	
+	
+	<Guides>
         <Guide id="G001">
             <Name>Jean Dupont</Name>
             <Country> France </Country>
@@ -46,6 +27,29 @@
             </Contact>
         </Guide>
     </Guides>
+
+    <Clients>
+        <Client id="C001">
+            <Title>Mr.</Title>
+            <FirstName>John</FirstName>
+            <LastName>Smith</LastName>
+            <Email>john.smith@example.com</Email>
+            <Phone>+44 123 456 789</Phone>
+            <Address>
+                <Street>123 Baker Street</Street>
+                <City>London</City>
+                <PostalCode>NW1 6XE</PostalCode>
+                <CountryRef ref="UK" />
+            </Address>
+        </Client>
+
+    </Clients>
+
+    <!-- ========================= -->
+    <!-- GUIDES                   -->
+    <!-- ========================= -->
+
+    
 
 
     <!-- ========================= -->
