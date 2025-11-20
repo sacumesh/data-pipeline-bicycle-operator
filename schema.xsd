@@ -26,16 +26,7 @@
     <xs:element name="PhysicalLevel" type="PhysicalLevelType" />
 
 
-    <xs:key name="ClientKey">
-        <xs:selector xpath="Clients/Client" />
-        <xs:field xpath="@id" />
-    </xs:key>
-
     <!-- Guides -->
-    <xs:key name="GuideKey">
-        <xs:selector xpath="Guides/Guide" />
-        <xs:field xpath="@id" />
-    </xs:key>
 
     <!-- Bikes -->
     <xs:key name="BikeKey">
@@ -110,6 +101,12 @@
                 <xs:element ref="Guide" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
+
+        <xs:key name="GuideKey">
+            <xs:selector xpath="Guides/Guide" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
     </xs:element>
 
 
@@ -119,6 +116,11 @@
                 <xs:element ref="Client" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
+
+        <xs:key name="ClientKey">
+            <xs:selector xpath="Clients/Client" />
+            <xs:field xpath="@id" />
+        </xs:key>
     </xs:element>
 
 
@@ -201,6 +203,13 @@
     </xs:simpleType>
 
 
+    <xs:simpleType name="PaymentIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="PAY\d{12}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
     <xs:simpleType name="GuideSpecialtyType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Mountain Biking" />
@@ -230,7 +239,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    
+
     <xs:complexType name="EuroAmountType">
         <xs:simpleContent>
             <xs:extension base="xs:decimal">
@@ -244,7 +253,7 @@
     <xs:complexType name="DurationType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute name="unit" use="required" default="hours">
+                <xs:attribute name="unit" use="optional" default="hours">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
                             <xs:enumeration value="hours" />
@@ -506,7 +515,7 @@
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
             <xs:element name="PricePerDay" type="EuroAmountType" />
-            <xs:element name="TotalAmount" type="EuroAmountType"/>
+            <xs:element name="TotalAmount" type="EuroAmountType" />
         </xs:sequence>
     </xs:complexType>
 
@@ -516,7 +525,7 @@
             <xs:element name="PaymentDate" type="xs:date" />
             <xs:element name="PaymentMethod" type="PaymentMethodType" />
         </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" />
+        <xs:attribute name="id" type="PaymentIDType" use="required" />
     </xs:complexType>
 
     <xs:complexType name="BookingType">
