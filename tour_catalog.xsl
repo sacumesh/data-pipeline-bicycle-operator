@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Sample XML instance for the cycling tour operator platform.
-  Designed to be valid against operator.xsd (with CyclingRouteType).
+  Designed to be valid against operator.xsd.
 -->
 <Operator>
     <Guides>
