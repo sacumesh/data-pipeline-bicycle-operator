@@ -151,12 +151,19 @@
                     <!-- For simplicity: languages stored as a single string. -->
                     <xs:element name="Languages" type="xs:string"/>
                     <xs:element name="Specialty" type="xs:string"/>
-                    <xs:element name="ExperienceYears" type="xs:integer"/>
+                    <xs:element name="ExperienceYears" type="ExperienceYearsType"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
+    <!-- ExperienceYearsType: 0–50 years -->
+    <xs:simpleType name="ExperienceYearsType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
     <!-- ========================== -->
     <!--          Region            -->
     <!-- ========================== -->
