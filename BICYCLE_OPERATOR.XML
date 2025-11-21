@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Operator xmlns="http://dsti.com/bicycle-operator"
+          xmlns:dsti="http://dsti.com/bicycle-operator"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://dsti.com/bicycle-operator operator.xsd"
-          id="OP001">
+          xsi:schemaLocation="http://dsti.com/bicycle-operator BICYCLE_OPERATOR.XSD">
 	
 	
 	<Guides>
         <Guide id="G001">
-            <Name>Jean Dupont</Name>
+            <Salutation>Mr</Salutation>
+            <FirstName>abc</FirstName>
+            <LastName>def</LastName>
             <Country> France </Country>
             <ExperienceYears>8</ExperienceYears>
 
