@@ -179,7 +179,6 @@
                     </Address>
                 </BikeRental>
             </BikeRentals>
-            
             <Tours>
                 <Tour id="T001">
                     <Title>Provence Mountain Bike Adventure</Title>
@@ -215,20 +214,20 @@
                         <TourEvent>
                             <StartDate>2025-06-01</StartDate>
                             <Guides>
-                                <GuideRef>G001</GuideRef>
+                                <GuideRef ref="G001" />
                             </Guides>
                             <CyclingRoutes>
                                 <CyclingRouteRef>CP001</CyclingRouteRef>
                             </CyclingRoutes>
                             <EventBookings>
                                 <Booking id="BKG001">
-                                    <BookingClientRef>C001</BookingClientRef>
+                                    <BookingClientRef ref="C001" />
                                     <Participants>
-                                        <ClientRef>C001</ClientRef>
+                                        <ParticipantRef ref="C001" />
                                     </Participants>
                                     <BookedAccommodations>
                                         <BookedAccommodation>
-                                            <AccommodationRef ref="B001" />
+                                            <AccommodationRef ref="A001" />
                                             <Guests>2</Guests>
                                             <Nights>3</Nights>
                                             <PricePerNight currency="EUR">120.00</PricePerNight>
