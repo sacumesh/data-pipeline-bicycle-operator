@@ -36,8 +36,15 @@
     <xs:element name="TourProgramDay" type="TourProgramDay_T" />
     <xs:element name="CreditCardPayment" type="CreditCardPayment_T" />
     <xs:element name="BankTransferPayment" type="BankTransferPayment_T" />
+    <xs:element name="CyclingRouteRef" type="CyclingRouteRef_T" />
+    <xs:element name="PhysicalLevelRef" type="PhysicalLevelRef_T" />
+    <xs:element name="ParticipantRef" type="ParticipantRef_T" />
+    <xs:element name="BookingClientRef" type="BookingClientRef_T" />
+    <xs:element name="BikeRef" type="BikeRef_T" />
+    <xs:element name="BikeRentalRef" type="BikeRentalRef_T" />
+    <xs:element name="AccommodationRef" type="AccommodationRef_T" />
+    <xs:element name="GuideRef" type="GuideRef_T" />
     <xs:element name="PayPalPayment" type="PayPalPayment_T" />
-
     <xs:element name="Region" type="Region_T" />
 
 
@@ -128,7 +135,7 @@
             <xs:field xpath="@ref" />
         </xs:keyref>
 
-        
+
         <xs:key name="KEY_BikeRental">
             <xs:selector xpath="Regions/Region/BikeRentals/BikeRental" />
             <xs:field xpath="@id" />
@@ -187,6 +194,47 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
+    <xs:complexType name="CyclingRouteRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="PhysicalLevelRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="ParticipantRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="BookingClientRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+    
+    <xs:complexType name="BikeRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="BikeRentalRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="AccommodationRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+
+    <xs:complexType name="GuideRef_T">
+        <xs:attribute name="ref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+
+
+
+
 
 
     <xs:complexType name="PhysicalLevel_T">
@@ -606,22 +654,14 @@
             <xs:element name="Guides">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="GuideRef" maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                            </xs:complexType>
-                        </xs:element>
+                        <xs:element ref="GuideRef" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="CyclingRoutes">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="CyclingRouteRef" maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                            </xs:complexType>
-                        </xs:element>
+                        <xs:element ref="CyclingRouteRef" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -645,12 +685,7 @@
             <xs:element name="PhysicalLevels">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="PhysicalLevelRef" maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:attribute name="ref" type="xs:IDREF" use="required"
-                                />
-                            </xs:complexType>
-                        </xs:element>
+                        <xs:element ref="PhysicalLevelRef" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -673,11 +708,7 @@
     <!-- ========================== -->
     <xs:complexType name="BookedAccommodation_T">
         <xs:sequence>
-            <xs:element name="AccommodationRef">
-                <xs:complexType>
-                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                </xs:complexType>
-            </xs:element>
+            <xs:element ref="AccommodationRef" maxOccurs="unbounded" />
             <xs:element name="Guests" type="xs:positiveInteger" />
             <xs:element name="Nights" type="xs:positiveInteger" />
             <xs:element ref="PricePerNight" />
@@ -687,16 +718,8 @@
 
     <xs:complexType name="BookedBikeRental_T">
         <xs:sequence>
-            <xs:element name="BikeRentalRef">
-                <xs:complexType>
-                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="BikeRef">
-                <xs:complexType>
-                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                </xs:complexType>
-            </xs:element>
+            <xs:element ref="BikeRentalRef" />
+            <xs:element ref="BikeRef" maxOccurs="unbounded" />
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
             <xs:element ref="PricePerDay" />
@@ -715,19 +738,11 @@
 
     <xs:complexType name="Booking_T">
         <xs:sequence>
-            <xs:element name="BookingClientRef">
-                <xs:complexType>
-                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                </xs:complexType>
-            </xs:element>
+            <xs:element ref="BookingClientRef" />
             <xs:element name="Participants">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="ParticipantRef">
-                            <xs:complexType>
-                                <xs:attribute name="ref" type="xs:IDREF" use="required" />
-                            </xs:complexType>
-                        </xs:element>
+                        <xs:element ref="ParticipantRef" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
