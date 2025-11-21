@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://dsti.com/bicycle-operator"
-    xmlns:dsti="http://dsti.com/bicycle-operator"
-    elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="Client" type="dsti:Client_T" />
-    <xs:element name="Guide" type="dsti:Guide_T" />
-    <xs:element name="Region" type="dsti:Region_T" />
-    <xs:element name="Address" type="dsti:Address_T" />
-    <xs:element name="Accommodation" type="dsti:Accommodation_T" />
-    <xs:element name="Bike" type="dsti:Bike_T" />
-    <xs:element name="Tour" type="dsti:Tour_T" />
-    <xs:element name="TourEvent" type="dsti:TourEvent_T" />
-    <xs:element name="Booking" type="dsti:Booking_T" />
-    <xs:element name="Payment" type="dsti:Payment_T" />
-    <xs:element name="TourProgram" type="dsti:TourProgram_T" />
-    <xs:element name="TourActivity" type="dsti:TourActivity_T" />
-    <xs:element name="BikeRental" type="dsti:BikeRental_T" />
-    <xs:element name="BookedAccommodation" type="dsti:BookedAccommodation_T" />
-    <xs:element name="BookedBikeRental" type="dsti:BookedBikeRental_T" />
-    <xs:element name="CyclingRoute" type="dsti:CyclingRoute_T" />
-    <xs:element name="PhysicalLevel" type="dsti:PhysicalLevel_T" />
-    <xs:element name="PaymentMethod" type="dsti:PaymentMethod_T" />
-    <xs:element name="AccommodationCategory" type="dsti:AccommodationCategory_T" />
-    <xs:element name="Language" type="dsti:Language_T" />
-    <xs:element name="GuideSpecialty" type="dsti:GuideSpecialty_T" />
-    <xs:element name="TourType" type="dsti:TourType_T" />
-    <xs:element name="BikeType" type="dsti:BikeType_T" />
-    <xs:element name="CyclingRouteDifficulty" type="dsti:CyclingRouteDifficulty_T" />
-    <xs:element name="Distance" type="dsti:Distance_T" />
-    <xs:element name="Duration" type="dsti:Duration_T" />
-    <xs:element name="Point" type="dsti:Point_T" />
-    <xs:element name="PricePerDay" type="dsti:EuroAmount_T" />
-    <xs:element name="PricePerNight" type="dsti:EuroAmount_T" />
-    <xs:element name="TotalAmount" type="dsti:EuroAmount_T" />
-    <xs:element name="AmountPaid" type="dsti:EuroAmount_T" />
-    <xs:element name="Salutation" type="dsti:Salutation_T" />
-    <xs:element name="Coordinates" type="dsti:Coordinates_T" />
-    <xs:element name="TourProgramDay" type="dsti:TourProgramDay_T" />
-    <xs:element name="CreditCardPayment" type="dsti:CreditCardPayment_T" />
-    <xs:element name="BankTransferPayment" type="dsti:BankTransferPayment_T" />
-    <xs:element name="PayPalPayment" type="dsti:PayPalPayment_T" />
+    <xs:element name="Client" type="Client_T" />
+    <xs:element name="Guide" type="Guide_T" />
+    <xs:element name="Region" type="Region_T" />
+    <xs:element name="Address" type="Address_T" />
+    <xs:element name="Accommodation" type="Accommodation_T" />
+    <xs:element name="Bike" type="Bike_T" />
+    <xs:element name="Tour" type="Tour_T" />
+    <xs:element name="TourEvent" type="TourEvent_T" />
+    <xs:element name="Booking" type="Booking_T" />
+    <xs:element name="Payment" type="Payment_T" />
+    <xs:element name="TourProgram" type="TourProgram_T" />
+    <xs:element name="TourActivity" type="TourActivity_T" />
+    <xs:element name="BikeRental" type="BikeRental_T" />
+    <xs:element name="BookedAccommodation" type="BookedAccommodation_T" />
+    <xs:element name="BookedBikeRental" type="BookedBikeRental_T" />
+    <xs:element name="CyclingRoute" type="CyclingRoute_T" />
+    <xs:element name="PhysicalLevel" type="PhysicalLevel_T" />
+    <xs:element name="PaymentMethod" type="PaymentMethod_T" />
+    <xs:element name="AccommodationCategory" type="AccommodationCategory_T" />
+    <xs:element name="Language" type="Language_T" />
+    <xs:element name="GuideSpecialty" type="GuideSpecialty_T" />
+    <xs:element name="TourType" type="TourType_T" />
+    <xs:element name="BikeType" type="BikeType_T" />
+    <xs:element name="CyclingRouteDifficulty" type="CyclingRouteDifficulty_T" />
+    <xs:element name="Distance" type="Distance_T" />
+    <xs:element name="Duration" type="Duration_T" />
+    <xs:element name="Point" type="Point_T" />
+    <xs:element name="PricePerDay" type="EuroAmount_T" />
+    <xs:element name="PricePerNight" type="EuroAmount_T" />
+    <xs:element name="TotalAmount" type="EuroAmount_T" />
+    <xs:element name="AmountPaid" type="EuroAmount_T" />
+    <xs:element name="Salutation" type="Salutation_T" />
+    <xs:element name="Coordinates" type="Coordinates_T" />
+    <xs:element name="TourProgramDay" type="TourProgramDay_T" />
+    <xs:element name="CreditCardPayment" type="CreditCardPayment_T" />
+    <xs:element name="BankTransferPayment" type="BankTransferPayment_T" />
+    <xs:element name="PayPalPayment" type="PayPalPayment_T" />
 
 
     <xs:element name="Operator">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:PhysicalLevels" maxOccurs="1" />
-                <xs:element ref="dsti:Bikes" maxOccurs="1" />
-                <xs:element ref="dsti:Guides" maxOccurs="1" />
-                <xs:element ref="dsti:Clients" maxOccurs="1" />
-                <xs:element ref="dsti:Regions" maxOccurs="1" />
+                <xs:element ref="PhysicalLevels" maxOccurs="1" />
+                <xs:element ref="Bikes" maxOccurs="1" />
+                <xs:element ref="Guides" maxOccurs="1" />
+                <xs:element ref="Clients" maxOccurs="1" />
+                <xs:element ref="Regions" maxOccurs="1" />
 
             </xs:sequence>
         </xs:complexType>
-
         <xs:key name="KEY_Bike">
-            <xs:selector xpath="dsti:Bikes/dsti:Bike" />
-            <xs:field xpath="@dsti:id" />
+            <xs:selector xpath="Bikes/Bike" />
+            <xs:field xpath="@id" />
         </xs:key>
 
-        <xs:keyref name="KEYREF_Bike_BookedBikeRental" refer="dsti:KEY_Bike">
+        <xs:keyref name="KEYREF_BookedBikeRental_BikeRef_to_Bike" refer="KEY_Bike">
             <xs:selector
-                xpath="dsti:Regions/dsti:Region/dsti:Tours/dsti:Tour/dsti:TourEvents/dsti:TourEvent/dsti:EventBookings/dsti:Booking/dsti:BookedBikeRentals/dsti:BookedBikeRental/dsti:BikeRef" />
-            <xs:field xpath="@dsti:ref" />
+                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookedBikeRentals/BookedBikeRental/BikeRef" />
+            <xs:field xpath="@ref" />
         </xs:keyref>
 
-        <xs:key name="KEY_PhysicalLevelKey">
-            <xs:selector xpath="dsti:PhysicalLevels/dsti:PhysicalLevel" />
-            <xs:field xpath="@dsti:id" />
+        <xs:key name="KEY_PhysicalLevel">
+            <xs:selector xpath="PhysicalLevels/PhysicalLevel" />
+            <xs:field xpath="@id" />
         </xs:key>
 
-        <xs:keyref name="KEYREF_PhysicalLevel_Tour_PhysicalLevel" refer="dsti:KEY_PhysicalLevelKey">
+        <xs:keyref name="KEYREF_Tour_PhysicalLevelRef_to_PhysicalLevel" refer="KEY_PhysicalLevel">
+            <xs:selector xpath="Regions/Region/Tours/Tour/PhysicalLevels/PhysicalLevelRef" />
+            <xs:field xpath="@ref" />
+        </xs:keyref>
+
+
+        <xs:key name="KEY_Guide">
+            <xs:selector xpath="Guides/Guide" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:keyref name="KEYREF_BookingClientRef" refer="KEY_Guide">
             <xs:selector
-                xpath="dsti:Regions/dsti:Region/dsti:Tours/dsti:Tour/dsti:PhysicalLevels/dsti:PhysicalLevelRef" />
-            <xs:field xpath="@dsti:ref" />
+                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookingClientRef" />
+            <xs:field xpath="@ref" />
         </xs:keyref>
     </xs:element>
 
@@ -83,7 +89,7 @@
     <xs:element name="PhysicalLevels">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:PhysicalLevel" maxOccurs="unbounded" />
+                <xs:element ref="PhysicalLevel" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
 
@@ -92,7 +98,7 @@
     <xs:element name="Bikes">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:Bike" maxOccurs="unbounded" />
+                <xs:element ref="Bike" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -101,43 +107,27 @@
     <xs:element name="Guides">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:Guide" maxOccurs="unbounded" />
+                <xs:element ref="Guide" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
-
-        <xs:key name="GuideKey">
-            <xs:selector xpath="Guides/Guide" />
-            <xs:field xpath="@dsti:id" />
-        </xs:key>
-
     </xs:element>
 
 
     <xs:element name="Clients">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:Client" maxOccurs="unbounded" />
+                <xs:element ref="Client" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
-
-        <xs:key name="ClientKey">
-            <xs:selector xpath="Clients/Client" />
-            <xs:field xpath="@dsti:id" />
-        </xs:key>
     </xs:element>
 
 
     <xs:element name="Regions">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="dsti:Region" maxOccurs="unbounded" />
+                <xs:element ref="Region" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
-
-        <xs:key name="RegionKey">
-            <xs:selector xpath="Regions/Region" />
-            <xs:field xpath="@dsti:id" />
-        </xs:key>
     </xs:element>
 
 
@@ -178,9 +168,9 @@
 
     <xs:complexType name="PaymentMethod_T">
         <xs:choice>
-            <xs:element ref="dsti:CreditCardPayment" />
-            <xs:element ref="dsti:BankTransferPayment" />
-            <xs:element ref="dsti:PayPalPayment" />
+            <xs:element ref="CreditCardPayment" />
+            <xs:element ref="BankTransferPayment" />
+            <xs:element ref="PayPalPayment" />
         </xs:choice>
     </xs:complexType>
 
@@ -277,14 +267,14 @@
     </xs:simpleType>
 
     <xs:simpleType name="Latitude_T">
-        <xs:restriction base="dsti:BaseCoordinate_T">
+        <xs:restriction base="BaseCoordinate_T">
             <xs:minInclusive value="-90" />
             <xs:maxInclusive value="90" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="Longitude_T">
-        <xs:restriction base="dsti:BaseCoordinate_T">
+        <xs:restriction base="BaseCoordinate_T">
             <xs:minInclusive value="-180" />
             <xs:maxInclusive value="180" />
         </xs:restriction>
@@ -292,14 +282,14 @@
 
 
     <xs:complexType name="Point_T">
-        <xs:attribute name="lat" type="dsti:Latitude_T" use="required" />
-        <xs:attribute name="lon" type="dsti:Longitude_T" use="required" />
+        <xs:attribute name="lat" type="Latitude_T" use="required" />
+        <xs:attribute name="lon" type="Longitude_T" use="required" />
     </xs:complexType>
 
 
     <xs:complexType name="Coordinates_T">
         <xs:sequence>
-            <xs:element name="Point" type="dsti:Point_T" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="Point" type="Point_T" minOccurs="1" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
 
@@ -315,7 +305,7 @@
 
     <xs:complexType name="Person_T" abstract="true">
         <xs:sequence>
-            <xs:element ref="dsti:Salutation" />
+            <xs:element ref="Salutation" />
             <xs:element name="FirstName" type="xs:string" />
             <xs:element name="LastName" type="xs:string" />
             <xs:element name="DateOfBirth" type="xs:date" />
@@ -324,20 +314,20 @@
 
     <xs:complexType name="Guide_T">
         <xs:complexContent>
-            <xs:extension base="dsti:Person_T">
+            <xs:extension base="Person_T">
                 <xs:sequence>
                     <xs:element name="ExperienceYears" type="xs:positiveInteger" />
                     <xs:element name="Languages">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element ref="dsti:Language" minOccurs="1" maxOccurs="unbounded" />
+                                <xs:element ref="Language" minOccurs="1" maxOccurs="unbounded" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
                     <xs:element name="Specialties">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element ref="dsti:GuideSpecialty" maxOccurs="unbounded" />
+                                <xs:element ref="GuideSpecialty" maxOccurs="unbounded" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
@@ -352,11 +342,11 @@
 
     <xs:complexType name="Client_T">
         <xs:complexContent>
-            <xs:extension base="dsti:Person_T">
+            <xs:extension base="Person_T">
                 <xs:sequence>
                     <xs:element name="Email" type="xs:string" />
                     <xs:element name="Phone" type="xs:string" />
-                    <xs:element ref="dsti:Address" />
+                    <xs:element ref="Address" />
                 </xs:sequence>
                 <xs:attribute name="id" type="xs:ID" use="required" form="qualified" />
             </xs:extension>
@@ -382,10 +372,10 @@
     <xs:complexType name="CyclingRoute_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element ref="dsti:Distance" />
+            <xs:element ref="Distance" />
             <xs:element name="Surface" type="xs:string" />
-            <xs:element ref="dsti:CyclingRouteDifficulty" />
-            <xs:element ref="dsti:Coordinates" />
+            <xs:element ref="CyclingRouteDifficulty" />
+            <xs:element ref="Coordinates" />
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required" />
     </xs:complexType>
@@ -394,8 +384,8 @@
     <xs:complexType name="Accommodation_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element ref="dsti:AccommodationCategory" />
-            <xs:element ref="dsti:Address" />
+            <xs:element ref="AccommodationCategory" />
+            <xs:element ref="Address" />
             <xs:element name="Phone" type="xs:string" />
             <xs:element name="Email" type="xs:string" />
         </xs:sequence>
@@ -417,8 +407,8 @@
         <xs:sequence>
             <xs:element name="Brand" type="xs:string" />
             <xs:element name="Model" type="xs:string" />
-            <xs:element ref="dsti:BikeType" />
-            <xs:element ref="dsti:PricePerDay" />
+            <xs:element ref="BikeType" />
+            <xs:element ref="PricePerDay" />
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required" form="qualified" />
     </xs:complexType>
@@ -428,7 +418,7 @@
             <xs:element name="Name" type="xs:string" />
             <xs:element name="Phone" type="xs:string" minOccurs="0" />
             <xs:element name="Email" type="xs:string" minOccurs="0" />
-            <xs:element ref="dsti:Address" />
+            <xs:element ref="Address" />
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required" form="qualified" />
     </xs:complexType>
@@ -437,7 +427,7 @@
     <xs:complexType name="TourActivity_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element ref="dsti:Duration" />
+            <xs:element ref="Duration" />
             <xs:element name="Description" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
@@ -449,7 +439,7 @@
             <xs:element name="Activities">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:TourActivity" maxOccurs="unbounded" />
+                        <xs:element ref="TourActivity" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -460,7 +450,7 @@
 
     <xs:complexType name="TourProgram_T">
         <xs:sequence>
-            <xs:element ref="dsti:TourProgramDay" maxOccurs="unbounded" />
+            <xs:element ref="TourProgramDay" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
 
@@ -485,7 +475,7 @@
             <xs:element name="EventBookings">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:Booking" maxOccurs="unbounded" />
+                        <xs:element ref="Booking" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -496,25 +486,26 @@
     <xs:complexType name="Tour_T">
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
-            <xs:element ref="dsti:Duration" />
-            <xs:element ref="dsti:TourType" />
+            <xs:element ref="Duration" />
+            <xs:element ref="TourType" />
             <xs:element name="PhysicalLevels">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="PhysicalLevelRef" maxOccurs="unbounded">
                             <xs:complexType>
-                                <xs:attribute name="ref" type="xs:IDREF" use="required" form="qualified" />
+                                <xs:attribute name="ref" type="xs:IDREF" use="required"
+                                    form="qualified" />
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
 
-            <xs:element ref="dsti:TourProgram" />
+            <xs:element ref="TourProgram" />
             <xs:element name="TourEvents">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:TourEvent" maxOccurs="unbounded" />
+                        <xs:element ref="TourEvent" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -535,8 +526,8 @@
             </xs:element>
             <xs:element name="Guests" type="xs:positiveInteger" />
             <xs:element name="Nights" type="xs:positiveInteger" />
-            <xs:element ref="dsti:PricePerNight" />
-            <xs:element ref="dsti:TotalAmount" />
+            <xs:element ref="PricePerNight" />
+            <xs:element ref="TotalAmount" />
         </xs:sequence>
     </xs:complexType>
 
@@ -554,8 +545,8 @@
             </xs:element>
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
-            <xs:element ref="dsti:PricePerDay" />
-            <xs:element ref="dsti:TotalAmount" />
+            <xs:element ref="PricePerDay" />
+            <xs:element ref="TotalAmount" />
         </xs:sequence>
     </xs:complexType>
 
@@ -563,9 +554,9 @@
         <xs:sequence>
             <xs:element name="AmountPaid" type="xs:decimal" />
             <xs:element name="PaymentDate" type="xs:date" />
-            <xs:element ref="dsti:PaymentMethod" />
+            <xs:element ref="PaymentMethod" />
         </xs:sequence>
-        <xs:attribute name="id" type="dsti:PaymentIdType" use="required" />
+        <xs:attribute name="id" type="PaymentIdType" use="required" />
     </xs:complexType>
 
     <xs:complexType name="Booking_T">
@@ -581,18 +572,18 @@
             <xs:element name="BookedAccommodations">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:BookedAccommodation" maxOccurs="unbounded" />
+                        <xs:element ref="BookedAccommodation" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="BookedBikeRentals">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:BookedBikeRental" maxOccurs="unbounded" />
+                        <xs:element ref="BookedBikeRental" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element ref="dsti:Payment" />
+            <xs:element ref="Payment" />
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required" />
     </xs:complexType>
@@ -600,51 +591,47 @@
 
     <xs:complexType name="Region_T">
         <xs:sequence>
-            <xs:element name="Name" type="xs:string" />
-            <xs:element name="Country" type="xs:string" />
+        <xs:element name="Name" type="xs:string" />
+        <xs:element name="Country" type="xs:string" />
 
-            <!-- Cycling Routes -->
-            <xs:element name="CyclingRoutes">
+        <!-- Cycling Routes -->
+        <xs:element name="CyclingRoutes">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element ref="CyclingRoute" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+
+        <!-- Accommodations -->
+        <xs:element name="Accommodations">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element ref="Accommodation" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+
+        <!-- Bike Rentals -->
+        <xs:element name="BikeRentals">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="dsti:CyclingRoute" maxOccurs="unbounded" />
+                        <xs:element ref="BikeRental" maxOccurs="unbounded" />
                     </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+    </xs:complexType>
+    </xs:element>
 
-            <!-- Accommodations -->
-            <xs:element name="Accommodations">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="dsti:Accommodation" maxOccurs="unbounded" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+    <!-- Tours -->
+    <xs:element name="Tours">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Tour" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-            <!-- Bike Rentals -->
-            <xs:element name="BikeRentals">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="dsti:BikeRental" maxOccurs="unbounded" />
-                    </xs:sequence>
-                </xs:complexType>
-                <xs:key name="BikeRentalKey">
-                    <xs:selector xpath="Regions/Region/BikeRentals/BikeRental" />
-                    <xs:field xpath="@dsti:id" />
-                </xs:key>
-            </xs:element>
-
-            <!-- Tours -->
-            <xs:element name="Tours">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="dsti:Tour" maxOccurs="unbounded" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required" form="qualified" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required" form="qualified" />
     </xs:complexType>
 
 </xs:schema>

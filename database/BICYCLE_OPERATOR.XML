@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Operator xmlns="http://dsti.com/bicycle-operator"
-    xmlns:dsti="http://dsti.com/bicycle-operator"
+<Operator
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://dsti.com/bicycle-operator BICYCLE_OPERATOR.XSD">
+    xsi:noNamespaceSchemaLocation="BICYCLE_OPERATOR.XSD">
 
 
     <PhysicalLevels>
-        <PhysicalLevel dsti:id="PL1">
+        <PhysicalLevel id="PL1">
             <Name>Beginner</Name>
             <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
             <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
         </PhysicalLevel>
 
-        <PhysicalLevel dsti:id="PL2">
+        <PhysicalLevel id="PL2">
             <Name>Intermediate</Name>
             <UserProfile>You ride regularly and can handle rides up to 80 km per day with some elevation.</UserProfile>
             <TourProfile>60 to 90 km per day, mixed terrain with moderate climbs.</TourProfile>
         </PhysicalLevel>
 
-        <PhysicalLevel dsti:id="PL3">
+        <PhysicalLevel id="PL3">
             <Name>Advanced</Name>
             <UserProfile>You are an experienced cyclist capable of long rides up to 120 km per day with significant elevation.</UserProfile>
             <TourProfile>90 to 120 km per day, hilly or mountainous terrain.</TourProfile>
@@ -26,7 +25,7 @@
     </PhysicalLevels>
 
     <Bikes>
-        <Bike dsti:id="B001">
+        <Bike id="B001">
             <Brand></Brand>
             <Model></Model>
             <BikeType>Mountain</BikeType>
@@ -36,7 +35,7 @@
 
 
     <Guides>
-        <Guide dsti:id="G001">
+        <Guide id="G001">
             <Salutation>Mr</Salutation>
             <FirstName>abc</FirstName>
             <LastName>def</LastName>
@@ -56,7 +55,7 @@
             <Phone>+33 6 12 34 56 78</Phone>
         </Guide>
 
-        <Guide dsti:id="G002">
+        <Guide id="G002">
             <Salutation>Mr</Salutation>
             <FirstName>abc</FirstName>
             <LastName>def</LastName>
@@ -78,7 +77,7 @@
     </Guides>
 
     <Clients>
-        <Client dsti:id="C001">
+        <Client id="C001">
             <Salutation>Mr</Salutation>
             <FirstName>John</FirstName>
             <LastName>Smith</LastName>
@@ -93,7 +92,7 @@
             </Address>
         </Client>
 
-        <Client dsti:id="C002">
+        <Client id="C002">
             <Salutation>Ms</Salutation>
             <FirstName>Jane</FirstName>
             <LastName>Doe</LastName>
@@ -112,7 +111,7 @@
 
 
     <Regions>
-        <Region dsti:id="R001">
+        <Region id="R001">
             <Name>Provence</Name>
             <Country>France</Country>
 
@@ -141,7 +140,7 @@
             </CyclingRoutes>
 
             <Accommodations>
-                <Accommodation dsti:id="A001">
+                <Accommodation id="A001">
                     <Name>Hotel Provence</Name>
                     <AccommodationCategory>3-star Hotel</AccommodationCategory>
                     <Address>
@@ -156,7 +155,7 @@
             </Accommodations>
 
             <BikeRentals>
-                <BikeRental dsti:id="BR001">
+                <BikeRental id="BR001">
                     <Name>Provence Bike Rentals</Name>
                     <Phone>+33 1 23 45 67 89</Phone>
                     <Email>info@provencebikerentals.com</Email>
@@ -168,7 +167,7 @@
                     </Address>
                 </BikeRental>
 
-                <BikeRental dsti:id="BR002">
+                <BikeRental id="BR002">
                     <Name>Provence Bike Rentals</Name>
                     <Phone>+33 1 23 45 67 89</Phone>
                     <Email>info@provencebikerentals.com</Email>
@@ -182,13 +181,13 @@
             </BikeRentals>
             
             <Tours>
-                <Tour dsti:id="T001">
+                <Tour id="T001">
                     <Title>Provence Mountain Bike Adventure</Title>
                     <Duration unit="days">7</Duration>
                     <TourType>Mountain Bike Tour</TourType>
                     <PhysicalLevels>
-                        <PhysicalLevelRef dsti:ref="PL1"/>
-                        <PhysicalLevelRef dsti:ref="PL2"/>
+                        <PhysicalLevelRef ref="PL1"/>
+                        <PhysicalLevelRef ref="PL2"/>
                     </PhysicalLevels>
                     <TourProgram>
                         <TourProgramDay number="1">
@@ -239,7 +238,7 @@
                                     <BookedBikeRentals>
                                         <BookedBikeRental>
                                             <BikeRentalRef ref="BR001" />
-                                            <BikeRef dsti:ref="B001" />
+                                            <BikeRef ref="B001" />
                                             <Quantity>2</Quantity>
                                             <Days>7</Days>
                                             <PricePerDay currency="EUR">15.00</PricePerDay>
