@@ -306,8 +306,8 @@
             <xs:documentation xml:lang="en">
                 A TourEvent represents one scheduled departure of a Tour.
                 StartDate and EndDate define the time interval of the event.
-                Business rule: EndDate must be equal to or after StartDate
-                (EndDate &gt;= StartDate). This constraint is NOT enforced by
+                Business rule: EndDate must be equal to or after StartDate.
+                This constraint is NOT enforced by
                 this XSD 1.0 schema; it must be checked by the application code
                 (for example, in Python/Java after XML Schema validation), or by
                 using an XSD 1.1 processor with an xs:assert on this type.
