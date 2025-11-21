@@ -5,19 +5,19 @@
 
 
     <PhysicalLevels>
-        <PhysicalLevel id="PL1">
+        <PhysicalLevel id="PL01">
             <Name>Beginner</Name>
             <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
             <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
         </PhysicalLevel>
 
-        <PhysicalLevel id="PL2">
+        <PhysicalLevel id="PL02">
             <Name>Intermediate</Name>
             <UserProfile>You ride regularly and can handle rides up to 80 km per day with some elevation.</UserProfile>
             <TourProfile>60 to 90 km per day, mixed terrain with moderate climbs.</TourProfile>
         </PhysicalLevel>
 
-        <PhysicalLevel id="PL3">
+        <PhysicalLevel id="PL03">
             <Name>Advanced</Name>
             <UserProfile>You are an experienced cyclist capable of long rides up to 120 km per day with significant elevation.</UserProfile>
             <TourProfile>90 to 120 km per day, hilly or mountainous terrain.</TourProfile>
@@ -25,7 +25,7 @@
     </PhysicalLevels>
 
     <Bikes>
-        <Bike id="B001">
+        <Bike id="B-0000-0000-0001">
             <Brand></Brand>
             <Model></Model>
             <BikeType>Mountain</BikeType>
@@ -35,7 +35,7 @@
 
 
     <Guides>
-        <Guide id="G001">
+        <Guide id="G-0000-0000-1111">
             <Salutation>Mr</Salutation>
             <FirstName>abc</FirstName>
             <LastName>def</LastName>
@@ -55,7 +55,7 @@
             <Phone>+33 6 12 34 56 78</Phone>
         </Guide>
 
-        <Guide id="G002">
+        <Guide id="G-0000-0000-0002">
             <Salutation>Mr</Salutation>
             <FirstName>abc</FirstName>
             <LastName>def</LastName>
@@ -77,7 +77,7 @@
     </Guides>
 
     <Clients>
-        <Client id="C001">
+        <Client id="C-0000-0000-0000">
             <Salutation>Mr</Salutation>
             <FirstName>John</FirstName>
             <LastName>Smith</LastName>
@@ -92,7 +92,7 @@
             </Address>
         </Client>
 
-        <Client id="C002">
+        <Client id="C-0000-0000-0001">
             <Salutation>Ms</Salutation>
             <FirstName>Jane</FirstName>
             <LastName>Doe</LastName>
@@ -111,12 +111,12 @@
 
 
     <Regions>
-        <Region id="R001">
+        <Region id="R-0001-0002-0000">
             <Name>Provence</Name>
             <Country>France</Country>
 
             <CyclingRoutes>
-                <CyclingRoute id="CP001">
+                <CyclingRoute id="CY-0000-0000-0001">
                     <Name>Mont Ventoux Loop</Name>
                     <Distance unit="km">110</Distance>
                     <Surface>Asphalt</Surface>
@@ -127,7 +127,7 @@
                     </Coordinates>
                 </CyclingRoute>
 
-                <CyclingRoute id="CP002">
+                <CyclingRoute id="CY-0000-0000-0002">
                     <Name>Baronnies Hills Trail</Name>
                     <Distance unit="km">130</Distance>
                     <Surface>Gravel</Surface>
@@ -140,7 +140,7 @@
             </CyclingRoutes>
 
             <Accommodations>
-                <Accommodation id="A001">
+                <Accommodation id="A-0001-0000-0000">
                     <Name>Hotel Provence</Name>
                     <AccommodationCategory>3-star Hotel</AccommodationCategory>
                     <Address>
@@ -155,7 +155,7 @@
             </Accommodations>
 
             <BikeRentals>
-                <BikeRental id="BR001">
+                <BikeRental id="BR-0000-1111-0000">
                     <Name>Provence Bike Rentals</Name>
                     <Phone>+33 1 23 45 67 89</Phone>
                     <Email>info@provencebikerentals.com</Email>
@@ -167,7 +167,7 @@
                     </Address>
                 </BikeRental>
 
-                <BikeRental id="BR002">
+                <BikeRental id="BR-0000-0000-0002">
                     <Name>Provence Bike Rentals</Name>
                     <Phone>+33 1 23 45 67 89</Phone>
                     <Email>info@provencebikerentals.com</Email>
@@ -180,13 +180,13 @@
                 </BikeRental>
             </BikeRentals>
             <Tours>
-                <Tour id="T001">
+                <Tour id="  TR-0001-0000-0000">
                     <Title>Provence Mountain Bike Adventure</Title>
                     <Duration unit="days">7</Duration>
                     <TourType>Mountain Bike Tour</TourType>
                     <PhysicalLevels>
-                        <PhysicalLevelRef ref="PL1"/>
-                        <PhysicalLevelRef ref="PL2"/>
+                        <PhysicalLevelRef ref="PL01"/>
+                        <PhysicalLevelRef ref="PL02"/>
                     </PhysicalLevels>
                     <TourProgram>
                         <TourProgramDay number="1">
@@ -211,23 +211,23 @@
                         </TourProgramDay>
                     </TourProgram>
                     <TourEvents>
-                        <TourEvent>
+                        <TourEvent id="TRE-0000-0000-0000">
                             <StartDate>2025-06-01</StartDate>
                             <Guides>
-                                <GuideRef ref="G001" />
+                                <GuideRef ref="G-0000-0000-1111" />
                             </Guides>
                             <CyclingRoutes>
-                                <CyclingRouteRef>CP001</CyclingRouteRef>
+                                <CyclingRouteRef ref="CY-0000-0000-0001"/>
                             </CyclingRoutes>
                             <EventBookings>
-                                <Booking id="BKG001">
-                                    <BookingClientRef ref="C001" />
+                                <Booking id="BK-0000-0000-1111">
+                                    <BookingClientRef ref="C-0000-0000-0000" />
                                     <Participants>
-                                        <ParticipantRef ref="C001" />
+                                        <ParticipantRef ref="C-0000-0000-0000" />
                                     </Participants>
                                     <BookedAccommodations>
                                         <BookedAccommodation>
-                                            <AccommodationRef ref="A001" />
+                                            <AccommodationRef ref="A-0001-0000-0000" />
                                             <Guests>2</Guests>
                                             <Nights>3</Nights>
                                             <PricePerNight currency="EUR">120.00</PricePerNight>
@@ -236,15 +236,15 @@
                                     </BookedAccommodations>
                                     <BookedBikeRentals>
                                         <BookedBikeRental>
-                                            <BikeRentalRef ref="BR001" />
-                                            <BikeRef ref="B001" />
+                                            <BikeRentalRef ref="BR-0000-0000-0002" />
+                                            <BikeRef ref="B-0000-0000-0001" />
                                             <Quantity>2</Quantity>
                                             <Days>7</Days>
                                             <PricePerDay currency="EUR">15.00</PricePerDay>
                                             <TotalAmount currency="EUR">210.00</TotalAmount>
                                         </BookedBikeRental>
                                     </BookedBikeRentals>
-                                    <Payment id="PAY000000000001">
+                                    <Payment id="PAY-111-111-111-111">
                                         <AmountPaid>570.00</AmountPaid>
                                         <PaymentDate>2025-05-01</PaymentDate>
                                         <PaymentMethod>
