@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Operator xmlns="http://dsti.com/bicycle-operator"
-          xmlns:dsti="http://dsti.com/bicycle-operator"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://dsti.com/bicycle-operator BICYCLE_OPERATOR.XSD">
-	
-	
-	<Guides>
-        <Guide id="G001">
+    xmlns:dsti="http://dsti.com/bicycle-operator"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://dsti.com/bicycle-operator BICYCLE_OPERATOR.XSD">
+
+
+    <PhysicalLevels>
+        <PhysicalLevel dsti:id="PL1">
+            <Name>Beginner</Name>
+            <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
+            <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
+        </PhysicalLevel>
+
+        <PhysicalLevel dsti:id="PL2">
+            <Name>Intermediate</Name>
+            <UserProfile>You ride regularly and can handle rides up to 80 km per day with some elevation.</UserProfile>
+            <TourProfile>60 to 90 km per day, mixed terrain with moderate climbs.</TourProfile>
+        </PhysicalLevel>
+
+        <PhysicalLevel dsti:id="PL3">
+            <Name>Advanced</Name>
+            <UserProfile>You are an experienced cyclist capable of long rides up to 120 km per day with significant elevation.</UserProfile>
+            <TourProfile>90 to 120 km per day, hilly or mountainous terrain.</TourProfile>
+        </PhysicalLevel>
+    </PhysicalLevels>
+    <Tests>
+        <TestElement number="123"></TestElement>
+        <TestElement number="123"></TestElement>
+    </Tests>
+
+
+    <Guides>
+        <Guide dsti:id="G001">
             <Salutation>Mr</Salutation>
             <FirstName>abc</FirstName>
             <LastName>def</LastName>
-            <Country> France </Country>
+            <DateOfBirth>1988-04-10</DateOfBirth>
             <ExperienceYears>8</ExperienceYears>
 
             <Languages>
@@ -19,68 +44,152 @@
             </Languages>
 
             <Specialties>
-                <SpecialtyRef ref="SP001" />
-                <SpecialtyRef ref="SP002" />
+                <GuideSpecialty>Mountain Biking</GuideSpecialty>
+                <GuideSpecialty>Endurance Tours</GuideSpecialty>
             </Specialties>
+            <Email>jean.dupont@example.com</Email>
+            <Phone>+33 6 12 34 56 78</Phone>
+        </Guide>
 
-            <Contact>
-                <Email>jean.dupont@example.com</Email>
-                <Phone>+33 6 12 34 56 78</Phone>
-            </Contact>
+        <Guide dsti:id="G002">
+            <Salutation>Mr</Salutation>
+            <FirstName>abc</FirstName>
+            <LastName>def</LastName>
+            <DateOfBirth>1988-04-10</DateOfBirth>
+            <ExperienceYears>8</ExperienceYears>
+
+            <Languages>
+                <Language>French</Language>
+                <Language>English</Language>
+            </Languages>
+
+            <Specialties>
+                <GuideSpecialty>Mountain Biking</GuideSpecialty>
+                <GuideSpecialty>Endurance Tours</GuideSpecialty>
+            </Specialties>
+            <Email>jean.dupont@example.com</Email>
+            <Phone>+33 6 12 34 56 78</Phone>
         </Guide>
     </Guides>
 
     <Clients>
-        <Client id="C001">
-            <Title>Mr.</Title>
+        <Client dsti:id="C001">
+            <Salutation>Mr</Salutation>
             <FirstName>John</FirstName>
             <LastName>Smith</LastName>
+            <DateOfBirth>1985-05-20</DateOfBirth>
             <Email>john.smith@example.com</Email>
             <Phone>+44 123 456 789</Phone>
             <Address>
                 <Street>123 Baker Street</Street>
                 <City>London</City>
                 <PostalCode>NW1 6XE</PostalCode>
-                <CountryRef ref="UK" />
+                <Country>France</Country>
+            </Address>
+        </Client>
+
+        <Client dsti:id="C002">
+            <Salutation>Ms</Salutation>
+            <FirstName>Jane</FirstName>
+            <LastName>Doe</LastName>
+            <DateOfBirth>1990-07-01</DateOfBirth>
+            <Email>jane.doe@example.com</Email>
+            <Phone>+44 987 654 321</Phone>
+            <Address>
+                <Street>45 High Street</Street>
+                <City>Bath</City>
+                <PostalCode>BA1 1AA</PostalCode>
+                <Country>United Kingdom</Country>
             </Address>
         </Client>
 
     </Clients>
 
-    <!-- ========================= -->
-    <!-- GUIDES                   -->
-    <!-- ========================= -->
 
-    
+    <Regions>
+        <Region dsti:id="R001">
+            <Name>Provence</Name>
+            <Country>France</Country>
 
+            <CyclingRoutes>
+                <CyclingRoute id="CP001">
+                    <Name>Mont Ventoux Loop</Name>
+                    <Distance unit="km">110</Distance>
+                    <Surface>Asphalt</Surface>
+                    <CyclingRouteDifficulty>Easy</CyclingRouteDifficulty>
+                    <Coordinates>
+                        <Point lat="44.1734" lon="5.2703" />
+                        <Point lat="44.1800" lon="5.2800" />
+                    </Coordinates>
+                </CyclingRoute>
 
-    <!-- ========================= -->
-    <!-- TOURS / REGIONS          -->
-    <!-- ========================= -->
+                <CyclingRoute id="CP002">
+                    <Name>Baronnies Hills Trail</Name>
+                    <Distance unit="km">130</Distance>
+                    <Surface>Gravel</Surface>
+                    <CyclingRouteDifficulty>Hard</CyclingRouteDifficulty>
+                    <Coordinates>
+                        <Point lat="44.1500" lon="5.2500" />
+                        <Point lat="44.1600" lon="5.2600" />
+                    </Coordinates>
+                </CyclingRoute>
+            </CyclingRoutes>
 
+            <Accommodations>
+                <Accommodation dsti:id="A001">
+                    <Name>Hotel Provence</Name>
+                    <AccommodationCategory>3-star Hotel</AccommodationCategory>
+                    <Address>
+                        <Street>12 Avenue Jean Jaurès</Street>
+                        <City>Avignon</City>
+                        <PostalCode>84000</PostalCode>
+                        <Country>France</Country>
+                    </Address>
+                    <Phone>123</Phone>
+                    <Email>123@gmail.com</Email>
+                </Accommodation>
+            </Accommodations>
 
-    <!-- ======================== -->
-    <!-- PHYSICAL LEVELS          -->
-    <!-- ========================= -->
-    <PhysicalLevels>
-        <PhysicalLevel id="1">
-            <Name>Beginner</Name>
-            <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
-            <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
-        </PhysicalLevel>
+            <BikeRentals>
+                <BikeRental dsti:id="BR001">
+                    <Name>Provence Bike Rentals</Name>
+                    <Phone>+33 1 23 45 67 89</Phone>
+                    <Email>info@provencebikerentals.com</Email>
+                    <Address>
+                        <Street>1 Rue de la Gare</Street>
+                        <City></City>
+                        <PostalCode>84000</PostalCode>
+                        <Country>France</Country>
+                    </Address>
+                </BikeRental>
 
-        <PhysicalLevel id="2">
-            <Name>Intermediate</Name>
-            <UserProfile>You train regularly and can ride over 100 km in a day.</UserProfile>
-            <TourProfile>100 to 150 km per day depending on the terrain.</TourProfile>
-        </PhysicalLevel>
+                <BikeRental dsti:id="BR002">
+                    <Name>Provence Bike Rentals</Name>
+                    <Phone>+33 1 23 45 67 89</Phone>
+                    <Email>info@provencebikerentals.com</Email>
+                    <Address>
+                        <Street>1 Rue de la Gare</Street>
+                        <City></City>
+                        <PostalCode>84000</PostalCode>
+                        <Country>France</Country>
+                    </Address>
+                </BikeRental>
+            </BikeRentals>
+            
+            <Tours>
+                <Tour dsti:id="T001">
+                    <Title>Provence Mountain Bike Adventure</Title>
+                    <Duration unit="days">7</Duration>
+                    <TourType>Mountain Bike Tour</TourType>
+                    <PhysicalLevels>
+                        <Level>PL123240</Level>
+                        <Level>PL123240</Level>
+                    </PhysicalLevels>
+                </Tour>
 
-        <PhysicalLevel id="3">
-            <Name>Advanced</Name>
-            <UserProfile>You are very fit and can handle long distances and steep climbs.</UserProfile>
-            <TourProfile>150 to 200 km per day, steep climbs and technical routes.</TourProfile>
-        </PhysicalLevel>
-    </PhysicalLevels>
+            </Tours>
+        </Region>
+    </Regions>
 
 
     <!-- ========================= -->
@@ -114,148 +223,5 @@
         </Bike>
     </RentalBikes>
 
-    <Regions>
-        <Region>
-            <Name>Provence</Name>
-            <Country>France</Country>
-
-            <!-- Cycling paths, accommodations, bike renters omitted here for brevity -->
-            <!-- (They are unchanged from the previous expanded version you approved.) -->
-
-            <CyclingRoutes>
-                <CyclingRoutes id="CP001">
-                    <Name>Mont Ventoux Loop</Name>
-                    <Distance unit="km">110</Distance>
-                    <Surface>Asphalt</Surface>
-                    <Difficulty>Intermediate</Difficulty>
-                    <Coordinates>
-                        <Point lat="44.1734" lon="5.2703" />
-                        <Point lat="44.1800" lon="5.2800" />
-                    </Coordinates>
-                </CyclingRoutes>
-
-                <CyclingRoutes id="CP002">
-                    <Name>Baronnies Hills Trail</Name>
-                    <Distance unit="km">130</Distance>
-                    <Surface>Gravel</Surface>
-                    <Difficulty>Advanced</Difficulty>
-                    <Coordinates>
-                        <Point lat="44.1500" lon="5.2500" />
-                        <Point lat="44.1600" lon="5.2600" />
-                    </Coordinates>
-                </CyclingRoutes>
-            </CyclingRoutes>
-
-            <Accommodations>
-                <Accommodation id="A001">
-                    <Name>Hotel des Barronies</Name>
-                    <Category>3-star</Category>
-                    <Address>
-                        <Street>12 Route de Vaison</Street>
-                        <City>Buis-les-Baronnies</City>
-                        <PostalCode>26170</PostalCode>
-                        <Country> Germany </Country>
-                    </Address>
-                    <Phone>+33 4 75 28 12 34</Phone>
-                    <Email>abc@test.com</Email>
-                </Accommodation>
-            </Accommodations>
-            <!-- ========================= -->
-            <!-- TOURS                    -->
-            <!-- ========================= -->
-            <Tours>
-
-                <!-- ========================= -->
-                <!-- TOUR 1                   -->
-                <!-- ========================= -->
-                <Tour>
-                    <Title>BARONNIES AND MONT VENTOUX</Title>
-                    <Duration>5 Days</Duration>
-                    <CyclingType>mtb</CyclingType>
-                    <PhysicalLevels>
-                        <Level ref="2" />
-                        <Level ref="3" />
-                    </PhysicalLevels>
-
-                    <TourProgram>
-
-                        <Day number="1">
-                            <Title>Arrival and Welcome</Title>
-                            <Activities>
-                                <TourActivity>
-                                    <Name>Welcome Meeting</Name>
-                                    <Duration unit="hours">1</Duration>
-                                    <Description>Introduction to the tour, meet your guide and
-                                        fellow cyclists.</Description>
-                                </TourActivity>
-                                <TourActivity ref="ACT005">
-                                    <Name>Welcome Meeting</Name>
-                                    <Duration unit="hours">1</Duration>
-                                    <Description>Introduction to the tour, meet your guide and
-                                        fellow cyclists.</Description>
-                                </TourActivity>
-                                <TourActivity ref="ACT006">
-                                    <Name>Welcome Meeting</Name>
-                                    <Duration unit="hours">1</Duration>
-                                    <Description>Introduction to the tour, meet your guide and
-                                        fellow cyclists.</Description>
-                                </TourActivity>
-                            </Activities>
-                        </Day>
-                    </TourProgram>
-
-                    <TourEvents>
-                        <TourEvent>
-                            <StartDate>2025-07-10</StartDate>
-                            <Price>200</Price>
-                            <Guides>
-                                <GuideRef ref="G001" />
-                            </Guides>
-
-                            <CyclingRoutes>
-                                <CyclingRouteRef ref="CP001" />
-                                <CyclingRouteRef ref="CP002" />
-                            </CyclingRoutes>
-
-                            <EventBookings>
-                                <BookingClientRef ref="C001" />
-                                <Participants>
-                                    <ClientRef ref="C001" />
-                                    <ClientRef ref="C002" />
-                                </Participants>
-
-                                <BookedAccommodations>
-                                    <BookedAccommodation>
-                                        <AccommodationRef ref="A001" />
-                                        <Guests>4</Guests>
-                                        <Nights>4</Nights>
-                                        <PricePerNight>80</PricePerNight>
-                                        <TotalAmount>320</TotalAmount>
-                                    </BookedAccommodation>
-                                </BookedAccommodations>
-
-                                <BokkedBikeRentals>
-                                    <BookedBikeRental>
-                                        <BikeRef ref="B001" />
-                                        <Days>5</Days>
-                                        <PricePerDay>25</PricePerDay>
-                                        <Quantity>5</Quantity>
-                                        <TotalAmount>125</TotalAmount>
-                                    </BookedBikeRental>
-                                </BokkedBikeRentals>
-
-                                <Payment>
-                                    <AmountPaid>445</AmountPaid>
-                                    <PaymentDate>2025-06-15</PaymentDate>
-                                    <PaymentMethod>Credit Card</PaymentMethod>
-                                </Payment>
-                            </EventBookings>
-
-                        </TourEvent>
-                    </TourEvents>
-                </Tour>
-            </Tours>
-        </Region>
-    </Regions>
 
 </Operator>
