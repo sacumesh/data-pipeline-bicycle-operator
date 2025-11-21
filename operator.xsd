@@ -435,7 +435,7 @@
     <xs:complexType name="PriceType">
         <xs:simpleContent>
             <xs:extension base="xs:decimal">
-                <xs:attribute name="currency" type="xs:string" fixed="EUR"/>
+                <xs:attribute name="currency" type="xs:string" fixed="EUR" use="required"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
