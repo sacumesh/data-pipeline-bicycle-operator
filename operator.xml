@@ -322,6 +322,7 @@
                             </CyclingRoutes>
 
                             <EventBookings>
+                                <!-- Empty for now -->
                             </EventBookings>
                         </TourEvent>
                     </TourEvents>
