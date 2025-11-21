@@ -46,6 +46,9 @@
     <xs:element name="GuideRef" type="GuideRef_T" />
     <xs:element name="PayPalPayment" type="PayPalPayment_T" />
     <xs:element name="Region" type="Region_T" />
+    <xs:element name="CreditCardNumber" type="CreditCardNumber_T" />
+    <xs:element name="IBAN" type="IBAN_T" />
+    <xs:element name="BIC" type="BIC_T" />
 
 
     <xs:element name="Operator">
@@ -212,7 +215,7 @@
         <xs:attribute name="ref" type="xs:IDREF" use="required" />
     </xs:complexType>
 
-    
+
     <xs:complexType name="BikeRef_T">
         <xs:attribute name="ref" type="xs:IDREF" use="required" />
     </xs:complexType>
@@ -231,10 +234,6 @@
     <xs:complexType name="GuideRef_T">
         <xs:attribute name="ref" type="xs:IDREF" use="required" />
     </xs:complexType>
-
-
-
-
 
 
     <xs:complexType name="PhysicalLevel_T">
@@ -363,12 +362,12 @@
     <xs:complexType name="CreditCardPayment_T">
         <xs:sequence>
             <xs:element name="CardHolder" type="xs:string" />
-            <xs:element name="CardNumber" type="CardNumber_T" />
+            <xs:element ref="CreditCardNumber" />
             <xs:element name="Expiry" type="xs:gYearMonth" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:simpleType name="CardNumber_T">
+    <xs:simpleType name="CreditCardNumber_T">
         <xs:restriction base="xs:string">
             <xs:pattern value="\d{4}-\d{4}-\d{4}-\d{4}" />
         </xs:restriction>
@@ -378,8 +377,8 @@
     <xs:complexType name="BankTransferPayment_T">
         <xs:sequence>
             <xs:element name="AccountName" type="xs:string" />
-            <xs:element name="IBAN" type="IBAN_T" />
-            <xs:element name="BIC" type="BIC_T" />
+            <xs:element ref="IBAN" />
+            <xs:element ref="BIC" />
         </xs:sequence>
     </xs:complexType>
 

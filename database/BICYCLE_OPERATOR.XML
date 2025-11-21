@@ -185,8 +185,8 @@
                     <Duration unit="days">7</Duration>
                     <TourType>Mountain Bike Tour</TourType>
                     <PhysicalLevels>
-                        <PhysicalLevelRef ref="PL01"/>
-                        <PhysicalLevelRef ref="PL02"/>
+                        <PhysicalLevelRef ref="PL01" />
+                        <PhysicalLevelRef ref="PL02" />
                     </PhysicalLevels>
                     <TourProgram>
                         <TourProgramDay number="1">
@@ -217,7 +217,7 @@
                                 <GuideRef ref="G-0000-0000-1111" />
                             </Guides>
                             <CyclingRoutes>
-                                <CyclingRouteRef ref="CY-0000-0000-0001"/>
+                                <CyclingRouteRef ref="CY-0000-0000-0001" />
                             </CyclingRoutes>
                             <EventBookings>
                                 <Booking id="BK-0000-0000-1111">
@@ -250,7 +250,7 @@
                                         <PaymentMethod>
                                             <CreditCardPayment>
                                                 <CardHolder>John Smith</CardHolder>
-                                                <CardNumber>4111-1111-1111-1111</CardNumber>
+                                                <CreditCardNumber>4111-1111-1111-1111</CreditCardNumber>
                                                 <Expiry>2025-06</Expiry>
                                             </CreditCardPayment>
                                         </PaymentMethod>
@@ -264,6 +264,6 @@
             </Tours>
         </Region>
 
-        
+
     </Regions>
 </Operator>
