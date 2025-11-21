@@ -377,10 +377,10 @@
             <xs:element name="ClientRef" type="xs:IDREF"/>
 
             <!-- Bikes chosen by the user (IDREF to Bike/@id) -->
-            <xs:element name="BookedBikes" minOccurs="0">
+            <xs:element name="BookedBikes">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="BookedBike" maxOccurs="unbounded">
+                        <xs:element name="BookedBike" minOccurs="1" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:attribute name="ref" type="xs:IDREF" use="required"/>
                             </xs:complexType>
