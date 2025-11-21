@@ -3,6 +3,7 @@
   XML Schema for a cycling tour operator platform.
   - Root element: Operator
   - Bike fleet per region: Regions/Region/Bikes/Bike
+  - Cycling routes per region: Regions/Region/CyclingRoutes/CyclingRoute
   - Bookings attached to TourEvents
   - User chooses: a tour event + one or more bikes
   - No targetNamespace is used.
@@ -43,7 +44,7 @@
             <xs:field xpath="@id"/>
         </xs:key>
 
-        <!-- Cycling routes -->
+        <!-- Cycling routes (per region, IDs globally unique) -->
         <xs:key name="CyclingRouteKey">
             <xs:selector xpath="Regions/Region/CyclingRoutes/CyclingRoute"/>
             <xs:field xpath="@id"/>
@@ -71,28 +72,23 @@
 
         <!-- Booking → Client -->
         <xs:keyref name="BookingClientRef" refer="ClientKey">
-            <!-- Select each Booking node -->
             <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking"/>
-            <!-- Child element ClientRef contains the IDREF value -->
             <xs:field xpath="ClientRef"/>
         </xs:keyref>
 
         <!-- BookedBike → Bike -->
         <xs:keyref name="BookingBikeRef" refer="BikeKey">
-            <!-- Each booked bike of each booking -->
             <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookedBikes/BookedBike"/>
-            <!-- Attribute @ref points to Bike/@id -->
             <xs:field xpath="@ref"/>
         </xs:keyref>
 
         <!-- Event guide references → Guide -->
         <xs:keyref name="EventGuideRef" refer="GuideKey">
-            <!-- Each GuideRef inside each TourEvent -->
             <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/Guides/GuideRef"/>
             <xs:field xpath="@ref"/>
         </xs:keyref>
 
-        <!-- Event cycling routes references → CyclingRoute -->
+        <!-- Event cycling route references → CyclingRoute -->
         <xs:keyref name="EventCyclingRouteRef" refer="CyclingRouteKey">
             <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/CyclingRoutes/CyclingRouteRef"/>
             <xs:field xpath="@ref"/>
@@ -152,8 +148,7 @@
         <xs:complexContent>
             <xs:extension base="PersonType">
                 <xs:sequence>
-                    <!-- For simplicity: languages stored as a single string.
-                         You can later refine this as a list of Language elements. -->
+                    <!-- For simplicity: languages stored as a single string. -->
                     <xs:element name="Languages" type="xs:string"/>
                     <xs:element name="Specialty" type="xs:string"/>
                     <xs:element name="ExperienceYears" type="xs:integer"/>
@@ -171,7 +166,7 @@
             <xs:element name="Name" type="xs:string"/>
             <xs:element name="Country" type="xs:string"/>
 
-            <!-- Cycling routes in this region -->
+            <!-- Cycling routes for this region -->
             <xs:element name="CyclingRoutes">
                 <xs:complexType>
                     <xs:sequence>
@@ -221,19 +216,8 @@
     </xs:complexType>
 
     <!-- ========================== -->
-    <!--     Bikes / Routes / Accommodations -->
+    <!--     Bikes / Accommodations -->
     <!-- ========================== -->
-
-    <xs:complexType name="CyclingRouteType">
-        <xs:sequence>
-            <xs:element name="Name" type="xs:string"/>
-            <xs:element name="Distance" type="DistanceType"/>
-            <xs:element name="Surface" type="xs:string"/>
-            <xs:element name="Difficulty" type="DifficultyType"/>
-            <xs:element name="Coordinates" type="CoordinatesType"/>
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required"/>
-    </xs:complexType>
 
     <xs:complexType name="BikeType">
         <xs:sequence>
@@ -249,8 +233,16 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <!-- Example values: Available, Reserved, InMaintenance -->
-            <xs:element name="Status" type="xs:string"/>
+            <!-- Restricted bike status values -->
+            <xs:element name="Status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Available"/>
+                        <xs:enumeration value="Reserved"/>
+                        <xs:enumeration value="InMaintenance"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="DailyPrice" type="PriceType"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required"/>
@@ -269,8 +261,18 @@
     <xs:complexType name="AccommodationType">
         <xs:sequence>
             <xs:element name="Name" type="xs:string"/>
-            <!-- You can refine this into an enumeration (Hotel, Hostel, etc.) later -->
-            <xs:element name="Type" type="xs:string"/>
+            <!-- Restricted accommodation type values -->
+            <xs:element name="Type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Hotel"/>
+                        <xs:enumeration value="Hostel"/>
+                        <xs:enumeration value="Guesthouse"/>
+                        <xs:enumeration value="Apartment"/>
+                        <xs:enumeration value="Camping"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="Address" type="AddressType"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required"/>
@@ -285,8 +287,16 @@
             <xs:element name="Title" type="xs:string"/>
             <xs:element name="Description" type="xs:string"/>
             <xs:element name="DurationDays" type="xs:integer"/>
-            <!-- You can later restrict this to Easy/Moderate/Hard, etc. -->
-            <xs:element name="Difficulty" type="xs:string"/>
+            <!-- Restricted difficulty values -->
+            <xs:element name="Difficulty">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Easy"/>
+                        <xs:enumeration value="Moderate"/>
+                        <xs:enumeration value="Hard"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="BasePrice" type="PriceType"/>
 
             <!-- Scheduled departures for this tour -->
@@ -321,12 +331,13 @@
                 </xs:complexType>
             </xs:element>
 
-            <!-- Cycling routes used in this event -->
-            <xs:element name="CyclingRoutes">
+            <!-- Cycling routes used in this event (optional) -->
+            <xs:element name="CyclingRoutes" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="CyclingRouteRef" maxOccurs="unbounded">
                             <xs:complexType>
+                                <!-- IDREF to CyclingRoute/@id -->
                                 <xs:attribute name="ref" type="xs:IDREF" use="required"/>
                             </xs:complexType>
                         </xs:element>
@@ -423,29 +434,34 @@
     </xs:complexType>
 
     <!-- ========================== -->
-    <!--   Extra utility types for routes -->
+    <!--      Cycling route types   -->
     <!-- ========================== -->
 
+    <!-- Distance in km (>= 0) -->
     <xs:simpleType name="DistanceType">
         <xs:restriction base="xs:decimal">
             <xs:minInclusive value="0"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="DifficultyType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="Easy"/>
-            <xs:enumeration value="Moderate"/>
-            <xs:enumeration value="Hard"/>
-        </xs:restriction>
-    </xs:simpleType>
-
+    <!-- Coordinates (latitude / longitude as simple decimals) -->
     <xs:complexType name="CoordinatesType">
         <xs:sequence>
-            <!-- Simplified; could be GPX, polyline, etc. -->
-            <xs:element name="GPXFile" type="xs:string" minOccurs="0"/>
-            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+            <xs:element name="Lat" type="xs:decimal"/>
+            <xs:element name="Lng" type="xs:decimal"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <!-- CyclingRoute main type -->
+    <xs:complexType name="CyclingRouteType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Distance" type="DistanceType"/>
+            <xs:element name="Surface" type="xs:string"/>
+            <xs:element name="Difficulty" type="xs:string"/>
+            <xs:element name="Coordinates" type="CoordinatesType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
 
 </xs:schema>
