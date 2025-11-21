@@ -86,7 +86,7 @@
                 </CyclingRoute>
             </CyclingRoutes>
 
-            <!-- Bike fleet -->
+            <!-- Bike fleet in this region -->
             <Bikes>
                 <Bike id="b1">
                     <Brand>Giant</Brand>
@@ -111,7 +111,7 @@
                 </Bike>
             </Bikes>
 
-            <!-- Accommodations -->
+            <!-- Accommodations in this region -->
             <Accommodations>
                 <Accommodation id="a1">
                     <Name>Hotel du Château</Name>
@@ -135,7 +135,7 @@
                 </Accommodation>
             </Accommodations>
 
-            <!-- Bike rentals -->
+            <!-- Bike rental shops in this region -->
             <BikeRentals>
                 <BikeRental id="br1">
                     <Name>Loire Bikes Amboise</Name>
@@ -150,7 +150,7 @@
                 </BikeRental>
             </BikeRentals>
 
-            <!-- Tours -->
+            <!-- Tours in this region -->
             <Tours>
                 <Tour id="t1">
                     <Title>Castles of the Loire</Title>
@@ -165,25 +165,29 @@
                             <EndDate>2025-06-17</EndDate>
                             <MaxParticipants>10</MaxParticipants>
 
+                            <!-- Guides assigned to this event -->
                             <Guides>
                                 <GuideRef ref="g1"/>
                             </Guides>
 
-                            <!-- Routes used in this event -->
+                            <!-- Cycling routes used in this event -->
                             <CyclingRoutes>
                                 <CyclingRouteRef ref="cr1"/>
                                 <CyclingRouteRef ref="cr2"/>
                             </CyclingRoutes>
 
+                            <!-- Bookings for this event -->
                             <EventBookings>
                                 <Booking id="bk1">
                                     <BookingDate>2025-05-10</BookingDate>
                                     <ClientRef>c1</ClientRef>
 
+                                    <!-- Bikes booked for this booking -->
                                     <BookedBikes>
                                         <BookedBike ref="b1"/>
                                     </BookedBikes>
 
+                                    <!-- Payments for this booking -->
                                     <Payments>
                                         <Payment id="p1">
                                             <Date>2025-05-11</Date>
@@ -217,15 +221,18 @@
                             <EndDate>2025-09-07</EndDate>
                             <MaxParticipants>12</MaxParticipants>
 
+                            <!-- Guides assigned to this event -->
                             <Guides>
                                 <GuideRef ref="g1"/>
                                 <GuideRef ref="g2"/>
                             </Guides>
 
+                            <!-- Cycling routes used in this event -->
                             <CyclingRoutes>
                                 <CyclingRouteRef ref="cr2"/>
                             </CyclingRoutes>
 
+                            <!-- Bookings for this event (currently none) -->
                             <EventBookings>
                                 <!-- No bookings yet -->
                             </EventBookings>
@@ -242,6 +249,7 @@
             <Name>Dolomites</Name>
             <Country>Italy</Country>
 
+            <!-- Cycling routes in this region -->
             <CyclingRoutes>
                 <CyclingRoute id="cr3">
                     <Name>Dolomite High Pass Loop</Name>
@@ -255,6 +263,7 @@
                 </CyclingRoute>
             </CyclingRoutes>
 
+            <!-- Bike fleet in this region -->
             <Bikes>
                 <Bike id="b4">
                     <Brand>Specialized</Brand>
@@ -272,6 +281,7 @@
                 </Bike>
             </Bikes>
 
+            <!-- Accommodations in this region -->
             <Accommodations>
                 <Accommodation id="a3">
                     <Name>Dolomiti Mountain Hotel</Name>
@@ -285,6 +295,7 @@
                 </Accommodation>
             </Accommodations>
 
+            <!-- Bike rental shops in this region -->
             <BikeRentals>
                 <BikeRental id="br2">
                     <Name>Dolomite Bike Center</Name>
@@ -299,6 +310,7 @@
                 </BikeRental>
             </BikeRentals>
 
+            <!-- Tours in this region -->
             <Tours>
                 <Tour id="t2">
                     <Title>Dolomite Peaks Challenge</Title>
@@ -313,14 +325,17 @@
                             <EndDate>2025-07-24</EndDate>
                             <MaxParticipants>8</MaxParticipants>
 
+                            <!-- Guides assigned to this event -->
                             <Guides>
                                 <GuideRef ref="g2"/>
                             </Guides>
 
+                            <!-- Cycling routes used in this event -->
                             <CyclingRoutes>
                                 <CyclingRouteRef ref="cr3"/>
                             </CyclingRoutes>
 
+                            <!-- Bookings for this event (currently none) -->
                             <EventBookings>
                                 <!-- Empty for now -->
                             </EventBookings>
