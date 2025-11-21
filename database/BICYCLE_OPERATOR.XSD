@@ -48,17 +48,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="dsti:PhysicalLevels" maxOccurs="1" />
-                <xs:element name="Tests">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="TestElement" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:attribute name="number" type="xs:string" use="required" />
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element ref="dsti:Bikes" maxOccurs="1" />
                 <xs:element ref="dsti:Guides" maxOccurs="1" />
                 <xs:element ref="dsti:Clients" maxOccurs="1" />
                 <xs:element ref="dsti:Regions" maxOccurs="1" />
@@ -66,14 +56,26 @@
             </xs:sequence>
         </xs:complexType>
 
-        <xs:key name="PhysicalLevelKey">
+        <xs:key name="KEY_Bike">
+            <xs:selector xpath="dsti:Bikes/dsti:Bike" />
+            <xs:field xpath="@dsti:id" />
+        </xs:key>
+
+        <xs:keyref name="KEYREF_Bike_BookedBikeRental" refer="dsti:KEY_Bike">
+            <xs:selector
+                xpath="dsti:Regions/dsti:Region/dsti:Tours/dsti:Tour/dsti:TourEvents/dsti:TourEvent/dsti:EventBookings/dsti:Booking/dsti:BookedBikeRentals/dsti:BookedBikeRental/dsti:BikeRef" />
+            <xs:field xpath="@dsti:ref" />
+        </xs:keyref>
+
+        <xs:key name="KEY_PhysicalLevelKey">
             <xs:selector xpath="dsti:PhysicalLevels/dsti:PhysicalLevel" />
             <xs:field xpath="@dsti:id" />
         </xs:key>
 
-        <xs:keyref name="test" refer="dsti:PhysicalLevelKey">
-            <xs:selector xpath="dsti:Tests/dsti:TestElement" />
-            <xs:field xpath="@dsti:number" />
+        <xs:keyref name="KEYREF_PhysicalLevel_Tour_PhysicalLevel" refer="dsti:KEY_PhysicalLevelKey">
+            <xs:selector
+                xpath="dsti:Regions/dsti:Region/dsti:Tours/dsti:Tour/dsti:PhysicalLevels/dsti:PhysicalLevelRef" />
+            <xs:field xpath="@dsti:ref" />
         </xs:keyref>
     </xs:element>
 
@@ -85,6 +87,14 @@
             </xs:sequence>
         </xs:complexType>
 
+    </xs:element>
+
+    <xs:element name="Bikes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dsti:Bike" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 
 
@@ -432,6 +442,7 @@
         </xs:sequence>
     </xs:complexType>
 
+
     <xs:complexType name="TourProgramDay_T">
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
@@ -481,6 +492,7 @@
         </xs:sequence>
     </xs:complexType>
 
+
     <xs:complexType name="Tour_T">
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
@@ -489,7 +501,11 @@
             <xs:element name="PhysicalLevels">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="Level" type="xs:IDREF" maxOccurs="unbounded" />
+                        <xs:element name="PhysicalLevelRef" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:attribute name="ref" type="xs:IDREF" use="required" form="qualified" />
+                            </xs:complexType>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -533,7 +549,7 @@
             </xs:element>
             <xs:element name="BikeRef">
                 <xs:complexType>
-                    <xs:attribute name="ref" type="xs:IDREF" use="required" />
+                    <xs:attribute name="ref" type="xs:IDREF" use="required" form="qualified" />
                 </xs:complexType>
             </xs:element>
             <xs:element name="Quantity" type="xs:positiveInteger" />
