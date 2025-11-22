@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-
-    <xs:element name="ReferenceData" type="ReferenceData_T" />
-
     <xs:element name="Operator">
         <xs:complexType>
             <xs:sequence>
@@ -11,107 +8,27 @@
                 <xs:element ref="Guides" maxOccurs="1" />
                 <xs:element ref="Clients" maxOccurs="1" />
                 <xs:element ref="Regions" maxOccurs="1" />
-
             </xs:sequence>
         </xs:complexType>
-        <xs:key name="KEY_Bike">
-            <xs:selector xpath="Bikes/Bike" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-        <xs:keyref name="KEYREF_BookedBikeRental_BikeRef_TO_Bike" refer="KEY_Bike">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookedBikeRentals/BookedBikeRental/BikeRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-        <xs:key name="KEY_PhysicalLevel">
-            <xs:selector xpath="PhysicalLevels/PhysicalLevel" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-        <xs:keyref name="KEYREF_Tour_PhysicalLevelRef_TO_PhysicalLevel" refer="KEY_PhysicalLevel">
-            <xs:selector xpath="Regions/Region/Tours/Tour/PhysicalLevels/PhysicalLevelRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-
-        <xs:key name="KEY_Guide">
-            <xs:selector xpath="Guides/Guide" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-
-        <xs:keyref name="KEYREF_GuideRef_TO_Guide" refer="KEY_Guide">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/Guides/GuideRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-
-        <xs:key name="KEY_Client">
-            <xs:selector xpath="Clients/Client" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-        <xs:keyref name="KEYREF_BookingClientRef_TO_Client" refer="KEY_Client">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookingClientRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-        <xs:keyref name="KEYREF_ParticipantRef_TO_Client" refer="KEY_Client">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/Participants/ParticipantRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-
-        <xs:key name="KEY_CyclingRoute">
-            <xs:selector xpath="Regions/Region/CyclingRoutes/CyclingRoute" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-        <xs:keyref name="KEYREF_CyclingRouteRef_TO_CyclingRoute" refer="KEY_CyclingRoute">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/CyclingRoutes/CyclingRouteRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-        <xs:key name="KEY_Accommodation">
-            <xs:selector xpath="Regions/Region/Accommodations/Accommodation" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-
-        <xs:keyref name="KEYREF_AccommodationRef_TO_Accommodation" refer="KEY_Accommodation">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookedAccommodations/BookedAccommodation/AccommodationRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-
-        <xs:key name="KEY_BikeRental">
-            <xs:selector xpath="Regions/Region/BikeRentals/BikeRental" />
-            <xs:field xpath="@id" />
-        </xs:key>
-
-        <xs:keyref name="KEYREF_BikeRentalRef_TO_BikeRental" refer="KEY_BikeRental">
-            <xs:selector
-                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/BookedBikeRentals/BookedBikeRental/BikeRentalRef" />
-            <xs:field xpath="@ref" />
-        </xs:keyref>
-
-
     </xs:element>
 
+    <xs:element name="ReferenceData" type="ReferenceData_T" />
     <xs:complexType name="ReferenceData_T">
         <xs:sequence>
+            <xs:element ref="BikeModels" />
             <xs:element ref="TourTypes" />
             <xs:element ref="Countries" />
             <xs:element ref="Languages" />
         </xs:sequence>
     </xs:complexType>
+
+    <xs:element name="BikeModels">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="BikeModel" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name="TourTypes">
         <xs:complexType>
@@ -138,6 +55,16 @@
     </xs:element>
 
 
+    <xs:element name="BikeModel" type="BikeModel_T" />
+    <xs:complexType name="BikeModel_T">
+        <xs:sequence>
+            <xs:element name="Brand" type="xs:string" />
+            <xs:element name="Model" type="xs:string" />
+            <xs:element name="Description" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+
     <xs:element name="TourType" type="TourType_T" />
     <xs:complexType name="TourType_T">
         <xs:sequence>
@@ -152,7 +79,7 @@
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
         </xs:sequence>
-        <xs:attribute name="id" type="LanguageCode_T" use="required" />
+        <xs:attribute name="code" type="LanguageCode_T" use="required" />
     </xs:complexType>
 
     <!-- ISO 639-1 -->
@@ -168,7 +95,7 @@
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
         </xs:sequence>
-        <xs:attribute name="id" type="CountryCode_T" use="required" />
+        <xs:attribute name="code" type="CountryCode_T" use="required" />
     </xs:complexType>
 
 
@@ -205,72 +132,6 @@
         </xs:complexType>
     </xs:element>
 
-
-    <xs:simpleType name="PaymentID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="PAY-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="ClientID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="C-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="GuideID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="G-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="BookingID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="BK-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="BikeID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="B-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="AccommodationRenterID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="A-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="BikeRenterID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="BR-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="TourEventID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="TRE-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="TourID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="TR-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="CyclingRouteID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="CY-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="RegionID_T">
-        <xs:restriction base="xs:ID">
-            <xs:pattern value="R-\d{4}" />
-        </xs:restriction>
-    </xs:simpleType>
 
     <xs:element name="CyclingRouteDifficulty" type="CyclingRouteDifficulty_T" />
     <xs:simpleType name="CyclingRouteDifficulty_T">
@@ -341,6 +202,7 @@
         </xs:sequence>
     </xs:complexType>
 
+
     <xs:element name="Salutation" type="Salutation_T" />
     <xs:simpleType name="Salutation_T">
         <xs:restriction base="xs:string">
@@ -351,25 +213,34 @@
         </xs:restriction>
     </xs:simpleType>
 
+
     <xs:element name="Guide" type="Guide_T" />
     <xs:complexType name="Guide_T">
         <xs:complexContent>
             <xs:extension base="Person_T">
                 <xs:sequence>
                     <xs:element name="ExperienceYears" type="xs:positiveInteger" />
-                    <xs:element name="Languages">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="LanguageRef" minOccurs="1" maxOccurs="unbounded"
-                                    type="xs:IDREF" />
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
+                    <xs:element ref="SpokenLanguages" />
                 </xs:sequence>
                 <xs:attribute name="id" type="GuideID_T" use="required" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+
+    <xs:element name="SpokenLanguages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="LanguageRef" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="GuideID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="G-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <xs:element name="Client" type="Client_T" />
     <xs:complexType name="Client_T">
@@ -386,6 +257,13 @@
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:simpleType name="ClientID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="C-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
     <xs:element name="Address" type="Address_T" />
     <xs:complexType name="Address_T">
         <xs:sequence>
@@ -397,20 +275,16 @@
     </xs:complexType>
 
 
-    <!-- pulled-out list elements so they can be reused via refs -->
     <xs:element name="Region" type="Region_T" />
     <xs:complexType name="Region_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
             <xs:element name="CountryRef" type="xs:IDREF" />
-
-            <!-- reuse pulled-out lists via ref -->
             <xs:element ref="CyclingRoutes" minOccurs="0" />
             <xs:element ref="AccommodationRenters" minOccurs="0" />
-            <xs:element ref="BikeRentals" minOccurs="0" />
+            <xs:element ref="BikeRenters" minOccurs="0" />
             <xs:element ref="Tours" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="id" type="RegionID_T" use="required" />
     </xs:complexType>
 
 
@@ -430,10 +304,10 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="BikeRentals">
+    <xs:element name="BikeRenters">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="BikeRental" maxOccurs="unbounded" />
+                <xs:element ref="BikeRenter" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -457,6 +331,13 @@
         </xs:sequence>
         <xs:attribute name="id" type="CyclingRouteID_T" use="required" />
     </xs:complexType>
+
+    <xs:simpleType name="CyclingRouteID_T">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="CY-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <xs:simpleType name="Latitude_T">
         <xs:restriction base="xs:decimal">
@@ -497,27 +378,13 @@
         </xs:sequence>
         <xs:attribute name="id" type="AccommodationRenterID_T" use="required" />
     </xs:complexType>
-    <!-- Bike rental / bike renter definitions (pulled-out list elements as global refs) -->
 
-    <xs:element name="BikeRental">
-        <xs:complexType>
-            <xs:sequence>
-                <!-- reference the pulled-out lists -->
-                <xs:element ref="BikeRenters" />
-                <xs:element ref="Bikes" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:simpleType name="AccommodationRenterID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="A-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
 
-
-    <!-- pulled-out list of bike renters so it can be referenced via ref -->
-    <xs:element name="BikeRenters">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="BikeRenter" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
     <xs:element name="BikeRenter" type="BikeRenter_T" />
     <xs:complexType name="BikeRenter_T">
@@ -530,25 +397,13 @@
         <xs:attribute name="id" type="BikeRenterID_T" use="required" />
     </xs:complexType>
 
-    <!-- pulled-out list of bikes for a bike rental (separate from the global top-level Bikes list) -->
-    <xs:element name="Bikes">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="Bike" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
-    <xs:element name="Bike" type="Bike_T" />
-    <xs:complexType name="Bike_T">
-        <xs:sequence>
-            <xs:element name="Brand" type="xs:string" />
-            <xs:element name="Model" type="xs:string" />
-            <xs:element name="BikeType" type="xs:string" />
-            <xs:element name="PricePerDay" type="PriceEUR_T" />
-        </xs:sequence>
-        <xs:attribute name="id" type="BikeID_T" use="required" />
-    </xs:complexType>
+    <xs:simpleType name="BikeRenterID_T">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="BR-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <xs:element name="Tour" type="Tour_T" />
     <xs:complexType name="Tour_T">
@@ -559,7 +414,6 @@
             <xs:element ref="TourProgram" />
             <xs:element ref="TourEvents" />
         </xs:sequence>
-        <xs:attribute name="id" type="TourID_T" use="required" />
     </xs:complexType>
 
     <xs:element name="TourProgram" type="TourProgram_T" />
@@ -615,7 +469,6 @@
             <xs:element ref="EventCyclingRoutes" />
             <xs:element ref="EventBookings" />
         </xs:sequence>
-        <xs:attribute name="id" type="TourEventID_T" use="required" />
     </xs:complexType>
 
     <xs:element name="EventGuides">
@@ -682,23 +535,43 @@
     <xs:element name="EventBikeRental" type="EventBikeRental_T" />
     <xs:complexType name="EventBikeRental_T">
         <xs:sequence>
-            <xs:element name="BikeRef" type="xs:IDREF" />
+            <xs:element name="BikeModelRef" type="xs:IDREF" />
             <xs:element name="BikeRenterRef" type="xs:IDREF" />
             <xs:element name="PricePerDay" type="PriceEUR_T" />
+            <xs:element name="AvailableQuantity" type="xs:positiveInteger" />
+            <xs:element ref="BikeFrameSize" />
         </xs:sequence>
+        <xs:attribute name="id" type="EventBikeRentalID_T" />
     </xs:complexType>
+
+    <xs:simpleType name="EventBikeRentalID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="BR-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="BikeFrameSize" type="BikeFrameSize_T" />
+    <xs:simpleType name="BikeFrameSize_T">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="XS" />
+            <xs:enumeration value="S" />
+            <xs:enumeration value="M" />
+            <xs:enumeration value="L" />
+            <xs:enumeration value="XL" />
+        </xs:restriction>
+    </xs:simpleType>
 
 
     <xs:element name="Booking" type="Booking_T" />
     <xs:complexType name="Booking_T">
         <xs:sequence>
+            <xs:element name="CreatedAt" type="xs:dateTime" minOccurs="0" />
             <xs:element name="ClientRef" type="xs:IDREF" />
             <xs:element name="ParticipantsCount" type="xs:positiveInteger" />
             <xs:element ref="BookedAccommodations" />
             <xs:element ref="BookedBikes" />
-            <xs:element ref="Payment" />
+            <xs:element ref="BookingStatus" />
         </xs:sequence>
-        <xs:attribute name="id" type="BookingID_T" use="required" />
     </xs:complexType>
 
     <xs:element name="BookedAccommodations">
@@ -729,20 +602,52 @@
     <xs:element name="BookedBike" type="BookedBike_T" />
     <xs:complexType name="BookedBike_T">
         <xs:sequence>
-            <xs:element name="EventBikeRef" type="xs:IDREF" />
+            <xs:element name="EventBikeRentalRef" type="xs:IDREF" />
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
         </xs:sequence>
     </xs:complexType>
-    <!-- Payment element (global) and separate type -->
-    <xs:element name="Payment" type="Payment_T" />
 
+
+    <xs:element name="BookingStatus" type="BookingStatus_T" />
+    <xs:complexType name="BookingStatus_T">
+        <xs:choice>
+            <xs:element ref="Completed" />
+            <xs:element ref="Cancelled" />
+            <xs:element ref="Pending" />
+        </xs:choice>
+    </xs:complexType>
+
+
+    <xs:element name="Pending" type="Pending_T" />
+    <xs:complexType name="Pending_T" />
+
+
+    <xs:element name="Completed" type="Completed_T" />
+    <xs:complexType name="Completed_T">
+        <xs:sequence>
+            <xs:element name="CompletedAt" type="xs:dateTime" />
+            <xs:element ref="Payment" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="Cancelled" type="Cancelled_T" />
+    <xs:complexType name="Cancelled_T">
+        <xs:sequence>
+            <xs:element name="CancelledAt" type="xs:dateTime" minOccurs="0" />
+            <xs:element name="Reason" type="xs:string" minOccurs="0" />
+            <xs:element ref="Payment" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="Payment" type="Payment_T" />
     <xs:complexType name="Payment_T">
         <xs:sequence>
             <xs:element name="AmountPaid" type="PriceEUR_T" />
-            <xs:element name="Date" type="xs:date" />
+            <xs:element name="CompletedAt" type="xs:dateTime" />
         </xs:sequence>
-        <xs:attribute name="id" type="PaymentID_T" use="required" />
     </xs:complexType>
 
 </xs:schema>
