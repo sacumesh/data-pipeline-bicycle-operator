@@ -10,6 +10,79 @@
                 <xs:element ref="Regions" maxOccurs="1" />
             </xs:sequence>
         </xs:complexType>
+
+        <xs:key name="BikeModelKey">
+            <xs:selector xpath="ReferenceData/BikeModels/BikeModel" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="GuideKey">
+            <xs:selector xpath="Guides/Guide" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="ClientKey">
+            <xs:selector xpath="Clients/Client" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="TourTypeKey">
+            <xs:selector xpath="ReferenceData/TourTypes/TourType" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="CountryKey">
+            <xs:selector xpath="ReferenceData/Countries/Country" />
+            <xs:field xpath="@code" />
+        </xs:key>
+
+        <!-- keyrefs (consistent naming: <KeyName>Ref references <KeyName>) -->
+
+        <xs:keyref name="BikeModelKeyRef" refer="BikeModelKey">
+            <xs:selector
+                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBikes/EventBikeRental/BikeModelRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="GuideKeyRef" refer="GuideKey">
+            <xs:selector xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventGuides/GuideRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="ClientKeyRef" refer="ClientKey">
+            <xs:selector
+                xpath="Regions/Region/Tours/Tour/TourEvents/TourEvent/EventBookings/Booking/ClientRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="TourTypeKeyRef" refer="TourTypeKey">
+            <xs:selector xpath="Regions/Region/Tours/Tour/TourTypeRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <!-- country references in multiple places -->
+        <xs:keyref name="CountryKeyRef_Clients" refer="CountryKey">
+            <xs:selector xpath="Clients/Client/Address/CountryRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="CountryKeyRef_Regions" refer="CountryKey">
+            <xs:selector xpath="Regions/Region/CountryRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="CountryKeyRef_AccommodationRenters" refer="CountryKey">
+            <xs:selector
+                xpath="Regions/Region/AccommodationRenters/AccommodationRenter/Address/CountryRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="CountryKeyRef_BikeRenters" refer="CountryKey">
+            <xs:selector xpath="Regions/Region/BikeRenters/BikeRenter/Address/CountryRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+
     </xs:element>
 
     <xs:element name="ReferenceData" type="ReferenceData_T" />
@@ -261,11 +334,46 @@
     </xs:complexType>
 
 
-    <xs:element name="Region" type="Region_T" />
+    <xs:element name="Region" type="Region_T">
+
+        <xs:key name="CyclingRouteKey">
+            <xs:selector xpath="CyclingRoutes/CyclingRoute" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="AccommodationRenterKey">
+            <xs:selector xpath="AccommodationRenters/AccommodationRenter" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="BikeRenterKey">
+            <xs:selector xpath="BikeRenters/BikeRenter" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:keyref name="BikeRenterKeyRef" refer="BikeRenterKey">
+            <xs:selector
+                xpath="Tours/Tour/TourEvents/TourEvent/EventBikes/EventBikeRental/BikeRenterRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="AccommodationRenterKeyRef" refer="AccommodationRenterKey">
+            <xs:selector
+                xpath="Tours/Tour/TourEvents/TourEvent/EventAccommodations/EventAccommodation/AccommodationRenterRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="CyclingRouteKeyRef" refer="CyclingRouteKey">
+            <xs:selector
+                xpath="Tours/Tour/TourEvents/TourEvent/EventCyclingRoutes/CyclingRouteRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+    </xs:element>
     <xs:complexType name="Region_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element name="CountryRef" type="xs:IDREF" />
+            <xs:element name="CountryRef" type="xs:string" />
             <xs:element ref="CyclingRoutes" minOccurs="0" />
             <xs:element ref="AccommodationRenters" minOccurs="0" />
             <xs:element ref="BikeRenters" minOccurs="0" />
@@ -319,7 +427,7 @@
     </xs:complexType>
 
     <xs:simpleType name="CyclingRouteID_T">
-        <xs:restriction base="xs:ID">
+        <xs:restriction base="xs:string">
             <xs:pattern value="CY-\d{4}" />
         </xs:restriction>
     </xs:simpleType>
@@ -385,7 +493,7 @@
 
 
     <xs:simpleType name="BikeRenterID_T">
-        <xs:restriction base="xs:ID">
+        <xs:restriction base="xs:string">
             <xs:pattern value="BR-\d{4}" />
         </xs:restriction>
     </xs:simpleType>
@@ -396,7 +504,7 @@
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
             <xs:element name="Duration" type="Duration_T" />
-            <xs:element name="TourTypeRef" type="xs:IDREF" />
+            <xs:element name="TourTypeRef" type="xs:string" />
             <xs:element ref="TourProgram" />
             <xs:element ref="TourEvents" />
         </xs:sequence>
@@ -444,7 +552,33 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="TourEvent" type="TourEvent_T" />
+    <xs:element name="TourEvent" type="TourEvent_T">
+
+        <xs:key name="EventAccommodationKey">
+            <xs:selector
+                xpath="EventAccommodations/EventAccommodation" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:key name="EventBikeRentalKey">
+            <xs:selector
+                xpath="EventBikes/EventBikeRental" />
+            <xs:field xpath="@id" />
+        </xs:key>
+
+        <xs:keyref name="EventAccommodationKeyRef" refer="EventAccommodationKey">
+            <xs:selector
+                xpath="EventBookings/Booking/BookedAccommodations/BookedAccommodation/EventAccommodationRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+
+        <xs:keyref name="EventBikeRentalKeyRef" refer="EventBikeRentalKey">
+            <xs:selector
+                xpath="EventBookings/Booking/BookedBikes/BookedBike/EventBikeRentalRef" />
+            <xs:field xpath="." />
+        </xs:keyref>
+    </xs:element>
+
     <xs:complexType name="TourEvent_T">
         <xs:sequence>
             <xs:element name="CreatedAt" type="xs:dateTime" />
@@ -468,7 +602,7 @@
         </xs:choice>
     </xs:complexType>
 
-     <xs:element name="TourEventOpen" type="TourEventOpen_T" />
+    <xs:element name="TourEventOpen" type="TourEventOpen_T" />
     <xs:complexType name="TourEventOpen_T">
         <xs:sequence>
             <xs:element name="ClosesAt" type="xs:dateTime" />
@@ -495,7 +629,7 @@
     <xs:element name="EventGuides">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="GuideRef" type="xs:IDREF" maxOccurs="unbounded" />
+                <xs:element name="GuideRef" type="xs:string" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -519,7 +653,7 @@
     <xs:element name="EventCyclingRoutes">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="CyclingRouteRef" type="xs:IDREF" maxOccurs="unbounded" />
+                <xs:element name="CyclingRouteRef" type="xs:string" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -535,7 +669,7 @@
     <xs:element name="EventAccommodation" type="EventAccommodation_T" />
     <xs:complexType name="EventAccommodation_T">
         <xs:sequence>
-            <xs:element name="AccommodationRenterRef" type="xs:IDREF" />
+            <xs:element name="AccommodationRenterRef" type="xs:string" />
             <xs:element ref="AccommodationQuality" minOccurs="0" />
             <xs:element name="PricePerNight" type="PriceEUR_T" />
         </xs:sequence>
@@ -561,8 +695,8 @@
     <xs:element name="EventBikeRental" type="EventBikeRental_T" />
     <xs:complexType name="EventBikeRental_T">
         <xs:sequence>
-            <xs:element name="BikeModelRef" type="xs:IDREF" />
-            <xs:element name="BikeRenterRef" type="xs:IDREF" />
+            <xs:element name="BikeModelRef" type="xs:string" />
+            <xs:element name="BikeRenterRef" type="xs:string" />
             <xs:element name="PricePerDay" type="PriceEUR_T" />
             <xs:element name="AvailableQuantity" type="xs:positiveInteger" />
             <xs:element ref="BikeFrameSize" />
@@ -592,7 +726,7 @@
     <xs:complexType name="Booking_T">
         <xs:sequence>
             <xs:element name="CreatedAt" type="xs:dateTime" minOccurs="0" />
-            <xs:element name="ClientRef" type="xs:IDREF" />
+            <xs:element name="ClientRef" type="xs:string" />
             <xs:element name="ParticipantCount" type="xs:positiveInteger" />
             <xs:element ref="BookedAccommodations" />
             <xs:element ref="BookedBikes" />
@@ -619,7 +753,7 @@
     <xs:element name="BookedAccommodation" type="BookedAccommodation_T" />
     <xs:complexType name="BookedAccommodation_T">
         <xs:sequence>
-            <xs:element name="EventAccommodationRef" type="xs:IDREF" />
+            <xs:element name="EventAccommodationRef" type="xs:string" />
             <xs:element name="GuestCount" type="xs:positiveInteger" />
             <xs:element name="Nights" type="xs:positiveInteger" />
         </xs:sequence>
@@ -628,7 +762,7 @@
     <xs:element name="BookedBike" type="BookedBike_T" />
     <xs:complexType name="BookedBike_T">
         <xs:sequence>
-            <xs:element name="EventBikeRentalRef" type="xs:IDREF" />
+            <xs:element name="EventBikeRentalRef" type="xs:string" />
             <xs:element name="Quantity" type="xs:positiveInteger" />
             <xs:element name="Days" type="xs:positiveInteger" />
         </xs:sequence>

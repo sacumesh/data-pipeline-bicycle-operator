@@ -116,6 +116,9 @@
             <Country code="AU">
                 <Name>Australia</Name>
             </Country>
+            <Country code="PK">
+                <Name>Pakistan</Name>
+            </Country>
         </Countries>
     </ReferenceData>
 
