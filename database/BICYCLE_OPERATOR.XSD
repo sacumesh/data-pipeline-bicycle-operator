@@ -56,7 +56,7 @@
         <xs:attribute name="id" type="BikeModelID_T" use="required" />
     </xs:complexType>
 
-     <xs:simpleType name="BikeModelID_T">
+    <xs:simpleType name="BikeModelID_T">
         <xs:restriction base="xs:string">
             <xs:pattern value="BM-\d{4}" />
         </xs:restriction>
@@ -329,7 +329,7 @@
         <xs:restriction base="xs:decimal">
             <xs:minInclusive value="-90" />
             <xs:maxInclusive value="90" />
-            <xs:fractionDigits value="8" />
+            <xs:fractionDigits value="2" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -447,6 +447,8 @@
     <xs:element name="TourEvent" type="TourEvent_T" />
     <xs:complexType name="TourEvent_T">
         <xs:sequence>
+            <xs:element name="CreatedAt" type="xs:dateTime" />
+            <xs:element ref="TourEventStatus" />
             <xs:element name="StartDate" type="xs:date" />
             <xs:element name="Price" type="PriceEUR_T" />
             <xs:element ref="EventGuides" />
@@ -454,6 +456,39 @@
             <xs:element ref="EventBikes" />
             <xs:element ref="EventCyclingRoutes" />
             <xs:element ref="EventBookings" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="TourEventStatus" type="TourEventStatus_T" />
+    <xs:complexType name="TourEventStatus_T">
+        <xs:choice minOccurs="0">
+            <xs:element ref="TourEventOpen" />
+            <xs:element ref="TourEventClosed" />
+            <xs:element ref="TourEventCancelled" />
+        </xs:choice>
+    </xs:complexType>
+
+     <xs:element name="TourEventOpen" type="TourEventOpen_T" />
+    <xs:complexType name="TourEventOpen_T">
+        <xs:sequence>
+            <xs:element name="ClosesAt" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="TourEventClosed" type="TourEventClosed_T" />
+    <xs:complexType name="TourEventClosed_T">
+        <xs:sequence>
+            <xs:element name="ClosedAt" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="TourEventCancelled" type="TourEventCancelled_T" />
+    <xs:complexType name="TourEventCancelled_T">
+        <xs:sequence>
+            <xs:element name="CancelledAt" type="xs:dateTime" minOccurs="0" />
+            <xs:element name="Reason" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 
@@ -502,11 +537,16 @@
         <xs:sequence>
             <xs:element name="AccommodationRenterRef" type="xs:IDREF" />
             <xs:element ref="AccommodationQuality" minOccurs="0" />
-            <xs:element name="Nights" type="xs:positiveInteger" />
             <xs:element name="PricePerNight" type="PriceEUR_T" />
         </xs:sequence>
+        <xs:attribute name="id" type="EventAccommodationID_T" />
     </xs:complexType>
 
+    <xs:simpleType name="EventAccommodationID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="EA-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:element name="AccommodationQuality" type="AccommodationQuality_T" />
     <xs:simpleType name="AccommodationQuality_T">
@@ -553,7 +593,7 @@
         <xs:sequence>
             <xs:element name="CreatedAt" type="xs:dateTime" minOccurs="0" />
             <xs:element name="ClientRef" type="xs:IDREF" />
-            <xs:element name="ParticipantsCount" type="xs:positiveInteger" />
+            <xs:element name="ParticipantCount" type="xs:positiveInteger" />
             <xs:element ref="BookedAccommodations" />
             <xs:element ref="BookedBikes" />
             <xs:element ref="BookingStatus" />
@@ -598,19 +638,19 @@
     <xs:element name="BookingStatus" type="BookingStatus_T" />
     <xs:complexType name="BookingStatus_T">
         <xs:choice>
-            <xs:element ref="Completed" />
-            <xs:element ref="Cancelled" />
-            <xs:element ref="Pending" />
+            <xs:element ref="BookingCompleted" />
+            <xs:element ref="BookingCancelled" />
+            <xs:element ref="BookingPending" />
         </xs:choice>
     </xs:complexType>
 
 
-    <xs:element name="Pending" type="Pending_T" />
-    <xs:complexType name="Pending_T" />
+    <xs:element name="BookingPending" type="BookingPending_T" />
+    <xs:complexType name="BookingPending_T" />
 
 
-    <xs:element name="Completed" type="Completed_T" />
-    <xs:complexType name="Completed_T">
+    <xs:element name="BookingCompleted" type="BookingCompleted_T" />
+    <xs:complexType name="BookingCompleted_T">
         <xs:sequence>
             <xs:element name="CompletedAt" type="xs:dateTime" />
             <xs:element ref="Payment" />
@@ -618,12 +658,13 @@
     </xs:complexType>
 
 
-    <xs:element name="Cancelled" type="Cancelled_T" />
-    <xs:complexType name="Cancelled_T">
+    <xs:element name="BookingCancelled" type="BookingCancelled_T" />
+    <xs:complexType name="BookingCancelled_T">
         <xs:sequence>
             <xs:element name="CancelledAt" type="xs:dateTime" minOccurs="0" />
             <xs:element name="Reason" type="xs:string" minOccurs="0" />
             <xs:element ref="Payment" minOccurs="0" />
+            <xs:element name="PaymentRefunded" type="xs:boolean" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
 

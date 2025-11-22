@@ -2,137 +2,447 @@
 <Operator
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="BICYCLE_OPERATOR.XSD">
-<ReferenceData>
+    <ReferenceData>
         <BikeModels>
             <BikeModel id="BM-0001">
                 <Brand>Trek</Brand>
-                <Model>Domane SL6</Model>
-                <Description>High-performance road bike</Description>
+                <Model>Domane SL</Model>
+                <Description>Endurance road bike, carbon frame</Description>
             </BikeModel>
             <BikeModel id="BM-0002">
+                <Brand>Specialized</Brand>
+                <Model>Roubaix</Model>
+                <Description>Comfort race bike with vibration damping</Description>
+            </BikeModel>
+            <BikeModel id="BM-0003">
+                <Brand>Scott</Brand>
+                <Model>Addict</Model>
+                <Description>Lightweight climbing machine</Description>
+            </BikeModel>
+            <BikeModel id="BM-0004">
+                <Brand>Cube</Brand>
+                <Model>Attain</Model>
+                <Description>All-rounder for mixed terrain</Description>
+            </BikeModel>
+            <BikeModel id="BM-0005">
                 <Brand>Giant</Brand>
-                <Model>Talon 3</Model>
-                <Description>Entry-level mountain bike</Description>
+                <Model>Escape</Model>
+                <Description>Reliable hybrid for touring</Description>
+            </BikeModel>
+            <BikeModel id="BM-0006">
+                <Brand>Riese &amp; Müller</Brand>
+                <Model>Charger3</Model>
+                <Description>High-capacity e-bike for assisted tours</Description>
+            </BikeModel>
+            <BikeModel id="BM-0007">
+                <Brand>Cannondale</Brand>
+                <Model>Synapse</Model>
+                <Description>Comfort-focused endurance bike</Description>
+            </BikeModel>
+            <BikeModel id="BM-0008">
+                <Brand>Bombtrack</Brand>
+                <Model>ARC</Model>
+                <Description>Gravel-capable frame</Description>
             </BikeModel>
         </BikeModels>
 
         <TourTypes>
             <TourType id="TT-0001">
-                <Name>Mountain Bike Tour</Name>
-                <Description>Off-road and rough terrain adventure rides</Description>
+                <Name>Guided Road</Name>
+                <Description>Daily guided road rides, luggage transfers included</Description>
             </TourType>
             <TourType id="TT-0002">
-                <Name>Road Tour</Name>
-                <Description>Long-distance cycling on paved roads</Description>
+                <Name>Self-Guided</Name>
+                <Description>Routes provided, accommodation prebooked</Description>
+            </TourType>
+            <TourType id="TT-0003">
+                <Name>Electric Assist</Name>
+                <Description>Leisure tours with e-bike support</Description>
+            </TourType>
+            <TourType id="TT-0004">
+                <Name>Gravel Adventure</Name>
+                <Description>Mixed-surface routes for gravel bikes</Description>
+            </TourType>
+            <TourType id="TT-0005">
+                <Name>Weekend Escape</Name>
+                <Description>Short weekend trips, ideal for busy schedules</Description>
+            </TourType>
+            <TourType id="TT-0006">
+                <Name>Custom Private</Name>
+                <Description>Private group tours tailored to requests</Description>
             </TourType>
         </TourTypes>
 
         <Countries>
+            <Country code="ES">
+                <Name>Spain</Name>
+            </Country>
+            <Country code="FR">
+                <Name>France</Name>
+            </Country>
+            <Country code="IT">
+                <Name>Italy</Name>
+            </Country>
+            <Country code="PT">
+                <Name>Portugal</Name>
+            </Country>
             <Country code="DE">
                 <Name>Germany</Name>
+            </Country>
+            <Country code="NL">
+                <Name>Netherlands</Name>
             </Country>
             <Country code="AT">
                 <Name>Austria</Name>
             </Country>
+            <Country code="CH">
+                <Name>Switzerland</Name>
+            </Country>
+            <Country code="BE">
+                <Name>Belgium</Name>
+            </Country>
+            <Country code="GB">
+                <Name>United Kingdom</Name>
+            </Country>
+            <Country code="US">
+                <Name>United States</Name>
+            </Country>
+            <Country code="JP">
+                <Name>Japan</Name>
+            </Country>
+            <Country code="BR">
+                <Name>Brazil</Name>
+            </Country>
+            <Country code="AU">
+                <Name>Australia</Name>
+            </Country>
         </Countries>
     </ReferenceData>
 
-
-    <!-- ===================== -->
-    <!--        Guides         -->
-    <!-- ===================== -->
     <Guides>
         <Guide id="G-0001">
             <Salutation>Mr</Salutation>
-            <FirstName>Thomas</FirstName>
-            <LastName>Keller</LastName>
-            <DateOfBirth>1985-03-12</DateOfBirth>
+            <FirstName>Pablo</FirstName>
+            <LastName>Gonzalez</LastName>
+            <DateOfBirth>1985-03-11</DateOfBirth>
+            <ExperienceYears>12</ExperienceYears>
+            <SpokenLanguages>Spanish English</SpokenLanguages>
+        </Guide>
+        <Guide id="G-0002">
+            <Salutation>Ms</Salutation>
+            <FirstName>Claire</FirstName>
+            <LastName>Moreau</LastName>
+            <DateOfBirth>1990-07-04</DateOfBirth>
+            <ExperienceYears>9</ExperienceYears>
+            <SpokenLanguages>French English</SpokenLanguages>
+        </Guide>
+        <Guide id="G-0003">
+            <Salutation>Mr</Salutation>
+            <FirstName>Luca</FirstName>
+            <LastName>Russo</LastName>
+            <DateOfBirth>1982-01-20</DateOfBirth>
+            <ExperienceYears>15</ExperienceYears>
+            <SpokenLanguages>Italian English</SpokenLanguages>
+        </Guide>
+        <Guide id="G-0004">
+            <Salutation>Ms</Salutation>
+            <FirstName>Anna</FirstName>
+            <LastName>Müller</LastName>
+            <DateOfBirth>1991-10-10</DateOfBirth>
             <ExperienceYears>8</ExperienceYears>
             <SpokenLanguages>German English</SpokenLanguages>
         </Guide>
-
-        <Guide id="G-0002">
+        <Guide id="G-0005">
+            <Salutation>Mr</Salutation>
+            <FirstName>Tom</FirstName>
+            <LastName>Evans</LastName>
+            <DateOfBirth>1979-06-02</DateOfBirth>
+            <ExperienceYears>20</ExperienceYears>
+            <SpokenLanguages>English Spanish</SpokenLanguages>
+        </Guide>
+        <Guide id="G-0006">
             <Salutation>Ms</Salutation>
-            <FirstName>Anna</FirstName>
-            <LastName>Gruber</LastName>
-            <DateOfBirth>1990-09-04</DateOfBirth>
-            <ExperienceYears>5</ExperienceYears>
-            <SpokenLanguages>German</SpokenLanguages>
+            <FirstName>Sofia</FirstName>
+            <LastName>Kovács</LastName>
+            <DateOfBirth>1987-09-12</DateOfBirth>
+            <ExperienceYears>6</ExperienceYears>
+            <SpokenLanguages>Hungarian English German</SpokenLanguages>
         </Guide>
     </Guides>
 
-
-    <!-- ===================== -->
-    <!--        Clients        -->
-    <!-- ===================== -->
     <Clients>
         <Client id="C-0001">
             <Salutation>Mr</Salutation>
             <FirstName>John</FirstName>
             <LastName>Doe</LastName>
-            <DateOfBirth>1992-05-11</DateOfBirth>
-            <Email>john@example.com</Email>
-            <Phone>+49123456789</Phone>
+            <DateOfBirth>1978-11-20</DateOfBirth>
+            <Email>john.doe@example.com</Email>
+            <Phone>+1-202-555-0172</Phone>
             <Address>
-                <Street>Main Street 12</Street>
+                <Street>123 Maple Ave</Street>
+                <City>Washington</City>
+                <PostalCode>20001</PostalCode>
+                <CountryRef>US</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0002">
+            <Salutation>Ms</Salutation>
+            <FirstName>Akiko</FirstName>
+            <LastName>Sato</LastName>
+            <DateOfBirth>1992-02-15</DateOfBirth>
+            <Email>akiko.sato@example.jp</Email>
+            <Phone>+81-80-1234-5678</Phone>
+            <Address>
+                <Street>2-3-4 Shibuya</Street>
+                <City>Tokyo</City>
+                <PostalCode>150-0002</PostalCode>
+                <CountryRef>JP</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0003">
+            <Salutation>Mr</Salutation>
+            <FirstName>Marcus</FirstName>
+            <LastName>Schmidt</LastName>
+            <DateOfBirth>1988-05-30</DateOfBirth>
+            <Email>marcus.schmidt@example.de</Email>
+            <Phone>+49-30-555-1234</Phone>
+            <Address>
+                <Street>Neue Strasse 12</Street>
                 <City>Berlin</City>
                 <PostalCode>10115</PostalCode>
                 <CountryRef>DE</CountryRef>
             </Address>
         </Client>
+        <Client id="C-0004">
+            <Salutation>Ms</Salutation>
+            <FirstName>Olivia</FirstName>
+            <LastName>Brown</LastName>
+            <DateOfBirth>1990-04-02</DateOfBirth>
+            <Email>olivia.brown@example.co.uk</Email>
+            <Phone>+44-7700-900123</Phone>
+            <Address>
+                <Street>14 King's Rd</Street>
+                <City>London</City>
+                <PostalCode>SW3 4PL</PostalCode>
+                <CountryRef>GB</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0005">
+            <Salutation>Mr</Salutation>
+            <FirstName>Diego</FirstName>
+            <LastName>Martinez</LastName>
+            <DateOfBirth>1984-09-18</DateOfBirth>
+            <Email>diego.m@example.es</Email>
+            <Phone>+34-600-555-444</Phone>
+            <Address>
+                <Street>C/ Mayor 5</Street>
+                <City>Valencia</City>
+                <PostalCode>46001</PostalCode>
+                <CountryRef>ES</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0006">
+            <Salutation>Ms</Salutation>
+            <FirstName>Aisha</FirstName>
+            <LastName>Rahman</LastName>
+            <DateOfBirth>1995-12-07</DateOfBirth>
+            <Email>aisha.rahman@example.pk</Email>
+            <Phone>+92-300-1234567</Phone>
+            <Address>
+                <Street>House 10, Street 5</Street>
+                <City>Lahore</City>
+                <PostalCode>54000</PostalCode>
+                <CountryRef>PK</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0007">
+            <Salutation>Mr</Salutation>
+            <FirstName>Samuel</FirstName>
+            <LastName>Kim</LastName>
+            <DateOfBirth>1986-08-22</DateOfBirth>
+            <Email>sam.kim@example.kr</Email>
+            <Phone>+82-10-1234-5678</Phone>
+            <Address>
+                <Street>12 Gangnam-daero</Street>
+                <City>Seoul</City>
+                <PostalCode>06236</PostalCode>
+                <CountryRef>KR</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0008">
+            <Salutation>Ms</Salutation>
+            <FirstName>Thandiwe</FirstName>
+            <LastName>Mbeki</LastName>
+            <DateOfBirth>1975-05-05</DateOfBirth>
+            <Email>thandiwe.m@example.za</Email>
+            <Phone>+27-21-555-0101</Phone>
+            <Address>
+                <Street>45 Long St</Street>
+                <City>Cape Town</City>
+                <PostalCode>8001</PostalCode>
+                <CountryRef>ZA</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0009">
+            <Salutation>Mr</Salutation>
+            <FirstName>Omar</FirstName>
+            <LastName>Al-Farouq</LastName>
+            <DateOfBirth>1991-03-17</DateOfBirth>
+            <Email>omar.f@example.ae</Email>
+            <Phone>+971-50-1234567</Phone>
+            <Address>
+                <Street>Office 20, Al Rigga</Street>
+                <City>Dubai</City>
+                <PostalCode>00000</PostalCode>
+                <CountryRef>AE</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0010">
+            <Salutation>Ms</Salutation>
+            <FirstName>Maria</FirstName>
+            <LastName>Silva</LastName>
+            <DateOfBirth>1989-06-30</DateOfBirth>
+            <Email>maria.silva@example.br</Email>
+            <Phone>+55-21-99999-0000</Phone>
+            <Address>
+                <Street>Rua das Flores 123</Street>
+                <City>Rio de Janeiro</City>
+                <PostalCode>20000-000</PostalCode>
+                <CountryRef>BR</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0011">
+            <Salutation>Mr</Salutation>
+            <FirstName>Ivan</FirstName>
+            <LastName>Petrov</LastName>
+            <DateOfBirth>1977-02-11</DateOfBirth>
+            <Email>ivan.petrov@example.ru</Email>
+            <Phone>+7-495-555-1212</Phone>
+            <Address>
+                <Street>Tverskaya 7</Street>
+                <City>Moscow</City>
+                <PostalCode>125009</PostalCode>
+                <CountryRef>RU</CountryRef>
+            </Address>
+        </Client>
+        <Client id="C-0012">
+            <Salutation>Ms</Salutation>
+            <FirstName>Lea</FirstName>
+            <LastName>Dupont</LastName>
+            <DateOfBirth>1993-11-01</DateOfBirth>
+            <Email>lea.dupont@example.fr</Email>
+            <Phone>+33-6-12-34-56-78</Phone>
+            <Address>
+                <Street>8 Rue de la Paix</Street>
+                <City>Paris</City>
+                <PostalCode>75002</PostalCode>
+                <CountryRef>FR</CountryRef>
+            </Address>
+        </Client>
     </Clients>
 
-
-    <!-- ===================== -->
-    <!--        Regions        -->
-    <!-- ===================== -->
     <Regions>
         <Region>
-            <Name>Bavaria</Name>
-            <CountryRef>DE</CountryRef>
-
-            <!-- Cycling routes -->
+            <Name>Catalonia Coast</Name>
+            <CountryRef>ES</CountryRef>
             <CyclingRoutes>
                 <CyclingRoute id="CY-0001">
-                    <Name>Bavarian Lakes Loop</Name>
-                    <Distance unit="km">85</Distance>
+                    <Name>Coastal Loop</Name>
+                    <Distance unit="km">92.50</Distance>
                     <Surface>Paved</Surface>
                     <CyclingRouteDifficulty>Moderate</CyclingRouteDifficulty>
                     <Coordinates>
-                        <Point lat="47.5541" lon="11.2891" />
-                        <Point lat="47.6501" lon="11.4705" />
+                        <Point lat="41.39" lon="2.17" />
+                        <Point lat="41.60" lon="2.50" />
+                        <Point lat="41.90" lon="2.20" />
+                    </Coordinates>
+                </CyclingRoute>
+                <CyclingRoute id="CY-0002">
+                    <Name>Inland Hills</Name>
+                    <Distance unit="km">65.00</Distance>
+                    <Surface>Mixed</Surface>
+                    <CyclingRouteDifficulty>Hard</CyclingRouteDifficulty>
+                    <Coordinates>
+                        <Point lat="41.45" lon="2.25" />
+                        <Point lat="41.70" lon="2.30" />
                     </Coordinates>
                 </CyclingRoute>
             </CyclingRoutes>
 
-            <!-- Bike renters -->
+            <AccommodationRenters>
+                <AccommodationRenter id="A-0001">
+                    <Name>Seaside Hotel</Name>
+                    <Address>
+                        <Street>Paseo Mar 1</Street>
+                        <City>Barcelona</City>
+                        <PostalCode>08003</PostalCode>
+                        <CountryRef>ES</CountryRef>
+                    </Address>
+                    <Phone>+34-93-555-0100</Phone>
+                    <Email>reservations@seaside.example.es</Email>
+                </AccommodationRenter>
+                <AccommodationRenter id="A-0002">
+                    <Name>Boutique Inn</Name>
+                    <Address>
+                        <Street>C/ Llibertat 10</Street>
+                        <City>Girona</City>
+                        <PostalCode>17001</PostalCode>
+                        <CountryRef>ES</CountryRef>
+                    </Address>
+                    <Phone>+34-97-333-2200</Phone>
+                    <Email>info@boutique.example.es</Email>
+                </AccommodationRenter>
+            </AccommodationRenters>
+
             <BikeRenters>
                 <BikeRenter id="BR-0001">
-                    <Name>Alpine Bikes</Name>
-                    <Phone>+498812345</Phone>
-                    <Email>info@alpinebikes.com</Email>
+                    <Name>Bike &amp; Go Rentals</Name>
+                    <Phone>+34-93-555-0200</Phone>
+                    <Email>info@bikeandgo.example.es</Email>
                     <Address>
-                        <Street>Alte Gasse 5</Street>
-                        <City>Garmisch</City>
-                        <PostalCode>82467</PostalCode>
-                        <CountryRef>DE</CountryRef>
+                        <Street>Carrer Bici 2</Street>
+                        <City>Barcelona</City>
+                        <PostalCode>08002</PostalCode>
+                        <CountryRef>ES</CountryRef>
                     </Address>
                 </BikeRenter>
             </BikeRenters>
 
-            <!-- Tours -->
             <Tours>
                 <Tour>
-                    <Title>Bavarian Mountains Experience</Title>
-                    <Duration unit="days">3</Duration>
+                    <Title>Catalonia Coastal Week</Title>
+                    <Duration unit="days">7</Duration>
                     <TourTypeRef>TT-0001</TourTypeRef>
                     <TourProgram>
                         <TourProgramDay number="1">
-                            <Title>Warm-up Ride</Title>
+                            <Title>Arrival &amp; Orientation</Title>
                             <TourActivities>
                                 <TourActivity>
-                                    <Name>Easy trail introduction</Name>
+                                    <Name>Check-in</Name>
+                                    <Duration unit="hours">2</Duration>
+                                    <Description>Welcome briefing &amp; bike fitting</Description>
+                                </TourActivity>
+                                <TourActivity>
+                                    <Name>Evening ride</Name>
                                     <Duration unit="hours">3</Duration>
+                                </TourActivity>
+                            </TourActivities>
+                        </TourProgramDay>
+                        <TourProgramDay number="2">
+                            <Title>Coastal Ride</Title>
+                            <TourActivities>
+                                <TourActivity>
+                                    <Name>Guided ride along coast</Name>
+                                    <Duration unit="hours">6</Duration>
+                                </TourActivity>
+                            </TourActivities>
+                        </TourProgramDay>
+                        <TourProgramDay number="3">
+                            <Title>Hills &amp; Vineyards</Title>
+                            <TourActivities>
+                                <TourActivity>
+                                    <Name>Scenic climbs</Name>
+                                    <Duration unit="hours">5</Duration>
                                 </TourActivity>
                             </TourActivities>
                         </TourProgramDay>
@@ -140,21 +450,46 @@
 
                     <TourEvents>
                         <TourEvent>
-                            <StartDate>2025-07-15</StartDate>
-                            <Price currency="EUR">299.00</Price>
-
+                            <CreatedAt>2025-05-01T09:00:00Z</CreatedAt>
+                            <TourEventStatus>
+                                <TourEventOpen>
+                                    <ClosesAt>2025-06-15T23:59:00Z</ClosesAt>
+                                </TourEventOpen>
+                            </TourEventStatus>
+                            <StartDate>2025-07-05</StartDate>
+                            <Price currency="EUR">1499.00</Price>
                             <EventGuides>
                                 <GuideRef>G-0001</GuideRef>
-                                <GuideRef>G-0002</GuideRef>
+                                <GuideRef>G-0005</GuideRef>
                             </EventGuides>
 
+                            <EventAccommodations>
+                                <EventAccommodation id="EA-0001">
+                                    <AccommodationRenterRef>A-0001</AccommodationRenterRef>
+                                    <AccommodationQuality>4-star</AccommodationQuality>
+                                    <PricePerNight currency="EUR">120.00</PricePerNight>
+                                </EventAccommodation>
+                                <EventAccommodation id="EA-0002">
+                                    <AccommodationRenterRef>A-0002</AccommodationRenterRef>
+                                    <AccommodationQuality>3-star </AccommodationQuality>
+                                    <PricePerNight currency="EUR">85.00</PricePerNight>
+                                </EventAccommodation>
+                            </EventAccommodations>
+
                             <EventBikes>
-                                <EventBikeRental id="EBR-0001">
+                                <EventBikeRental id="BR-0010">
                                     <BikeModelRef>BM-0001</BikeModelRef>
                                     <BikeRenterRef>BR-0001</BikeRenterRef>
                                     <PricePerDay currency="EUR">25.00</PricePerDay>
-                                    <AvailableQuantity>10</AvailableQuantity>
+                                    <AvailableQuantity>8</AvailableQuantity>
                                     <BikeFrameSize>M</BikeFrameSize>
+                                </EventBikeRental>
+                                <EventBikeRental id="BR-0011">
+                                    <BikeModelRef>BM-0006</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">40.00</PricePerDay>
+                                    <AvailableQuantity>4</AvailableQuantity>
+                                    <BikeFrameSize>L</BikeFrameSize>
                                 </EventBikeRental>
                             </EventBikes>
 
@@ -164,21 +499,389 @@
 
                             <EventBookings>
                                 <Booking>
-                                    <CreatedAt>2025-02-01T11:22:00</CreatedAt>
+                                    <CreatedAt>2025-05-05T14:20:00Z</CreatedAt>
                                     <ClientRef>C-0001</ClientRef>
-                                    <ParticipantsCount>2</ParticipantsCount>
-
-                                    <BookedAccommodations />
+                                    <ParticipantCount>2</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0001</EventAccommodationRef>
+                                            <GuestCount>2</GuestCount>
+                                            <Nights>6</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
                                     <BookedBikes>
                                         <BookedBike>
-                                            <EventBikeRentalRef>EBR-0001</EventBikeRentalRef>
+                                            <EventBikeRentalRef>BR-0010</EventBikeRentalRef>
                                             <Quantity>2</Quantity>
+                                            <Days>7</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCompleted>
+                                            <CompletedAt>2025-05-06T10:00:00Z</CompletedAt>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">1798.00</AmountPaid>
+                                                <CompletedAt>2025-05-06T10:00:00Z</CompletedAt>
+                                            </Payment>
+                                        </BookingCompleted>
+                                    </BookingStatus>
+                                </Booking>
+
+                                <Booking>
+                                    <CreatedAt>2025-06-01T08:30:00Z</CreatedAt>
+                                    <ClientRef>C-0002</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0002</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>6</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0010</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
+                                            <Days>7</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingPending />
+                                    </BookingStatus>
+                                </Booking>
+
+                                <Booking>
+                                    <CreatedAt>2025-06-10T11:00:00Z</CreatedAt>
+                                    <ClientRef>C-0003</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0001</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>6</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0011</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
+                                            <Days>7</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCancelled>
+                                            <CancelledAt>2025-06-12T09:15:00Z</CancelledAt>
+                                            <Reason>Medical emergency</Reason>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">1499.00</AmountPaid>
+                                                <CompletedAt>2025-06-10T11:05:00Z</CompletedAt>
+                                            </Payment>
+                                            <PaymentRefunded>true</PaymentRefunded>
+                                        </BookingCancelled>
+                                    </BookingStatus>
+                                </Booking>
+
+                                <Booking>
+                                    <CreatedAt>2025-06-20T09:00:00Z</CreatedAt>
+                                    <ClientRef>C-0012</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0001</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>6</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0010</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
+                                            <Days>7</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCancelled>
+                                            <CancelledAt>2025-06-25T08:30:00Z</CancelledAt>
+                                            <Reason>Route closure due to scheduled roadworks</Reason>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">1499.00</AmountPaid>
+                                                <CompletedAt>2025-06-20T09:05:00Z</CompletedAt>
+                                            </Payment>
+                                            <PaymentRefunded>true</PaymentRefunded>
+                                        </BookingCancelled>
+                                    </BookingStatus>
+                                </Booking>
+                            </EventBookings>
+                        </TourEvent>
+
+                        <TourEvent>
+                            <CreatedAt>2024-10-01T09:00:00Z</CreatedAt>
+                            <TourEventStatus>
+                                <TourEventClosed>
+                                    <ClosedAt>2025-03-01T12:00:00Z</ClosedAt>
+                                </TourEventClosed>
+                            </TourEventStatus>
+                            <StartDate>2025-03-15</StartDate>
+                            <Price currency="EUR">1299.00</Price>
+                            <EventGuides>
+                                <GuideRef>G-0002</GuideRef>
+                            </EventGuides>
+                            <EventAccommodations>
+                                <EventAccommodation id="EA-0010">
+                                    <AccommodationRenterRef>A-0001</AccommodationRenterRef>
+                                    <PricePerNight currency="EUR">110.00</PricePerNight>
+                                </EventAccommodation>
+                            </EventAccommodations>
+                            <EventBikes>
+                                <EventBikeRental id="BR-0020">
+                                    <BikeModelRef>BM-0002</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">18.00</PricePerDay>
+                                    <AvailableQuantity>4</AvailableQuantity>
+                                    <BikeFrameSize>S</BikeFrameSize>
+                                </EventBikeRental>
+                            </EventBikes>
+                            <EventCyclingRoutes>
+                                <CyclingRouteRef>CY-0002</CyclingRouteRef>
+                            </EventCyclingRoutes>
+                            <EventBookings>
+                                <Booking>
+                                    <CreatedAt>2024-11-05T16:45:00Z</CreatedAt>
+                                    <ClientRef>C-0001</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0010</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>5</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0020</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
+                                            <Days>6</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCompleted>
+                                            <CompletedAt>2024-11-06T09:00:00Z</CompletedAt>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">1399.00</AmountPaid>
+                                                <CompletedAt>2024-11-06T09:00:00Z</CompletedAt>
+                                            </Payment>
+                                        </BookingCompleted>
+                                    </BookingStatus>
+                                </Booking>
+                            </EventBookings>
+                        </TourEvent>
+
+                        <TourEvent>
+                            <CreatedAt>2024-12-01T08:00:00Z</CreatedAt>
+                            <TourEventStatus>
+                                <TourEventCancelled>
+                                    <CancelledAt>2025-02-20T14:30:00Z</CancelledAt>
+                                    <Reason>Unforeseen route damage after storms — safety concerns</Reason>
+                                </TourEventCancelled>
+                            </TourEventStatus>
+                            <StartDate>2025-04-10</StartDate>
+                            <Price currency="EUR">1399.00</Price>
+                            <EventGuides>
+                                <GuideRef>G-0001</GuideRef>
+                            </EventGuides>
+                            <EventAccommodations>
+                                <EventAccommodation id="EA-0020">
+                                    <AccommodationRenterRef>A-0001</AccommodationRenterRef>
+                                    <PricePerNight currency="EUR">115.00</PricePerNight>
+                                </EventAccommodation>
+                            </EventAccommodations>
+                            <EventBikes>
+                                <EventBikeRental id="BR-0030">
+                                    <BikeModelRef>BM-0001</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">25.00</PricePerDay>
+                                    <AvailableQuantity>8</AvailableQuantity>
+                                    <BikeFrameSize>L</BikeFrameSize>
+                                </EventBikeRental>
+                            </EventBikes>
+                            <EventCyclingRoutes>
+                                <CyclingRouteRef>CY-0001</CyclingRouteRef>
+                            </EventCyclingRoutes>
+                            <EventBookings>
+                                <Booking>
+                                    <CreatedAt>2025-01-10T10:00:00Z</CreatedAt>
+                                    <ClientRef>C-0002</ClientRef>
+                                    <ParticipantCount>2</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0020</EventAccommodationRef>
+                                            <GuestCount>2</GuestCount>
+                                            <Nights>6</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0030</EventBikeRentalRef>
+                                            <Quantity>2</Quantity>
+                                            <Days>7</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCancelled>
+                                            <CancelledAt>2025-02-21T09:00:00Z</CancelledAt>
+                                            <Reason>Event cancelled by operator</Reason>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">2998.00</AmountPaid>
+                                                <CompletedAt>2025-01-10T10:05:00Z</CompletedAt>
+                                            </Payment>
+                                            <PaymentRefunded>true</PaymentRefunded>
+                                        </BookingCancelled>
+                                    </BookingStatus>
+                                </Booking>
+                            </EventBookings>
+                        </TourEvent>
+                    </TourEvents>
+                </Tour>
+
+                <Tour>
+                    <Title>Barcelona Weekend Escape</Title>
+                    <Duration unit="days">3</Duration>
+                    <TourTypeRef>TT-0005</TourTypeRef>
+                    <TourProgram>
+                        <TourProgramDay number="1">
+                            <Title>City &amp; Coast</Title>
+                            <TourActivities>
+                                <TourActivity>
+                                    <Name>Intro ride</Name>
+                                    <Duration unit="hours">4</Duration>
+                                </TourActivity>
+                            </TourActivities>
+                        </TourProgramDay>
+                        <TourProgramDay number="2">
+                            <Title>Coastal loop</Title>
+                            <TourActivities>
+                                <TourActivity>
+                                    <Name>Full day ride</Name>
+                                    <Duration unit="hours">6</Duration>
+                                </TourActivity>
+                            </TourActivities>
+                        </TourProgramDay>
+                    </TourProgram>
+
+                    <TourEvents>
+                        <TourEvent>
+                            <CreatedAt>2025-06-01T07:00:00Z</CreatedAt>
+                            <TourEventStatus>
+                                <TourEventOpen>
+                                    <ClosesAt>2025-07-01T23:59:00Z</ClosesAt>
+                                </TourEventOpen>
+                            </TourEventStatus>
+                            <StartDate>2025-08-02</StartDate>
+                            <Price currency="EUR">499.00</Price>
+                            <EventGuides>
+                                <GuideRef>G-0005</GuideRef>
+                            </EventGuides>
+                            <EventAccommodations>
+                                <EventAccommodation id="EA-0030">
+                                    <AccommodationRenterRef>A-0002</AccommodationRenterRef>
+                                    <PricePerNight currency="EUR">90.00</PricePerNight>
+                                </EventAccommodation>
+                            </EventAccommodations>
+                            <EventBikes>
+                                <EventBikeRental id="BR-0040">
+                                    <BikeModelRef>BM-0004</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">20.00</PricePerDay>
+                                    <AvailableQuantity>6</AvailableQuantity>
+                                    <BikeFrameSize>S</BikeFrameSize>
+                                </EventBikeRental>
+                            </EventBikes>
+                            <EventCyclingRoutes>
+                                <CyclingRouteRef>CY-0001</CyclingRouteRef>
+                            </EventCyclingRoutes>
+                            <EventBookings>
+                                <Booking>
+                                    <CreatedAt>2025-06-05T09:30:00Z</CreatedAt>
+                                    <ClientRef>C-0005</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0030</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>2</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0040</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
                                             <Days>3</Days>
                                         </BookedBike>
                                     </BookedBikes>
-
                                     <BookingStatus>
-                                        <Pending />
+                                        <BookingPending />
+                                    </BookingStatus>
+                                </Booking>
+                            </EventBookings>
+                        </TourEvent>
+
+                        <TourEvent>
+                            <CreatedAt>2024-03-01T06:00:00Z</CreatedAt>
+                            <TourEventStatus>
+                                <TourEventClosed>
+                                    <ClosedAt>2024-05-01T12:00:00Z</ClosedAt>
+                                </TourEventClosed>
+                            </TourEventStatus>
+                            <StartDate>2024-06-15</StartDate>
+                            <Price currency="EUR">459.00</Price>
+                            <EventGuides>
+                                <GuideRef>G-0005</GuideRef>
+                            </EventGuides>
+                            <EventAccommodations>
+                                <EventAccommodation id="EA-0040">
+                                    <AccommodationRenterRef>A-0002</AccommodationRenterRef>
+                                    <PricePerNight currency="EUR">85.00</PricePerNight>
+                                </EventAccommodation>
+                            </EventAccommodations>
+                            <EventBikes>
+                                <EventBikeRental id="BR-0041">
+                                    <BikeModelRef>BM-0005</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">15.00</PricePerDay>
+                                    <AvailableQuantity>10</AvailableQuantity>
+                                    <BikeFrameSize>M</BikeFrameSize>
+                                </EventBikeRental>
+                            </EventBikes>
+                            <EventCyclingRoutes>
+                                <CyclingRouteRef>CY-0001</CyclingRouteRef>
+                            </EventCyclingRoutes>
+                            <EventBookings>
+                                <Booking>
+                                    <CreatedAt>2024-04-10T10:00:00Z</CreatedAt>
+                                    <ClientRef>C-0004</ClientRef>
+                                    <ParticipantCount>1</ParticipantCount>
+                                    <BookedAccommodations>
+                                        <BookedAccommodation>
+                                            <EventAccommodationRef>EA-0040</EventAccommodationRef>
+                                            <GuestCount>1</GuestCount>
+                                            <Nights>2</Nights>
+                                        </BookedAccommodation>
+                                    </BookedAccommodations>
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>BR-0041</EventBikeRentalRef>
+                                            <Quantity>1</Quantity>
+                                            <Days>3</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+                                    <BookingStatus>
+                                        <BookingCompleted>
+                                            <CompletedAt>2024-04-11T09:00:00Z</CompletedAt>
+                                            <Payment>
+                                                <AmountPaid currency="EUR">459.00</AmountPaid>
+                                                <CompletedAt>2024-04-11T09:00:00Z</CompletedAt>
+                                            </Payment>
+                                        </BookingCompleted>
                                     </BookingStatus>
                                 </Booking>
                             </EventBookings>
@@ -188,5 +891,4 @@
             </Tours>
         </Region>
     </Regions>
-
 </Operator>
