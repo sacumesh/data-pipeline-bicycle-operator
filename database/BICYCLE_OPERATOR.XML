@@ -119,6 +119,12 @@
             <Country code="PK">
                 <Name>Pakistan</Name>
             </Country>
+            <Country code="AE">
+                <Name>United Arab Emirates</Name>
+            </Country>
+            <Country code="RU">
+                <Name>Russia</Name>
+            </Country>
         </Countries>
     </ReferenceData>
 
@@ -269,7 +275,7 @@
                 <Street>12 Gangnam-daero</Street>
                 <City>Seoul</City>
                 <PostalCode>06236</PostalCode>
-                <CountryRef>KR</CountryRef>
+                <CountryRef>PK</CountryRef>
             </Address>
         </Client>
         <Client id="C-0008">
@@ -283,7 +289,7 @@
                 <Street>45 Long St</Street>
                 <City>Cape Town</City>
                 <PostalCode>8001</PostalCode>
-                <CountryRef>ZA</CountryRef>
+                <CountryRef>PK</CountryRef>
             </Address>
         </Client>
         <Client id="C-0009">
