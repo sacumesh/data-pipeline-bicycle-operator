@@ -374,10 +374,10 @@
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
             <xs:element name="CountryRef" type="xs:string" />
-            <xs:element ref="CyclingRoutes" minOccurs="0" />
+            <xs:element ref="CyclingRoutes" />
             <xs:element ref="AccommodationRenters" minOccurs="0" />
             <xs:element ref="BikeRenters" minOccurs="0" />
-            <xs:element ref="Tours" minOccurs="0" />
+            <xs:element ref="Tours" />
         </xs:sequence>
     </xs:complexType>
 
@@ -586,12 +586,14 @@
             <xs:element name="StartDate" type="xs:date" />
             <xs:element name="Price" type="PriceEUR_T" />
             <xs:element ref="EventGuides" />
-            <xs:element ref="EventAccommodations" />
-            <xs:element ref="EventBikes" />
+            <xs:element ref="EventAccommodations" minOccurs="0" />
+            <xs:element ref="EventBikes" minOccurs="0" />
             <xs:element ref="EventCyclingRoutes" />
             <xs:element ref="EventBookings" />
         </xs:sequence>
+
     </xs:complexType>
+
 
     <xs:element name="TourEventStatus" type="TourEventStatus_T" />
     <xs:complexType name="TourEventStatus_T">
@@ -629,10 +631,19 @@
     <xs:element name="EventGuides">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="GuideRef" type="xs:string" maxOccurs="unbounded" />
+                <xs:element name="GuideRef" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
+            <xs:attribute name="tourGuidanceStatus" type="tourGuidanceStatus_T" use="required" />
         </xs:complexType>
     </xs:element>
+
+
+    <xs:simpleType name="tourGuidanceStatus_T">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Guided" />
+            <xs:enumeration value="Unguided" />
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:element name="EventAccommodations">
         <xs:complexType>

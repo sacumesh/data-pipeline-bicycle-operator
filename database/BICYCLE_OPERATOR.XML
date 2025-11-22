@@ -467,10 +467,12 @@
                             </TourEventStatus>
                             <StartDate>2025-07-05</StartDate>
                             <Price currency="EUR">1499.00</Price>
-                            <EventGuides>
+
+                            <EventGuides tourGuidanceStatus="Guided">
                                 <GuideRef>G-0001</GuideRef>
                                 <GuideRef>G-0005</GuideRef>
                             </EventGuides>
+
 
                             <EventAccommodations>
                                 <EventAccommodation id="EA-0001">
@@ -632,9 +634,11 @@
                             </TourEventStatus>
                             <StartDate>2025-03-15</StartDate>
                             <Price currency="EUR">1299.00</Price>
-                            <EventGuides>
+
+                            <EventGuides tourGuidanceStatus="Guided">
                                 <GuideRef>G-0002</GuideRef>
                             </EventGuides>
+
                             <EventAccommodations>
                                 <EventAccommodation id="EA-0010">
                                     <AccommodationRenterRef>A-0001</AccommodationRenterRef>
@@ -695,9 +699,11 @@
                             </TourEventStatus>
                             <StartDate>2025-04-10</StartDate>
                             <Price currency="EUR">1399.00</Price>
-                            <EventGuides>
+
+                            <EventGuides tourGuidanceStatus="Guided">
                                 <GuideRef>G-0001</GuideRef>
                             </EventGuides>
+
                             <EventAccommodations>
                                 <EventAccommodation id="EA-0020">
                                     <AccommodationRenterRef>A-0001</AccommodationRenterRef>
@@ -787,9 +793,9 @@
                             </TourEventStatus>
                             <StartDate>2025-08-02</StartDate>
                             <Price currency="EUR">499.00</Price>
-                            <EventGuides>
-                                <GuideRef>G-0005</GuideRef>
-                            </EventGuides>
+
+                            <EventGuides tourGuidanceStatus="Unguided"></EventGuides>
+
                             <EventAccommodations>
                                 <EventAccommodation id="EA-0030">
                                     <AccommodationRenterRef>A-0002</AccommodationRenterRef>
@@ -843,7 +849,7 @@
                             </TourEventStatus>
                             <StartDate>2024-06-15</StartDate>
                             <Price currency="EUR">459.00</Price>
-                            <EventGuides>
+                            <EventGuides tourGuidanceStatus="Guided">
                                 <GuideRef>G-0005</GuideRef>
                             </EventGuides>
                             <EventAccommodations>
