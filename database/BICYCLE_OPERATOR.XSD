@@ -282,7 +282,6 @@
     </xs:simpleType>
 
 
-
     <xs:complexType name="PriceEUR_T">
         <xs:simpleContent>
             <xs:extension base="xs:decimal">
@@ -413,7 +412,6 @@
         </xs:sequence>
         <xs:attribute name="id" type="RegionID_T" use="required" />
     </xs:complexType>
-    
 
 
     <xs:element name="CyclingRoutes">
@@ -452,7 +450,7 @@
     <xs:complexType name="CyclingRoute_T">
         <xs:sequence>
             <xs:element name="Name" type="xs:string" />
-            <xs:element name="Distance" type="Distance_T"/>
+            <xs:element name="Distance" type="Distance_T" />
             <xs:element name="Surface" type="xs:string" />
             <xs:element ref="CyclingRouteDifficulty" />
             <xs:element ref="Coordinates" />
@@ -546,7 +544,7 @@
         <xs:sequence>
             <xs:element name="Brand" type="xs:string" />
             <xs:element name="Model" type="xs:string" />
-            <xs:element name="BikeType" type="xs:string"/>
+            <xs:element name="BikeType" type="xs:string" />
             <xs:element name="PricePerDay" type="PriceEUR_T" />
         </xs:sequence>
         <xs:attribute name="id" type="BikeID_T" use="required" />
@@ -670,7 +668,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    
+
     <xs:element name="AccommodationQuality" type="AccommodationQuality_T" />
     <xs:simpleType name="AccommodationQuality_T">
         <xs:restriction base="xs:string">
@@ -679,7 +677,6 @@
             <xs:enumeration value="5-star" />
         </xs:restriction>
     </xs:simpleType>
-
 
 
     <xs:element name="EventBikeRental" type="EventBikeRental_T" />
