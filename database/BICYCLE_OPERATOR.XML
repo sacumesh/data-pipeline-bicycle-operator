@@ -2,268 +2,191 @@
 <Operator
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="BICYCLE_OPERATOR.XSD">
+<ReferenceData>
+        <BikeModels>
+            <BikeModel id="BM-0001">
+                <Brand>Trek</Brand>
+                <Model>Domane SL6</Model>
+                <Description>High-performance road bike</Description>
+            </BikeModel>
+            <BikeModel id="BM-0002">
+                <Brand>Giant</Brand>
+                <Model>Talon 3</Model>
+                <Description>Entry-level mountain bike</Description>
+            </BikeModel>
+        </BikeModels>
+
+        <TourTypes>
+            <TourType id="TT-0001">
+                <Name>Mountain Bike Tour</Name>
+                <Description>Off-road and rough terrain adventure rides</Description>
+            </TourType>
+            <TourType id="TT-0002">
+                <Name>Road Tour</Name>
+                <Description>Long-distance cycling on paved roads</Description>
+            </TourType>
+        </TourTypes>
+
+        <Countries>
+            <Country code="DE">
+                <Name>Germany</Name>
+            </Country>
+            <Country code="AT">
+                <Name>Austria</Name>
+            </Country>
+        </Countries>
+    </ReferenceData>
 
 
-    <PhysicalLevels>
-        <PhysicalLevel id="PL01">
-            <Name>Beginner</Name>
-            <UserProfile>You ride occasionally and can handle short rides up to 50 km per day.</UserProfile>
-            <TourProfile>40 to 60 km per day, mostly flat terrain.</TourProfile>
-        </PhysicalLevel>
-
-        <PhysicalLevel id="PL02">
-            <Name>Intermediate</Name>
-            <UserProfile>You ride regularly and can handle rides up to 80 km per day with some elevation.</UserProfile>
-            <TourProfile>60 to 90 km per day, mixed terrain with moderate climbs.</TourProfile>
-        </PhysicalLevel>
-
-        <PhysicalLevel id="PL03">
-            <Name>Advanced</Name>
-            <UserProfile>You are an experienced cyclist capable of long rides up to 120 km per day with significant elevation.</UserProfile>
-            <TourProfile>90 to 120 km per day, hilly or mountainous terrain.</TourProfile>
-        </PhysicalLevel>
-    </PhysicalLevels>
-
-    <Bikes>
-        <Bike id="B-0000-0000-0001">
-            <Brand></Brand>
-            <Model></Model>
-            <BikeType>Mountain</BikeType>
-            <PricePerDay currency="EUR">15.00</PricePerDay>
-        </Bike>
-    </Bikes>
-
-
+    <!-- ===================== -->
+    <!--        Guides         -->
+    <!-- ===================== -->
     <Guides>
-        <Guide id="G-0000-0000-1111">
+        <Guide id="G-0001">
             <Salutation>Mr</Salutation>
-            <FirstName>abc</FirstName>
-            <LastName>def</LastName>
-            <DateOfBirth>1988-04-10</DateOfBirth>
+            <FirstName>Thomas</FirstName>
+            <LastName>Keller</LastName>
+            <DateOfBirth>1985-03-12</DateOfBirth>
             <ExperienceYears>8</ExperienceYears>
-
-            <Languages>
-                <Language>French</Language>
-                <Language>English</Language>
-            </Languages>
-
-            <Specialties>
-                <GuideSpecialty>Mountain Biking</GuideSpecialty>
-                <GuideSpecialty>Endurance Tours</GuideSpecialty>
-            </Specialties>
-            <Email>jean.dupont@example.com</Email>
-            <Phone>+33 6 12 34 56 78</Phone>
+            <SpokenLanguages>German English</SpokenLanguages>
         </Guide>
 
-        <Guide id="G-0000-0000-0002">
-            <Salutation>Mr</Salutation>
-            <FirstName>abc</FirstName>
-            <LastName>def</LastName>
-            <DateOfBirth>1988-04-10</DateOfBirth>
-            <ExperienceYears>8</ExperienceYears>
-
-            <Languages>
-                <Language>French</Language>
-                <Language>English</Language>
-            </Languages>
-
-            <Specialties>
-                <GuideSpecialty>Mountain Biking</GuideSpecialty>
-                <GuideSpecialty>Endurance Tours</GuideSpecialty>
-            </Specialties>
-            <Email>jean.dupont@example.com</Email>
-            <Phone>+33 6 12 34 56 78</Phone>
+        <Guide id="G-0002">
+            <Salutation>Ms</Salutation>
+            <FirstName>Anna</FirstName>
+            <LastName>Gruber</LastName>
+            <DateOfBirth>1990-09-04</DateOfBirth>
+            <ExperienceYears>5</ExperienceYears>
+            <SpokenLanguages>German</SpokenLanguages>
         </Guide>
     </Guides>
 
+
+    <!-- ===================== -->
+    <!--        Clients        -->
+    <!-- ===================== -->
     <Clients>
-        <Client id="C-0000-0000-0000">
+        <Client id="C-0001">
             <Salutation>Mr</Salutation>
             <FirstName>John</FirstName>
-            <LastName>Smith</LastName>
-            <DateOfBirth>1985-05-20</DateOfBirth>
-            <Email>john.smith@example.com</Email>
-            <Phone>+44 123 456 789</Phone>
-            <Address>
-                <Street>123 Baker Street</Street>
-                <City>London</City>
-                <PostalCode>NW1 6XE</PostalCode>
-                <Country>France</Country>
-            </Address>
-        </Client>
-
-        <Client id="C-0000-0000-0001">
-            <Salutation>Ms</Salutation>
-            <FirstName>Jane</FirstName>
             <LastName>Doe</LastName>
-            <DateOfBirth>1990-07-01</DateOfBirth>
-            <Email>jane.doe@example.com</Email>
-            <Phone>+44 987 654 321</Phone>
+            <DateOfBirth>1992-05-11</DateOfBirth>
+            <Email>john@example.com</Email>
+            <Phone>+49123456789</Phone>
             <Address>
-                <Street>45 High Street</Street>
-                <City>Bath</City>
-                <PostalCode>BA1 1AA</PostalCode>
-                <Country>United Kingdom</Country>
+                <Street>Main Street 12</Street>
+                <City>Berlin</City>
+                <PostalCode>10115</PostalCode>
+                <CountryRef>DE</CountryRef>
             </Address>
         </Client>
-
     </Clients>
 
 
+    <!-- ===================== -->
+    <!--        Regions        -->
+    <!-- ===================== -->
     <Regions>
-        <Region id="R-0001-0002-0000">
-            <Name>Provence</Name>
-            <Country>France</Country>
+        <Region>
+            <Name>Bavaria</Name>
+            <CountryRef>DE</CountryRef>
 
+            <!-- Cycling routes -->
             <CyclingRoutes>
-                <CyclingRoute id="CY-0000-0000-0001">
-                    <Name>Mont Ventoux Loop</Name>
-                    <Distance unit="km">110</Distance>
-                    <Surface>Asphalt</Surface>
-                    <CyclingRouteDifficulty>Easy</CyclingRouteDifficulty>
+                <CyclingRoute id="CY-0001">
+                    <Name>Bavarian Lakes Loop</Name>
+                    <Distance unit="km">85</Distance>
+                    <Surface>Paved</Surface>
+                    <CyclingRouteDifficulty>Moderate</CyclingRouteDifficulty>
                     <Coordinates>
-                        <Point lat="44.1734" lon="5.2703" />
-                        <Point lat="44.1800" lon="5.2800" />
-                    </Coordinates>
-                </CyclingRoute>
-
-                <CyclingRoute id="CY-0000-0000-0002">
-                    <Name>Baronnies Hills Trail</Name>
-                    <Distance unit="km">130</Distance>
-                    <Surface>Gravel</Surface>
-                    <CyclingRouteDifficulty>Hard</CyclingRouteDifficulty>
-                    <Coordinates>
-                        <Point lat="44.1500" lon="5.2500" />
-                        <Point lat="44.1600" lon="5.2600" />
+                        <Point lat="47.5541" lon="11.2891" />
+                        <Point lat="47.6501" lon="11.4705" />
                     </Coordinates>
                 </CyclingRoute>
             </CyclingRoutes>
 
-            <Accommodations>
-                <Accommodation id="A-0001-0000-0000">
-                    <Name>Hotel Provence</Name>
-                    <AccommodationCategory>3-star Hotel</AccommodationCategory>
+            <!-- Bike renters -->
+            <BikeRenters>
+                <BikeRenter id="BR-0001">
+                    <Name>Alpine Bikes</Name>
+                    <Phone>+498812345</Phone>
+                    <Email>info@alpinebikes.com</Email>
                     <Address>
-                        <Street>12 Avenue Jean Jaurès</Street>
-                        <City>Avignon</City>
-                        <PostalCode>84000</PostalCode>
-                        <Country>France</Country>
+                        <Street>Alte Gasse 5</Street>
+                        <City>Garmisch</City>
+                        <PostalCode>82467</PostalCode>
+                        <CountryRef>DE</CountryRef>
                     </Address>
-                    <Phone>123</Phone>
-                    <Email>123@gmail.com</Email>
-                </Accommodation>
-            </Accommodations>
+                </BikeRenter>
+            </BikeRenters>
 
-            <BikeRentals>
-                <BikeRental id="BR-0000-1111-0000">
-                    <Name>Provence Bike Rentals</Name>
-                    <Phone>+33 1 23 45 67 89</Phone>
-                    <Email>info@provencebikerentals.com</Email>
-                    <Address>
-                        <Street>1 Rue de la Gare</Street>
-                        <City></City>
-                        <PostalCode>84000</PostalCode>
-                        <Country>France</Country>
-                    </Address>
-                </BikeRental>
-
-                <BikeRental id="BR-0000-0000-0002">
-                    <Name>Provence Bike Rentals</Name>
-                    <Phone>+33 1 23 45 67 89</Phone>
-                    <Email>info@provencebikerentals.com</Email>
-                    <Address>
-                        <Street>1 Rue de la Gare</Street>
-                        <City></City>
-                        <PostalCode>84000</PostalCode>
-                        <Country>France</Country>
-                    </Address>
-                </BikeRental>
-            </BikeRentals>
+            <!-- Tours -->
             <Tours>
-                <Tour id="  TR-0001-0000-0000">
-                    <Title>Provence Mountain Bike Adventure</Title>
-                    <Duration unit="days">7</Duration>
-                    <TourType>Mountain Bike Tour</TourType>
-                    <PhysicalLevels>
-                        <PhysicalLevelRef ref="PL01" />
-                        <PhysicalLevelRef ref="PL02" />
-                    </PhysicalLevels>
+                <Tour>
+                    <Title>Bavarian Mountains Experience</Title>
+                    <Duration unit="days">3</Duration>
+                    <TourTypeRef>TT-0001</TourTypeRef>
                     <TourProgram>
                         <TourProgramDay number="1">
-                            <Title></Title>
-                            <Activities>
+                            <Title>Warm-up Ride</Title>
+                            <TourActivities>
                                 <TourActivity>
-                                    <Name></Name>
-                                    <Duration></Duration>
-                                    <Description></Description>
+                                    <Name>Easy trail introduction</Name>
+                                    <Duration unit="hours">3</Duration>
                                 </TourActivity>
-                            </Activities>
-                        </TourProgramDay>
-                        <TourProgramDay number="2">
-                            <Title></Title>
-                            <Activities>
-                                <TourActivity>
-                                    <Name></Name>
-                                    <Duration></Duration>
-                                    <Description></Description>
-                                </TourActivity>
-                            </Activities>
+                            </TourActivities>
                         </TourProgramDay>
                     </TourProgram>
+
                     <TourEvents>
-                        <TourEvent id="TRE-0000-0000-0000">
-                            <StartDate>2025-06-01</StartDate>
-                            <Guides>
-                                <GuideRef ref="G-0000-0000-1111" />
-                            </Guides>
-                            <CyclingRoutes>
-                                <CyclingRouteRef ref="CY-0000-0000-0001" />
-                            </CyclingRoutes>
+                        <TourEvent>
+                            <StartDate>2025-07-15</StartDate>
+                            <Price currency="EUR">299.00</Price>
+
+                            <EventGuides>
+                                <GuideRef>G-0001</GuideRef>
+                                <GuideRef>G-0002</GuideRef>
+                            </EventGuides>
+
+                            <EventBikes>
+                                <EventBikeRental id="EBR-0001">
+                                    <BikeModelRef>BM-0001</BikeModelRef>
+                                    <BikeRenterRef>BR-0001</BikeRenterRef>
+                                    <PricePerDay currency="EUR">25.00</PricePerDay>
+                                    <AvailableQuantity>10</AvailableQuantity>
+                                    <BikeFrameSize>M</BikeFrameSize>
+                                </EventBikeRental>
+                            </EventBikes>
+
+                            <EventCyclingRoutes>
+                                <CyclingRouteRef>CY-0001</CyclingRouteRef>
+                            </EventCyclingRoutes>
+
                             <EventBookings>
-                                <Booking id="BK-0000-0000-1111">
-                                    <BookingClientRef ref="C-0000-0000-0000" />
-                                    <Participants>
-                                        <ParticipantRef ref="C-0000-0000-0000" />
-                                    </Participants>
-                                    <BookedAccommodations>
-                                        <BookedAccommodation>
-                                            <AccommodationRef ref="A-0001-0000-0000" />
-                                            <Guests>2</Guests>
-                                            <Nights>3</Nights>
-                                            <PricePerNight currency="EUR">120.00</PricePerNight>
-                                            <TotalAmount currency="EUR">360.00</TotalAmount>
-                                        </BookedAccommodation>
-                                    </BookedAccommodations>
-                                    <BookedBikeRentals>
-                                        <BookedBikeRental>
-                                            <BikeRentalRef ref="BR-0000-0000-0002" />
-                                            <BikeRef ref="B-0000-0000-0001" />
+                                <Booking>
+                                    <CreatedAt>2025-02-01T11:22:00</CreatedAt>
+                                    <ClientRef>C-0001</ClientRef>
+                                    <ParticipantsCount>2</ParticipantsCount>
+
+                                    <BookedAccommodations />
+                                    <BookedBikes>
+                                        <BookedBike>
+                                            <EventBikeRentalRef>EBR-0001</EventBikeRentalRef>
                                             <Quantity>2</Quantity>
-                                            <Days>7</Days>
-                                            <PricePerDay currency="EUR">15.00</PricePerDay>
-                                            <TotalAmount currency="EUR">210.00</TotalAmount>
-                                        </BookedBikeRental>
-                                    </BookedBikeRentals>
-                                    <Payment id="PAY-111-111-111-111">
-                                        <AmountPaid>570.00</AmountPaid>
-                                        <PaymentDate>2025-05-01</PaymentDate>
-                                        <PaymentMethod>
-                                            <CreditCardPayment>
-                                                <CardHolder>John Smith</CardHolder>
-                                                <CreditCardNumber>4111-1111-1111-1111</CreditCardNumber>
-                                                <Expiry>2025-06</Expiry>
-                                            </CreditCardPayment>
-                                        </PaymentMethod>
-                                    </Payment>
+                                            <Days>3</Days>
+                                        </BookedBike>
+                                    </BookedBikes>
+
+                                    <BookingStatus>
+                                        <Pending />
+                                    </BookingStatus>
                                 </Booking>
                             </EventBookings>
                         </TourEvent>
                     </TourEvents>
                 </Tour>
-
             </Tours>
         </Region>
-
-
     </Regions>
+
 </Operator>

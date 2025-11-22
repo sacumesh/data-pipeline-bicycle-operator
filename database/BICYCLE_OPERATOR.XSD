@@ -18,7 +18,6 @@
             <xs:element ref="BikeModels" />
             <xs:element ref="TourTypes" />
             <xs:element ref="Countries" />
-            <xs:element ref="Languages" />
         </xs:sequence>
     </xs:complexType>
 
@@ -46,14 +45,6 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="Languages">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="Language" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
 
     <xs:element name="BikeModel" type="BikeModel_T" />
     <xs:complexType name="BikeModel_T">
@@ -62,7 +53,14 @@
             <xs:element name="Model" type="xs:string" />
             <xs:element name="Description" type="xs:string" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute name="id" type="BikeModelID_T" use="required" />
     </xs:complexType>
+
+     <xs:simpleType name="BikeModelID_T">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="BM-\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
 
 
     <xs:element name="TourType" type="TourType_T" />
@@ -71,21 +69,12 @@
             <xs:element name="Name" type="xs:string" />
             <xs:element name="Description" type="xs:string" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute name="id" type="TourTypeID_T" use="required" />
     </xs:complexType>
 
-
-    <xs:element name="Language" type="Language_T" />
-    <xs:complexType name="Language_T">
-        <xs:sequence>
-            <xs:element name="Name" type="xs:string" />
-        </xs:sequence>
-        <xs:attribute name="code" type="LanguageCode_T" use="required" />
-    </xs:complexType>
-
-    <!-- ISO 639-1 -->
-    <xs:simpleType name="LanguageCode_T">
+    <xs:simpleType name="TourTypeID_T">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[a-z]{2}" />
+            <xs:pattern value="TT-\d{4}" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -227,13 +216,10 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="SpokenLanguages">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="LanguageRef" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="SpokenLanguages" type="SpokenLanguages_T" />
+    <xs:simpleType name="SpokenLanguages_T">
+        <xs:list itemType="xs:string" />
+    </xs:simpleType>
 
     <xs:simpleType name="GuideID_T">
         <xs:restriction base="xs:string">
@@ -410,7 +396,7 @@
         <xs:sequence>
             <xs:element name="Title" type="xs:string" />
             <xs:element name="Duration" type="Duration_T" />
-            <xs:element ref="TourType" />
+            <xs:element name="TourTypeRef" type="xs:IDREF" />
             <xs:element ref="TourProgram" />
             <xs:element ref="TourEvents" />
         </xs:sequence>
